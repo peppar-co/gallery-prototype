@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayAnimation : MonoBehaviour
 {
-
     [SerializeField]
     private Animator _animator;
 
