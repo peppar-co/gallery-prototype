@@ -326,8 +326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cbfb9153674e84d894cc7d53ffe720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDataSetsToLoad: []
-  mDataSetsToActivate: []
+  mDataSetsToLoad:
+  - gallery-prototype
+  mDataSetsToActivate:
+  - gallery-prototype
   mExternalDatasetRoots: []
 --- !u!114 &11497046
 MonoBehaviour:
