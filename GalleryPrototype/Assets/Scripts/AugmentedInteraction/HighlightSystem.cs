@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class HighlightObject
 {
     [SerializeField]
-    private Transform _object;
+    private Transform _collider;
 
     [SerializeField]
     private Transform _highlight;
@@ -18,14 +18,6 @@ public class HighlightObject
     public bool Highlighted
     {
         get { return _highlighted; }
-        set
-        {
-            if(_highlighted != value)
-            {
-                _highlightTime = Time.time;
-                _highlighted = value;
-            }
-        }
     }
 
     public float HighlightTime
@@ -33,20 +25,36 @@ public class HighlightObject
         get { return _highlightTime; }
     }
 
-    public Transform Object
+    public Transform Collider
     {
-        get { return _object; }
+        get { return _collider; }
     }
 
-    public Transform Highlight
+    public void Highlight()
     {
-        get { return _highlight; }
+        if (_highlight != null)
+        {
+            _highlight.gameObject.SetActive(true);
+            _highlightTime = Time.time;
+            _highlighted = true;
+        }
     }
 
-    public Color StandardColor
+    public void DeHighlight()
     {
-        get; set;
+        Debug.Log("DEHIGHLIGHT");
+
+        if (_highlight != null)
+        {
+            _highlight.gameObject.SetActive(false);
+            _highlighted = false;
+        }
     }
+
+    //public Color StandardColor
+    //{
+    //    get; set;
+    //}
 }
 
 public class HighlightSystem : MonoBehaviour
@@ -54,8 +62,8 @@ public class HighlightSystem : MonoBehaviour
     //[SerializeField]
     //private LayerMask _layerMask;
 
-    [SerializeField]
-    private Color _highlightColor;
+    //[SerializeField]
+    //private Color _highlightColor;
 
     [SerializeField]
     private List<HighlightObject> _highlightObjects;
@@ -69,70 +77,81 @@ public class HighlightSystem : MonoBehaviour
     private Ray _ray;
     private RaycastHit _hit;
 
-    List<RaycastHit> _bucketList = new List<RaycastHit>();
+    private float deltaTime;
+
+    List<RaycastHit> _raycastHitList = new List<RaycastHit>();
 
     private void Awake()
     {
-        if(_highlightObjects == null)
+        if (_highlightObjects == null)
         {
             _highlightObjects = new List<HighlightObject>();
         }
 
-        foreach (var highlightObject in _highlightObjects)
+        foreach (var highlight in _highlightObjects)
         {
-            if (highlightObject.Highlight != null)
-            {
-                var renderer = highlightObject.Object.GetComponent<Renderer>();
-
-                if (renderer != null && renderer.material != null)
-                {
-                    highlightObject.StandardColor = renderer.material.color;
-                }
-
-                highlightObject.Highlight.gameObject.SetActive(false);
-            }
+            highlight.DeHighlight();
         }
+        //foreach (var highlightobject in _highlightObjects)
+        //{
+        //    if (highlightobject.Highlight != null)
+        //    {
+        //        var renderer = highlightobject.hi.getcomponent<renderer>();
+
+        //        if (renderer != null && renderer.material != null)
+        //        {
+        //            highlightobject.standardcolor = renderer.material.color;
+        //        }
+
+        //        highlightobject.highlight.gameobject.setactive(true);
+        //    }
+        //}
     }
 
     private void HighlightObject(HighlightObject highlightObject, bool highlight)
     {
         if (highlight)
         {
-            if (highlightObject.Highlight != null)
-            {
-                highlightObject.Highlight.gameObject.SetActive(true);
-            }
-            else if (highlightObject.Object != null)
-            {
-                var renderer = highlightObject.Object.GetComponent<Renderer>();
 
-                if (renderer != null && renderer.material != null)
-                {
-                    renderer.material.color = _highlightColor;
-                }
+            foreach (var highlighted in _highlightObjects)
+            {
+                highlighted.DeHighlight();
             }
+            highlightObject.Highlight();
 
-            highlightObject.Highlighted = true;
+            //else if (highlightObject.Object != null)
+            //{
+            //    var renderer = highlightObject.Object.GetComponent<Renderer>();
+
+            //    if (renderer != null && renderer.material != null)
+            //    {
+            //        renderer.material.color = _highlightColor;
+            //    }
+            //}
+
+            //highlightObject.Highlighted = true;
         }
-        else
-        {
-            if (highlightObject.Highlight != null)
-            {
-                highlightObject.Highlight.gameObject.SetActive(false);
-            }
+        //else
+        //{
 
-            if (highlightObject.Object != null)
-            {
-                var renderer = highlightObject.Object.GetComponent<Renderer>();
+        //        //highlighted.Highlighted = false;
+        //    //if (highlightObject.Highlight != null)
+        //    //{
+        //    //    highlightObject.Highlight.gameObject.SetActive(false);
+        //    //}
 
-                if (renderer != null && renderer.material != null)
-                {
-                    renderer.material.color = highlightObject.StandardColor;
-                }
-            }
+        //    //if (highlightObject.Object != null)
+        //    //{
+        //    //    var renderer = highlightObject.Object.GetComponent<Renderer>();
 
-            highlightObject.Highlighted = false;
-        }
+        //    //    if (renderer != null && renderer.material != null)
+        //    //    {
+        //    //        renderer.material.color = highlightObject.StandardColor;
+        //    //    }
+        //    //}
+
+        //    //highlightObject.Highlighted = false;
+        //}
     }
 
     private void Update()
@@ -146,11 +165,14 @@ public class HighlightSystem : MonoBehaviour
         {
             foreach (var hit in _hits)
             {
-                var highlightObject = _highlightObjects.Find(o => o.Object == hit.transform);
+                var highlightObject = _highlightObjects.Find(o => o.Collider == hit.transform);
 
-                if(highlightObject != null)
+                if (highlightObject != null)
                 {
-                    HighlightObject(highlightObject, Time.time > highlightObject.HighlightTime + _minHighlightTime);
+                    //HighlightObject(highlightObject, Time.time > highlightObject.HighlightTime + _minHighlightTime);
+                    HighlightObject(highlightObject, true);
+                    //Debug.Log("tiiimmeee:" + (Time.time > highlightObject.HighlightTime + _minHighlightTime));
+                    //Debug.Log(Time.time);
                 }
             }
         }

@@ -129,12 +129,60 @@ Prefab:
     - target: {fileID: 3317944, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1809665190}
+      objectReference: {fileID: 1567930533}
     - target: {fileID: 2358168, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1629767181}
-    m_RemovedComponents: []
+      objectReference: {fileID: 1217391834}
+    - target: {fileID: 125908, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: lighthouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 193690, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: collider_lighthouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 113152, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: collider_peninsula
+      objectReference: {fileID: 0}
+    - target: {fileID: 173366, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: collider_ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 179056, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: collider_tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 137952, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: peninsula
+      objectReference: {fileID: 0}
+    - target: {fileID: 173074, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 124038, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: background
+      objectReference: {fileID: 0}
+    - target: {fileID: 21240356, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115164, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115164, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+      propertyPath: m_Name
+      value: colored highlight
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2330538, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+    - {fileID: 2384364, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+    - {fileID: 2396010, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
+    - {fileID: 2373014, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 808b74501c1fbac41b793e5a8b36d6f9, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &693366562 stripped
@@ -240,6 +288,26 @@ Prefab:
       propertyPath: _highlightObjects.Array.data[3]._highlight
       value: 
       objectReference: {fileID: 693366562}
+    - target: {fileID: 11406028, guid: d9a387eaeb67d1d45bcb7babf51baf26, type: 2}
+      propertyPath: _highlightObjects.Array.data[0]._collider
+      value: 
+      objectReference: {fileID: 693366569}
+    - target: {fileID: 11406028, guid: d9a387eaeb67d1d45bcb7babf51baf26, type: 2}
+      propertyPath: _highlightObjects.Array.data[1]._collider
+      value: 
+      objectReference: {fileID: 693366567}
+    - target: {fileID: 11406028, guid: d9a387eaeb67d1d45bcb7babf51baf26, type: 2}
+      propertyPath: _highlightObjects.Array.data[2]._collider
+      value: 
+      objectReference: {fileID: 693366565}
+    - target: {fileID: 11406028, guid: d9a387eaeb67d1d45bcb7babf51baf26, type: 2}
+      propertyPath: _highlightObjects.Array.data[3]._collider
+      value: 
+      objectReference: {fileID: 693366563}
+    - target: {fileID: 11406028, guid: d9a387eaeb67d1d45bcb7babf51baf26, type: 2}
+      propertyPath: _minHighlightTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9a387eaeb67d1d45bcb7babf51baf26, type: 2}
   m_IsPrefabParent: 0
@@ -303,7 +371,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!21 &1629767181
+--- !u!21 &1217391834
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -331,7 +399,7 @@ Material:
         first:
           name: _Color
         second: {r: .820895553, g: .820895553, b: .820895553, a: 1}
---- !u!43 &1809665190
+--- !u!43 &1567930533
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
