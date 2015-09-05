@@ -13,16 +13,9 @@ public class HighlightObject
 
     private bool _highlighted;
 
-    private float _highlightTime = int.MinValue;
-
     public bool Highlighted
     {
         get { return _highlighted; }
-    }
-
-    public float HighlightTime
-    {
-        get { return _highlightTime; }
     }
 
     public Transform Collider
@@ -35,15 +28,12 @@ public class HighlightObject
         if (_highlight != null)
         {
             _highlight.gameObject.SetActive(true);
-            _highlightTime = Time.time;
             _highlighted = true;
         }
     }
 
     public void DeHighlight()
     {
-        Debug.Log("DEHIGHLIGHT");
-
         if (_highlight != null)
         {
             _highlight.gameObject.SetActive(false);
@@ -51,33 +41,33 @@ public class HighlightObject
         }
     }
 
-    //public Color StandardColor
-    //{
-    //    get; set;
-    //}
 }
 
 public class HighlightSystem : MonoBehaviour
 {
-    //[SerializeField]
-    //private LayerMask _layerMask;
-
-    //[SerializeField]
-    //private Color _highlightColor;
+    [SerializeField]
+    Collider _hideCollider;
+    private bool _hideColliderButtonShown;
 
     [SerializeField]
     private List<HighlightObject> _highlightObjects;
 
-    [SerializeField]
-    private float _minHighlightTime;
+    public List<HighlightObject> HighlightObjects
+    {
+        get { return _highlightObjects; }
+    }
 
     [SerializeField]
+    private float _minHighlightTime;
+    private float deltaTime;
+
+    [SerializeField]
+    private RectTransform _crosshair;
+
     RaycastHit[] _hits;
 
     private Ray _ray;
     private RaycastHit _hit;
-
-    private float deltaTime;
 
     List<RaycastHit> _raycastHitList = new List<RaycastHit>();
 
@@ -92,72 +82,40 @@ public class HighlightSystem : MonoBehaviour
         {
             highlight.DeHighlight();
         }
-        //foreach (var highlightobject in _highlightObjects)
-        //{
-        //    if (highlightobject.Highlight != null)
-        //    {
-        //        var renderer = highlightobject.hi.getcomponent<renderer>();
 
-        //        if (renderer != null && renderer.material != null)
-        //        {
-        //            highlightobject.standardcolor = renderer.material.color;
-        //        }
-
-        //        highlightobject.highlight.gameobject.setactive(true);
-        //    }
-        //}
+        _hideColliderButtonShown = false;
+        _hideCollider.gameObject.SetActive(_hideColliderButtonShown);
+        deltaTime = 1;
     }
 
     private void HighlightObject(HighlightObject highlightObject, bool highlight)
     {
         if (highlight)
         {
-
-            foreach (var highlighted in _highlightObjects)
-            {
-                highlighted.DeHighlight();
-            }
             highlightObject.Highlight();
-
-            //else if (highlightObject.Object != null)
-            //{
-            //    var renderer = highlightObject.Object.GetComponent<Renderer>();
-
-            //    if (renderer != null && renderer.material != null)
-            //    {
-            //        renderer.material.color = _highlightColor;
-            //    }
-            //}
-
-            //highlightObject.Highlighted = true;
+            _hideColliderButtonShown = true;
         }
-        //else
-        //{
+    }
 
-        //        //highlighted.Highlighted = false;
-        //    //if (highlightObject.Highlight != null)
-        //    //{
-        //    //    highlightObject.Highlight.gameObject.SetActive(false);
-        //    //}
+    public void DeHighlightObjects()
+    {
+        foreach (var highlighted in _highlightObjects)
+        {
+            highlighted.DeHighlight();
+        }
+        _hideColliderButtonShown = false;
+    }
 
-        //    //if (highlightObject.Object != null)
-        //    //{
-        //    //    var renderer = highlightObject.Object.GetComponent<Renderer>();
-
-        //    //    if (renderer != null && renderer.material != null)
-        //    //    {
-        //    //        renderer.material.color = highlightObject.StandardColor;
-        //    //    }
-        //    //}
-
-        //    //highlightObject.Highlighted = false;
-        //}
+    public void ScaleCrosshair(HighlightObject highlightObject)
+    {
+        //TODO scale crosshair correctly - KN
     }
 
     private void Update()
     {
         _ray.origin = transform.position;
         _ray.direction = transform.forward;
+        _hideCollider.gameObject.SetActive(_hideColliderButtonShown);
 
         _hits = Physics.RaycastAll(_ray.origin, _ray.direction, Mathf.Infinity);
 
@@ -166,14 +124,23 @@ public class HighlightSystem : MonoBehaviour
             foreach (var hit in _hits)
             {
                 var highlightObject = _highlightObjects.Find(o => o.Collider == hit.transform);
-
-                if (highlightObject != null)
+                Debug.Log(hit.transform.gameObject.name);
+                if (hit.transform.gameObject.name == "Hide")
                 {
-                    //HighlightObject(highlightObject, Time.time > highlightObject.HighlightTime + _minHighlightTime);
-                    HighlightObject(highlightObject, true);
-                    //Debug.Log("tiiimmeee:" + (Time.time > highlightObject.HighlightTime + _minHighlightTime));
-                    //Debug.Log(Time.time);
+                    DeHighlightObjects();
+                    _crosshair.localScale = Vector3.one;
                 }
+
+                if (highlightObject != null && _crosshair != null)
+                {
+                    ScaleCrosshair(highlightObject);
+                    HighlightObject(highlightObject, true);
+                }
+                else
+                {
+                    Debug.LogWarning("No crosshair specified  or Nothing hit");
+                }
+
             }
         }
     }
