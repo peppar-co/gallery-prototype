@@ -686,7 +686,7 @@ MonoBehaviour:
   autoDriftCorrection: 1
   autoUntiltHead: 1
   UseUnityRemoteInput: 0
-  screenSize: 0
+  screenSize: 1
   deviceType: 0
 --- !u!114 &11469094
 MonoBehaviour:
