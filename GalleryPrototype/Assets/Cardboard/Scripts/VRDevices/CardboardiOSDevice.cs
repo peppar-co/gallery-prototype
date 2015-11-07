@@ -61,7 +61,7 @@ public class CardboardiOSDevice : BaseCardboardDevice {
   }
 
   public override void Init() {
-    isOpenGL = isOpenGLAPI();
+    isOpenGL = true // isOpenGLAPI();
     setSyncWithCardboardEnabled(Cardboard.SDK.SyncWithCardboardApp);
     base.Init();
     // For iOS don't use Drift Correction.
