@@ -12,6 +12,7 @@ public class RisingWater : MonoBehaviour
     [SerializeField]
     private float _maxHight = 3;
 
+    [SerializeField]
     private bool _isWaterRising;
 
     private Vector3 _waterStartingPosition;
@@ -53,7 +54,7 @@ public class RisingWater : MonoBehaviour
 
     private void WaterRising()
     {
-        transform.position = Vector3.up * _risingSpeed / 100;
+        transform.position += Vector3.up * _risingSpeed / 100;
     }
 
     private void CheckForStopWaterRising()

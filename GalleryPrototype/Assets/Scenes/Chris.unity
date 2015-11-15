@@ -323,6 +323,41 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 251248906}
   m_Script: {fileID: 11500000, guid: cadfb90286c81fd42a6785e4e7cd3024, type: 3}
+--- !u!1 &1235290766 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146194, guid: 3cb2eca71e52de04daab21094caed82a, type: 2}
+  m_PrefabInternal: {fileID: 2075846921}
+--- !u!4 &1235290767 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 416660, guid: 3cb2eca71e52de04daab21094caed82a, type: 2}
+  m_PrefabInternal: {fileID: 2075846921}
+--- !u!114 &1235290768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235290766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331eb4e306c2d3f45849b5ddf79cfa60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _water: {fileID: 1235290767}
+  _risingSpeed: 1
+  _maxHight: 11
+  _isWaterRising: 0
+--- !u!114 &1235290769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235290766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a74dea61c917c4a85ec89f8d39c990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeOnStart: 0
 --- !u!4 &1280128832 stripped
 Transform:
   m_PrefabParentObject: {fileID: 492376, guid: dfc75cf2fc316214eba48f3015a31995, type: 2}
@@ -894,7 +929,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416660, guid: 3cb2eca71e52de04daab21094caed82a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.1999998
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 416660, guid: 3cb2eca71e52de04daab21094caed82a, type: 2}
       propertyPath: m_LocalPosition.z
