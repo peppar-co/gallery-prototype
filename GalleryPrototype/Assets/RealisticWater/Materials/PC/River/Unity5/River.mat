@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: River
+  m_Shader: {fileID: 4800000, guid: e9170d50833194e40b4d18d98452c15f, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 58d3595a1a99a484780257d986448b2e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: ed1c8fbf93f183f42a4843a1cc3b3695, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Wave1
+        second:
+          m_Texture: {fileID: 2800000, guid: ed1c8fbf93f183f42a4843a1cc3b3695, type: 3}
+          m_Scale: {x: .300000012, y: .5}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Wave2
+        second:
+          m_Texture: {fileID: 2800000, guid: e8c53bbc0d75c8e46be5ddcc1210ec52, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 8900000, guid: 9cda328e4b6954d70841a8a66f42ec08, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Foam
+        second:
+          m_Texture: {fileID: 2800000, guid: a92b6664d2ca8d244a6aaa0aada2cc9b, type: 3}
+          m_Scale: {x: 15, y: 15}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Wave3
+        second:
+          m_Texture: {fileID: 2800000, guid: 9ccda912858d1134bace7f4c478adac9, type: 3}
+          m_Scale: {x: .5, y: .5}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _HeightMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 6901e9fc0c387144e9b651a7aee3699e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FresnelTex1
+        second:
+          m_Texture: {fileID: 2800000, guid: ed1c8fbf93f183f42a4843a1cc3b3695, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FresnelTex2
+        second:
+          m_Texture: {fileID: 2800000, guid: 6d84d3cd605402241bacfd03d739f7c8, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Wave4
+        second:
+          m_Texture: {fileID: 2800000, guid: 3c009930046b98f42b5cc2e380d2234c, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FlowMap
+        second:
+          m_Texture: {fileID: 2800000, guid: ce66bf33735743549b7c5ba702139372, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ColorControlCube
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ColorControl
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Scale
+        second: 12
+      data:
+        first:
+          name: _Cutoff
+        second: .0535714291
+      data:
+        first:
+          name: _Shininess
+        second: 100
+      data:
+        first:
+          name: _Distortion
+        second: 450
+      data:
+        first:
+          name: _FPOW
+        second: 5
+      data:
+        first:
+          name: _R0
+        second: .899999976
+      data:
+        first:
+          name: _OffsetFresnel
+        second: .300000012
+      data:
+        first:
+          name: _DistortionVert
+        second: 10
+      data:
+        first:
+          name: _Bias
+        second: -1
+      data:
+        first:
+          name: _Power
+        second: 1.5
+      data:
+        first:
+          name: _WaveScale
+        second: 2
+      data:
+        first:
+          name: _TexturesScale
+        second: 20
+      data:
+        first:
+          name: _Height
+        second: .12500003
+      data:
+        first:
+          name: _BumpAmt
+        second: 128
+      data:
+        first:
+          name: _ReflectionBrightness
+        second: .300000012
+      data:
+        first:
+          name: _FoamIntensity
+        second: .200000003
+      data:
+        first:
+          name: _FadeBlend
+        second: 1
+      data:
+        first:
+          name: _FadeBlend2
+        second: .300000012
+      data:
+        first:
+          name: _FadeDepth
+        second: .0700000003
+      data:
+        first:
+          name: _DepthTransperent
+        second: .600000024
+      data:
+        first:
+          name: _EdgeDistortion
+        second: .5
+      data:
+        first:
+          name: _GerstnerIntensity
+        second: 1
+      data:
+        first:
+          name: _SunIntensity
+        second: 1.5
+      data:
+        first:
+          name: _Fresnel
+        second: .699999988
+      data:
+        first:
+          name: _DisplacementSpeed
+        second: 15
+      data:
+        first:
+          name: _DisplacementOffset
+        second: 1.5
+      data:
+        first:
+          name: _Test
+        second: 1
+      data:
+        first:
+          name: _OffsetXHeightMap
+        second: 0
+      data:
+        first:
+          name: _OffsetYHeightMap
+        second: 1
+      data:
+        first:
+          name: _RimPower
+        second: 2.59821439
+      data:
+        first:
+          name: _BiasGlare
+        second: -1
+      data:
+        first:
+          name: _ScaleGlare
+        second: 500
+      data:
+        first:
+          name: _PowerGlare
+        second: 4
+      data:
+        first:
+          name: _Specular
+        second: 1
+      data:
+        first:
+          name: _Gloss
+        second: 1.20000005
+      data:
+        first:
+          name: _TEST
+        second: -.400000006
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: .82071799, g: .933379054, b: .970588207, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _ReflectionColor
+        second: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+      data:
+        first:
+          name: _Direction
+        second: {r: .0500000007, g: 3, b: 15, a: -5}
+      data:
+        first:
+          name: _GAmplitude
+        second: {r: .100000001, g: .100000001, b: .100000001, a: .150000006}
+      data:
+        first:
+          name: _GFrequency
+        second: {r: 1.73000002, g: .699999988, b: 1.51999998, a: 1.29999995}
+      data:
+        first:
+          name: _GSteepness
+        second: {r: .0500000007, g: .439999998, b: .200000003, a: .0500000007}
+      data:
+        first:
+          name: _GSpeed
+        second: {r: -5, g: -2, b: -5, a: 3}
+      data:
+        first:
+          name: _GDirectionAB
+        second: {r: 1.26999998, g: -.300000012, b: .230000004, a: .0599999987}
+      data:
+        first:
+          name: _GDirectionCD
+        second: {r: -.790000021, g: 1, b: .709999979, a: .49000001}
+      data:
+        first:
+          name: _GlareColor
+        second: {r: .0986159071, g: .107266434, b: .117647052, a: 1}
+      data:
+        first:
+          name: _FadeColor
+        second: {r: .0346020721, g: .229686141, b: .29411763, a: 1}
+      data:
+        first:
+          name: _FoamDirection
+        second: {r: 0, g: 10, b: -1, a: -1}
+      data:
+        first:
+          name: _Test
+        second: {r: 3, g: 30, b: 0, a: 0}
+      data:
+        first:
+          name: _BumpDirection
+        second: {r: 1, g: 1, b: -1, a: -1}
+      data:
+        first:
+          name: _ReflectColor
+        second: {r: .786764741, g: .876470566, b: 1, a: .501960814}
+      data:
+        first:
+          name: _RimColor
+        second: {r: .125, g: .529310405, b: 1, a: .501960814}
+      data:
+        first:
+          name: _BumpOffset
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _FresnelColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _FresnelColor2
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _horizonColor
+        second: {r: .172000006, g: .463, b: .435000002, a: 0}
+      data:
+        first:
+          name: WaveSpeed
+        second: {r: 19, g: 9, b: -16, a: -7}
+      data:
+        first:
+          name: _SpecularDirection
+        second: {r: 5, g: .5, b: 0, a: 0}
+      data:
+        first:
+          name: _TEST2
+        second: {r: 1, g: 1, b: -1, a: -1}

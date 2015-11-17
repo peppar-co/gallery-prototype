@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: LightWaves
+  m_Shader: {fileID: 4800000, guid: 0fd1d7b163bf8e040ae074e92a30d2df, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Wave1
+        second:
+          m_Texture: {fileID: 2800000, guid: 5c4222e6d5e9c624c9255f9ffb1aa64d, type: 3}
+          m_Scale: {x: .0199999996, y: .0149999997}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Wave2
+        second:
+          m_Texture: {fileID: 2800000, guid: 6d84d3cd605402241bacfd03d739f7c8, type: 3}
+          m_Scale: {x: .00999999978, y: .00999999978}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: 5
+      data:
+        first:
+          name: _FPOW
+        second: 3
+      data:
+        first:
+          name: _R0
+        second: .0500000007
+      data:
+        first:
+          name: _OffsetFresnel
+        second: .100000001
+      data:
+        first:
+          name: _TexturesScale
+        second: 10
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: .509137154, g: .529905498, b: .536764741, a: .0784313753}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Direction
+        second: {r: .0500000007, g: 5, b: 2, a: -2}
+      data:
+        first:
+          name: _WorldLightDir
+        second: {r: 0, g: .100000001, b: -.5, a: 0}
