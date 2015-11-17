@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class RisingWater : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class RisingWater : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        UnityEngine.Assertions.Assert.IsNull(_water, "water transform is null");
+        UnityEngine.Assertions.Assert.IsNotNull(_water, "water transform is null");
 
         if (_water != null)
         {
