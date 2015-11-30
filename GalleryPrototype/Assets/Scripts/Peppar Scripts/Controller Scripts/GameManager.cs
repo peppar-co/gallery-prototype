@@ -4,7 +4,23 @@ namespace peppar
 {
     public class GameManager
     {
+        [SerializeField]
+        private bool _debug = false;
+
         private readonly GameController gameController;
+
+        public bool Debug
+        {
+            get
+            {
+                return _debug;
+            }
+
+            set
+            {
+                _debug = value;
+            }
+        }
 
         public GameController GameController
         {

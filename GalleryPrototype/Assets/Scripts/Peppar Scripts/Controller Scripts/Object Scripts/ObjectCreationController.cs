@@ -7,6 +7,9 @@ namespace peppar
     public class ObjectCreationController : BehaviourController
     {
         [SerializeField]
+        private bool _vuforiaSupport = true;
+
+        [SerializeField]
         private Transform _vuforiaImageTarget;
 
         public Transform CreateObject(Transform newTransform, Vector3 position, Vector3 rotation, string name = "")
@@ -29,8 +32,15 @@ namespace peppar
             return CreateObject(newTransform, Vector3.zero, Vector3.zero, name);
         }
 
+        #region Vuforia
         public Transform CreateVuforiaObjectImage(string name, Transform newTransform = null)
         {
+            if (!_vuforiaSupport)
+            {
+                NotSupportedMessage("Vuforia");
+                return null;
+            }
+
             if (Singleton.GameManager.GameController.VuforiaObjects.Exists(o => o.name.Equals(name)))
                 return null;
 
@@ -48,6 +58,12 @@ namespace peppar
 
         public Transform AddObjectToVuforiaObject(string vuforiaName, Transform newTransform, Vector3 position, Vector3 rotation, string name = "")
         {
+            if (!_vuforiaSupport)
+            {
+                NotSupportedMessage("Vuforia");
+                return null;
+            }
+
             if (newTransform == null)
                 return null;
 
@@ -61,10 +77,17 @@ namespace peppar
 
             return createdObject;
         }
+        #endregion
+
+        private void NotSupportedMessage(string _unsupportedType)
+        {
+            Debug.LogError("ObjectCreationController: " + _unsupportedType + " is not enabled or not supported");
+        }
 
         protected override void Start()
         {
-            UnityEngine.Assertions.Assert.IsNotNull(_vuforiaImageTarget, "ObjectCreationController: VuforiaImageTarget is null");
+            if (_vuforiaSupport)
+                UnityEngine.Assertions.Assert.IsNotNull(_vuforiaImageTarget, "ObjectCreationController: VuforiaImageTarget is null");
         }
 
         protected override void Update()
