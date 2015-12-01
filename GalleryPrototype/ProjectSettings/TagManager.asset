@@ -6,7 +6,6 @@ TagManager:
   tags:
   - WorldCenter
   - BackgroundPlane
-  - PepparController
   layers:
   - Default
   - TransparentFX
