@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Vuforia-FrameMarkers.unity
   - enabled: 0
-    path: Assets/Scenes/Main.unity
+    path: Assets/peppar/Scenes/Main.unity
