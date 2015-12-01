@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/VRTestMike.unity
   - enabled: 0
     path: Assets/Scenes/Vuforia-FrameMarkers.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity

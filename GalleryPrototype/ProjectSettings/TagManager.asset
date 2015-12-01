@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WorldCenter
   - BackgroundPlane
+  - PepparController
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - BackgroundPlane
-  - 
+  - Shadow
   - 
   - 
   - 
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TransparentFX
+    uniqueID: 2288510309
+    locked: 0
+  - name: Shadow
+    uniqueID: 4085783589
     locked: 0
