@@ -7,7 +7,7 @@ namespace peppar
         private bool _lerp;
 
         [SerializeField]
-        private Transform _goalPosition;
+        private Transform _goalTransform;
 
         [SerializeField]
         private float _lerpSpeed = 10;
@@ -28,12 +28,25 @@ namespace peppar
             }
         }
 
+        public Transform GoalTransform
+        {
+            get
+            {
+                return _goalTransform;
+            }
+
+            set
+            {
+                _goalTransform = value;
+            }
+        }
+
         public Vector3 GoalPosition
         {
             get
             {
-                if (_goalPosition != null)
-                    return _goalPosition.position;
+                if (GoalTransform != null)
+                    return GoalTransform.position;
                 else
                     return transform.position;
             }
@@ -75,6 +88,12 @@ namespace peppar
             get { return Vector3.Distance(Position, GoalPosition); }
         }
 
+        public void SetToGoalAndStopLerp()
+        {
+            transform.position = GoalPosition;
+            Lerp = false;
+        }
+
         protected override void Start()
         {
 
@@ -88,7 +107,7 @@ namespace peppar
             transform.position = Vector3.Lerp(Position, GoalPosition, LerpSpeed / 100);
 
             if (DistanceToGoal <= StopLerpDistance)
-                Lerp = false;
+                SetToGoalAndStopLerp();
         }
     }
 }

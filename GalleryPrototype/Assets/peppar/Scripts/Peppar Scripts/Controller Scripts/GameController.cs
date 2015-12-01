@@ -4,9 +4,10 @@ namespace peppar
 {
     public abstract class GameController : BehaviourController
     {
-        private static bool _debug = false;
+        [SerializeField]
+        private bool _debug = false;
 
-        public static bool Debug
+        public bool Debug
         {
             get
             {

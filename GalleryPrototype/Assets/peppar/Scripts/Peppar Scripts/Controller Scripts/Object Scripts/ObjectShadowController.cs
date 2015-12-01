@@ -8,19 +8,27 @@ namespace peppar
     public class ObjectShadowController : BehaviourController
     {
         [SerializeField]
-        private bool _shadowsOnAtStart = true;
+        private bool _recieveShadowsAtStart = true;
 
         [SerializeField]
-        private bool _childShadowsOnAtStart = true;
+        private UnityEngine.Rendering.ShadowCastingMode _castShadowModeAtStart = UnityEngine.Rendering.ShadowCastingMode.On;
+
+        [SerializeField]
+        private bool _childRecieveShadowsAtStart = true;
+
+        [SerializeField]
+        private UnityEngine.Rendering.ShadowCastingMode _childCastShadowModeAtStart = UnityEngine.Rendering.ShadowCastingMode.On;
 
         protected override void Start()
         {
             var meshRenderer = GetComponent<MeshRenderer>();
-            meshRenderer.receiveShadows = _shadowsOnAtStart;
+            meshRenderer.receiveShadows = _recieveShadowsAtStart;
+            meshRenderer.shadowCastingMode = _castShadowModeAtStart;
 
             foreach(var childMeshRender in transform.GetComponentsInChildren<MeshRenderer>())
             {
-                childMeshRender.receiveShadows = _childShadowsOnAtStart;
+                childMeshRender.receiveShadows = _childRecieveShadowsAtStart;
+                childMeshRender.shadowCastingMode = _childCastShadowModeAtStart;
             }
         }
 
