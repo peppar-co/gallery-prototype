@@ -12,51 +12,42 @@ namespace peppar
         [SerializeField]
         private Transform _vuforiaImageTarget;
 
-        public Transform CreateObject(Transform newTransform, Vector3 position, Vector3 rotation, string name = "")
+        public PepparObject CreatePepparObject(Transform newObject, Vector3 position, Vector3 rotation, string name = "")
         {
-            Transform createdObject = Instantiate(newTransform, position, Quaternion.Euler(rotation)) as Transform;
-            createdObject.name = name;
-
-            Singleton.GameManager.GameController.Objects.Add(createdObject);
-
-            return createdObject;
+            Transform createdObject = CreateObject(newObject, position, rotation, name);
+            return new PepparObject(name, createdObject.gameObject);
         }
 
-        public Transform CreateObject(Transform newTransform, Vector3 position, string name = "")
+        public PepparObject CreateObject(Transform newObject, Vector3 position, string name = "")
         {
-            return CreateObject(newTransform, position, Vector3.zero, name);
+            return CreatePepparObject(newObject, position, Vector3.zero, name);
         }
 
-        public Transform CreateObject(Transform newTransform, string name = "")
+        public PepparObject CreateObject(Transform newObject, string name = "")
         {
-            return CreateObject(newTransform, Vector3.zero, Vector3.zero, name);
+            return CreatePepparObject(newObject, Vector3.zero, Vector3.zero, name);
         }
 
         #region Vuforia
-        public Transform CreateVuforiaObjectImage(string name, Transform newTransform = null)
+        public VuforiaObject CreateVuforiaImageObject(string name, Transform newObject = null)
         {
             if (!_vuforiaSupport)
             {
                 NotSupportedMessage("Vuforia");
                 return null;
             }
-
-            if (Singleton.GameManager.GameController.VuforiaObjects.Exists(o => o.name.Equals(name)))
-                return null;
 
             Transform createdVuforiaParent = Instantiate(_vuforiaImageTarget) as Transform;
             createdVuforiaParent.name = name;
 
             // TODO Add vuforia image setter
 
-            Singleton.GameManager.GameController.VuforiaObjects.Add(createdVuforiaParent);
+            Transform createdObject = AddObjectToVuforiaObject(name, newObject, Vector3.zero, Vector3.zero);
 
-            Transform createdObject = AddObjectToVuforiaObject(name, newTransform, Vector3.zero, Vector3.zero);
-
-            return createdVuforiaParent;
+            return new VuforiaObject(name, createdVuforiaParent, createdObject);
         }
 
-        public Transform AddObjectToVuforiaObject(string vuforiaName, Transform newTransform, Vector3 position, Vector3 rotation, string name = "")
+        public Transform AddObjectToVuforiaObject(string vuforiaName, Transform newObject, Vector3 position, Vector3 rotation, string name = "")
         {
             if (!_vuforiaSupport)
             {
@@ -64,20 +55,30 @@ namespace peppar
                 return null;
             }
 
-            if (newTransform == null)
+            if (newObject == null)
                 return null;
 
-            Transform vuforiaParent = Singleton.GameManager.GameController.VuforiaObjects.Find(o => o.name.Equals(vuforiaName));
+            VuforiaObject vuforiaParent = PepparManager.Objects.Find(o => o.Name.Equals(vuforiaName)) as VuforiaObject;
 
             if (vuforiaParent == null)
                 return null;
 
-            Transform createdObject = CreateObject(newTransform, position, rotation, name);
-            createdObject.SetParent(vuforiaParent);
+            Transform createdChildObject = CreateObject(newObject, position, rotation, name);
+            createdChildObject.SetParent(vuforiaParent.Transform);
+
+            vuforiaParent.AddChildObject(createdChildObject);
+
+            return createdChildObject;
+        }
+        #endregion
+
+        private Transform CreateObject(Transform newTransform, Vector3 position, Vector3 rotation, string name = "")
+        {
+            Transform createdObject = Instantiate(newTransform, position, Quaternion.Euler(rotation)) as Transform;
+            createdObject.name = name;
 
             return createdObject;
         }
-        #endregion
 
         private void NotSupportedMessage(string _unsupportedType)
         {

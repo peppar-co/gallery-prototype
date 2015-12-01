@@ -1,29 +1,26 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace peppar
 {
     public abstract class GameController : BehaviourController
     {
-        private Transform _worldCenter;
+        private static bool _debug = false;
 
-        public readonly List<Transform> Objects = new List<Transform>();
-
-        public readonly List<Transform> VuforiaObjects = new List<Transform>(); // TODO save all objects in on list as ObjectType with different inheritance for vuforia and other objects
-
-        public Transform WorldCenter
+        public static bool Debug
         {
             get
             {
-                return _worldCenter;
+                return _debug;
+            }
+
+            set
+            {
+                _debug = value;
             }
         }
 
         protected override void Start()
         {
-            _worldCenter = GameObject.FindGameObjectWithTag(Tag.WorldCenter).transform;
-            UnityEngine.Assertions.Assert.IsNotNull(_worldCenter, "Singleton: WorldCenter transform is null");
-
             OnStart();
         }
 
