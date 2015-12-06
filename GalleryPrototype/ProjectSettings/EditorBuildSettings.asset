@@ -11,3 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Vuforia-FrameMarkers.unity
   - enabled: 0
     path: Assets/peppar/Scenes/Main.unity
+  - enabled: 1
+    path: Assets/peppar/Scenes/Greyboxing.unity
+  - enabled: 0
+    path: Assets/peppar/Scenes/defaulttest.unity

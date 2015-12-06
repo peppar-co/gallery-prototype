@@ -113,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &164008
 GameObject:
   m_ObjectHideFlags: 1
@@ -126,13 +126,14 @@ GameObject:
   - 114: {fileID: 11490076}
   - 92: {fileID: 9244466}
   - 124: {fileID: 12477842}
+  - 114: {fileID: 11474170}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &165050
 GameObject:
   m_ObjectHideFlags: 1
@@ -192,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0299999993, y: -0, z: -0}
+  m_LocalPosition: {x: 0, y: -0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 454022}
@@ -280,9 +281,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136896}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 500}
-  m_LocalScale: {x: 40, y: 40, z: 40}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 434784}
   m_RootOrder: 0
@@ -398,7 +399,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 2
+  near clip plane: .00999999978
   far clip plane: 5000
   field of view: 51
   orthographic: 0
@@ -511,7 +512,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111624}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!92 &9200374
 Behaviour:
   m_ObjectHideFlags: 1
@@ -634,7 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RenderTextureLayer: 30
   mPlayModeRenderVideo: 1
-  mDeviceNameSetInEditor: 
+  mDeviceNameSetInEditor: Microsoft LifeCam Cinema
   mFlipHorizontally: 0
   mTurnOffWebCam: 0
 --- !u!114 &11463800
@@ -720,6 +721,23 @@ MonoBehaviour:
   screenParallax: 0
   stereoPaddingX: 0
   stereoPaddingY: 0
+--- !u!114 &11474170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164008}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc54fbfcb99b1f499cbebf1b61e39ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stencilViewers:
+  - {fileID: 4800000, guid: b06bb8cedf44e7c43a482c7bf884dd54, type: 3}
+  - {fileID: 4800000, guid: dcc0bc9e0457c3145bf1fc44c3765d78, type: 3}
+  _colours:
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &11474912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -748,23 +766,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VuforiaLicenseKey: AdcSUzr/////AAAAAbRH9F190EHJsqmErU9yfFdYRMaSaSVvG9rTMi0AOcQlx+AQBNVD2rVLs7DzF2qRdsY+OecPE/5JIqpdTmMFyCadNHnLYyDsqXIYp/3vHdHXlA7vEUd+CqRZVPfUykR1IvkhBBbjNfKB/ePiRV4So9CqL2xP19EkcONgXtTVTQnBkLc3GNeii3KxUa27Eucrmh7cT337kFVDdA6ENrGKoKFblsC7i9izRD/QbkunjJfV9lQ7XNCKcP2uYrkfevpw4c3SUDjS9WQrkCTKUKFHOOxze3phNHDjt/v3bHlubX7bEBY5Anw/ERtwQOUPA5LiXmfHy6S9W9bQo4DXWJRrogOxZtNwwajMHiLwQwfP+bAV
   mCameraOffset: .00999999978
-  mSkewFrustum: 1
+  mSkewFrustum: 0
   CameraDeviceModeSetting: -3
   MaxSimultaneousImageTargets: 3
   MaxSimultaneousObjectTargets: 3
   UseDelayedLoadingObjectTargets: 0
   CameraDirection: 0
   MirrorVideoBackground: 0
-  mWorldCenterMode: 2
+  mWorldCenterMode: 0
   mWorldCenter: {fileID: 0}
-  mCentralAnchorPoint: {fileID: 437912}
-  mParentAnchorPoint: {fileID: 437912}
-  mPrimaryCamera: {fileID: 2061024}
-  mSecondaryCamera: {fileID: 2025804}
-  mUsingHeadset: 1
-  mHeadsetID: Cardboard
+  mCentralAnchorPoint: {fileID: 424812}
+  mParentAnchorPoint: {fileID: 424812}
+  mPrimaryCamera: {fileID: 2087404}
+  mSecondaryCamera: {fileID: 0}
+  mUsingHeadset: 0
+  mHeadsetID: 
   mEyewearUserCalibrationProfileId: -1
-  mSynchronizePoseUpdates: 1
+  mSynchronizePoseUpdates: 0
 --- !u!114 &11483144
 MonoBehaviour:
   m_ObjectHideFlags: 1

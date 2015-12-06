@@ -2,20 +2,12 @@
 //All Rights Reserved.
 //Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
 Shader "DepthMask" {
-
-	Properties{
-		    _Color("Shadow Color", Color) = (1,1,1,1)
-		    _ShadowInt("Shadow Intensity", Range(0,1)) = 1.0
-		    _Cutoff("Alpha cutoff", Range(0,1)) = 0.5
-		 }
-
-
    
     SubShader {
         // Render the mask after regular geometry, but before masked geometry and
         // transparent things.
        
-        Tags {"Queue" = "Geometry" }
+        Tags {"Queue" = "Geometry-10" }
        
         // Turn off lighting, because it's expensive and the thing is supposed to be
         // invisible anyway.
