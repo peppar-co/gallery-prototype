@@ -204,8 +204,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -.0783309266, y: .901386023, z: -.183787629, w: .38417393}
+  m_LocalPosition: {x: .122757256, y: -.237743109, z: 1.66338265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437912}
@@ -293,8 +293,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183382}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: .0783309266, y: -.901386023, z: .183787629, w: .38417393}
+  m_LocalPosition: {x: 1.12199998, y: .870000005, z: .907000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424812}
@@ -767,7 +767,7 @@ MonoBehaviour:
   VuforiaLicenseKey: AdcSUzr/////AAAAAbRH9F190EHJsqmErU9yfFdYRMaSaSVvG9rTMi0AOcQlx+AQBNVD2rVLs7DzF2qRdsY+OecPE/5JIqpdTmMFyCadNHnLYyDsqXIYp/3vHdHXlA7vEUd+CqRZVPfUykR1IvkhBBbjNfKB/ePiRV4So9CqL2xP19EkcONgXtTVTQnBkLc3GNeii3KxUa27Eucrmh7cT337kFVDdA6ENrGKoKFblsC7i9izRD/QbkunjJfV9lQ7XNCKcP2uYrkfevpw4c3SUDjS9WQrkCTKUKFHOOxze3phNHDjt/v3bHlubX7bEBY5Anw/ERtwQOUPA5LiXmfHy6S9W9bQo4DXWJRrogOxZtNwwajMHiLwQwfP+bAV
   mCameraOffset: .00999999978
   mSkewFrustum: 0
-  CameraDeviceModeSetting: -3
+  CameraDeviceModeSetting: -1
   MaxSimultaneousImageTargets: 3
   MaxSimultaneousObjectTargets: 3
   UseDelayedLoadingObjectTargets: 0

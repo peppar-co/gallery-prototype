@@ -5,6 +5,20 @@ using System.Collections.Generic;
 public class ObjectDropIn : MonoBehaviour
 {
 
+
+    [SerializeField, Range(0, 1)]
+    private float _colorLerp;
+
+
+    [SerializeField]
+    private GameObject _referenceObject;
+
+    private Vector3 _referenceObjectDefaultPosition;
+
+    [SerializeField]
+    private Material _triggerMaterial;
+
+
     [SerializeField]
     private bool _activated;
 
@@ -19,16 +33,19 @@ public class ObjectDropIn : MonoBehaviour
     [SerializeField, RangeAttribute(0f, 0.1f)]
     private float _speed;
 
-
     private void Awake()
     {
         UnityEngine.Assertions.Assert.IsNotNull(_gameObjectList);
+        UnityEngine.Assertions.Assert.IsNotNull(_referenceObject);
+        UnityEngine.Assertions.Assert.IsNotNull(_triggerMaterial);
         _activated = false;
 
         foreach (var go in _gameObjectList)
         {
             _defaulPositions.Add(go.transform.position);
         }
+
+        _referenceObjectDefaultPosition = _referenceObject.transform.position;
     }
 
     private void ShufflePositions()
@@ -37,6 +54,8 @@ public class ObjectDropIn : MonoBehaviour
         {
             _gameObjectList[i].transform.position = _defaulPositions[i] + (Vector3.up * Random.Range(20, 100));
         }
+
+        _referenceObject.transform.position = _referenceObjectDefaultPosition - Vector3.up * 20;
     }
 
     private void MoveToDefaultPosition()
@@ -45,12 +64,34 @@ public class ObjectDropIn : MonoBehaviour
         {
             _gameObjectList[i].transform.position = Vector3.Lerp(_gameObjectList[i].transform.position, _defaulPositions[i], _speed);
         }
+
+        _referenceObject.transform.position = Vector3.Lerp(_referenceObject.transform.position, _referenceObjectDefaultPosition, _speed * 2);
     }
     private void Update()
     {
         if (_activated)
         {
             MoveToDefaultPosition();
+            _referenceObject.SetActive(true);
+            Destroy(GetComponent<MeshRenderer>());
+        }
+        else
+        {
+            _referenceObject.SetActive(false);
+
+            var meshRenderer = GetComponent<MeshRenderer>();
+
+            if (meshRenderer != null)
+            {
+                meshRenderer.material = _triggerMaterial;
+                Color lerpColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, _colorLerp));
+                lerpColor.a = Mathf.PingPong(Time.time, _colorLerp);
+                meshRenderer.material.color = lerpColor;
+            }
+            else
+            {
+                gameObject.AddComponent<MeshRenderer>();
+            }
         }
 
         if (_shuffle)
@@ -59,5 +100,35 @@ public class ObjectDropIn : MonoBehaviour
             _shuffle = false;
             //_activated = false;
         }
+
+
+
+        //get raycast from touch (android)
+        for (var i = 0; i < Input.touchCount; ++i)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                // Construct a ray from the current touch coordinates
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+                // Create a particle if hit
+                if (Physics.Raycast(ray))
+                {
+                    _shuffle = true;
+                    _activated = !_activated;
+                }
+            }
+        }
+
+
+        //mouse interaction for PC debugging
+        if (Input.GetMouseButtonDown(0))
+        {
+            _shuffle = true;
+            _activated = !_activated;
+        }
+
+
+
+
     }
 }
