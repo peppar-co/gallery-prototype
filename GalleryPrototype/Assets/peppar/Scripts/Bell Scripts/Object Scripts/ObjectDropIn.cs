@@ -103,18 +103,21 @@ public class ObjectDropIn : MonoBehaviour
 
 
 
-        //get raycast from touch (android)
+        //get raycast from touch (android)       
         for (var i = 0; i < Input.touchCount; ++i)
         {
             if (Input.GetTouch(i).phase == TouchPhase.Began)
             {
                 // Construct a ray from the current touch coordinates
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                // Create a particle if hit
+
+                //utlDebugPrint.Inst.print(Input.GetTouch(i).position.ToString());
+
                 if (Physics.Raycast(ray))
                 {
                     _shuffle = true;
                     _activated = !_activated;
+                    utlDebugPrint.Inst.print(_activated.ToString());
                 }
             }
         }
@@ -123,12 +126,24 @@ public class ObjectDropIn : MonoBehaviour
         //mouse interaction for PC debugging
         if (Input.GetMouseButtonDown(0))
         {
-            _shuffle = true;
-            _activated = !_activated;
+            Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            Debug.Log(Input.mousePosition);
+
+            if (Physics.Raycast(mRay))
+            {
+                _shuffle = true;
+                _activated = !_activated;
+            }
         }
-
-
-
-
     }
+
+
+
+
+
+
+
+
+
 }
