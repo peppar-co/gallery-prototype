@@ -10,8 +10,8 @@ PlayerSettings:
   targetResolution: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: peppar
-  productName: peppar-business-card
+  companyName: DefaultCompany
+  productName: GalleryPrototype
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -26,7 +26,7 @@ PlayerSettings:
   m_MobileMTRendering: 0
   m_Stereoscopic3D: 0
   iosShowActivityIndicatorOnLoading: -1
-  androidShowActivityIndicatorOnLoading: 2
+  androidShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 1
   iosAllowHTTPDownload: 1
@@ -39,7 +39,7 @@ PlayerSettings:
   disableDepthAndStencilBuffers: 0
   defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
-  runInBackground: 1
+  runInBackground: 0
   captureSingleScreen: 0
   Override IPod Music: 0
   Prepare IOS For Recording: 0
@@ -47,7 +47,7 @@ PlayerSettings:
   usePlayerLog: 1
   bakeCollisionMeshes: 0
   forceSingleInstance: 0
-  resizableWindow: 1
+  resizableWindow: 0
   useMacAppStoreValidation: 0
   gpuSkinning: 0
   xboxPIXTextureCapture: 0
@@ -56,7 +56,7 @@ PlayerSettings:
   xboxEnableKinectAutoTracking: 0
   xboxEnableFitness: 0
   visibleInBackground: 0
-  macFullscreenMode: 1
+  macFullscreenMode: 2
   d3d9FullscreenMode: 1
   d3d11FullscreenMode: 1
   xboxSpeechDB: 0
@@ -85,7 +85,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleIdentifier: com.peppar.PepparGallery
+  bundleIdentifier: com.peppar.businesscard
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -94,7 +94,7 @@ PlayerSettings:
   virtualRealitySupported: 0
   productGUID: e2199361cad2da643a61eb9f0d45487f
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 17
+  AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -103,11 +103,11 @@ PlayerSettings:
   iPhoneScriptCallOptimization: 0
   iPhoneBuildNumber: 0
   ForceInternetPermission: 0
-  ForceSDCardPermission: 1
+  ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
   preloadShaders: 0
-  StripUnusedMeshComponents: 1
+  StripUnusedMeshComponents: 0
   VertexChannelCompressionMask:
     serializedVersion: 2
     m_Bits: 238
@@ -128,7 +128,7 @@ PlayerSettings:
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
   iPadHighResLandscapeSplashScreen: {fileID: 0}
-  iOSLaunchScreenType: 1
+  iOSLaunchScreenType: 0
   iOSLaunchScreenPortrait: {fileID: 0}
   iOSLaunchScreenLandscape: {fileID: 0}
   iOSLaunchScreenBackgroundColor:
@@ -172,7 +172,10 @@ PlayerSettings:
   - m_BuildTarget: iOSSupport
     m_APIs: 08000000
     m_Automatic: 0
-  webPlayerTemplate: APPLICATION:Black Background
+  - m_BuildTarget: AndroidPlayer
+    m_APIs: 08000000
+    m_Automatic: 0
+  webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   wiiUTitleID: 0005000011000000
   wiiUGroupID: 00010000
@@ -322,7 +325,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     4: VUFORIA_IOS_SETTINGS
     7: VUFORIA_ANDROID_SETTINGS;VUFORIA_SAMPLE_ORIENTATION_SETTINGS
-  metroPackageName: peppar-gallery
+  metroPackageName: GalleryPrototype
   metroPackageLogo: 
   metroPackageLogo140: 
   metroPackageLogo180: 
@@ -333,7 +336,7 @@ PlayerSettings:
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: peppar-gallery
+  metroApplicationDescription: GalleryPrototype
   metroStoreTileLogo80: 
   metroStoreTileLogo: 
   metroStoreTileLogo140: 
@@ -508,6 +511,7 @@ PlayerSettings:
   - WebGL::audioCompressionFormat
   - WebGL::exceptionSupport
   - WebGL::memorySize
+  - WebPlayer::ScriptingBackend
   - iOS::Architecture
   - iOS::EnableIncrementalBuildSupportForIl2cpp
   - iOS::ScriptingBackend
@@ -519,6 +523,7 @@ PlayerSettings:
   WebGL::audioCompressionFormat: 4
   WebGL::exceptionSupport: 1
   WebGL::memorySize: 256
+  WebPlayer::ScriptingBackend: 0
   iOS::Architecture: 2
   iOS::EnableIncrementalBuildSupportForIl2cpp: 0
   iOS::ScriptingBackend: 1
