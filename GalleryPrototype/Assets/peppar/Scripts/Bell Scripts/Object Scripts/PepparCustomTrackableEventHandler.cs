@@ -5,15 +5,15 @@ using Vuforia;
 public class PepparCustomTrackableEventHandler : DefaultTrackableEventHandler, ITrackableEventHandler
 {
     [SerializeField]
-    GameObject _debugTextObject;
+    private GameObject _debugTextObject;
 
+    private TrackableBehaviour mTrackableBehaviour;
     private void Awake()
     {
         UnityEngine.Assertions.Assert.IsNotNull(_debugTextObject);
     }
 
-    private TrackableBehaviour mTrackableBehaviour;
-    void Start()
+    private void Start()
     {
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
