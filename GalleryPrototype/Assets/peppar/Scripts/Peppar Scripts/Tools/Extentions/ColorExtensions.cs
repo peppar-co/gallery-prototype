@@ -13,5 +13,10 @@ namespace peppar
         {
             return ((Color32)color).r.ToString("X2") + ((Color32)color).g.ToString("X2") + ((Color32)color).b.ToString("X2");
         }
+
+        public static Color Pink(this Color color)
+        {
+            return new Color(1, 0, 1);
+        }
     }
 }

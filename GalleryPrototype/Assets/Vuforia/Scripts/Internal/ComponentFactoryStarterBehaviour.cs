@@ -44,7 +44,8 @@ namespace Vuforia
         [FactorySetter]
         void SetBehaviourComponentFactory()
         {
-            Debug.Log("Setting BehaviourComponentFactory");
+            if (peppar.PepparManager.GameController.Debug)
+                Debug.Log("Setting BehaviourComponentFactory");
             BehaviourComponentFactory.Instance = new VuforiaBehaviourComponentFactory();
         }
     }
