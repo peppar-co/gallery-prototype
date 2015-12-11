@@ -39,6 +39,7 @@ public class ObjectDropIn : MonoBehaviour
         UnityEngine.Assertions.Assert.IsNotNull(_referenceObject);
         UnityEngine.Assertions.Assert.IsNotNull(_triggerMaterial);
         _activated = false;
+        _shuffle = true;
 
         foreach (var go in _gameObjectList)
         {
@@ -46,6 +47,8 @@ public class ObjectDropIn : MonoBehaviour
         }
 
         _referenceObjectDefaultPosition = _referenceObject.transform.position;
+
+
     }
 
     private void ShufflePositions()
@@ -128,12 +131,11 @@ public class ObjectDropIn : MonoBehaviour
         {
             Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            Debug.Log(Input.mousePosition);
-
             if (Physics.Raycast(mRay))
             {
-                _shuffle = true;
-                _activated = !_activated;
+                //_shuffle = true;
+                //_activated = !_activated;
+                _activated = true;
             }
         }
     }
