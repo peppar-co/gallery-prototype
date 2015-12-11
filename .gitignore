@@ -21,3 +21,6 @@
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 GalleryPrototype/Assets/Plugins/QCARWrapper.dll.meta
+GalleryPrototype/QCAR/vufsen.dat
+GalleryPrototype/Assets/Vuforia/Editor/Scripts/Qualcomm.Vuforia.UnityExtensions.Editor 1.dll.meta
+GalleryPrototype/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions 1.dll.meta
