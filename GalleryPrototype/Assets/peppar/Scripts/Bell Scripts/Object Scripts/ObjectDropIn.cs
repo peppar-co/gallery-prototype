@@ -128,7 +128,7 @@ public class ObjectDropIn : MonoBehaviour
         {
             Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            Debug.Log(Input.mousePosition);
+            //Debug.Log(Input.mousePosition);
 
             if (Physics.Raycast(mRay))
             {

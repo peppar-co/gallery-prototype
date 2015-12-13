@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface InteractionFunctionality
+namespace peppar
 {
-    void DoAction();
-
-    void StartAction();
-
-    void StopAction();
+    public interface InteractionFunctionality
+    {
+        void Interaction(InteractionState state, InteractionType type);
+    }
 }

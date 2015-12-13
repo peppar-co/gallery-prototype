@@ -5,7 +5,7 @@ namespace peppar
     public class ScreenRaycastController : BehaviourController
     {
         [SerializeField]
-        private Camera _camera = Camera.main;
+        private Camera _camera;
 
         [SerializeField]
         private LayerMask _ignoredLayer;
@@ -42,20 +42,21 @@ namespace peppar
 
         public Vector3 GetScreenPosFromScreenPixelPos(Vector3 screenPixelPosition)
         {
-            return _camera.ViewportToScreenPoint(screenPixelPosition);
+            return _camera.ScreenToViewportPoint(screenPixelPosition);
         }
 
         public Vector2 GetScreenPosFromScreenPixelPos(Vector2 screenPixelPosition)
         {
-            Vector3 screenPosition = _camera.ViewportToScreenPoint(GetScreenPosFromScreenPixelPos(
-                new Vector3(screenPixelPosition.x, screenPixelPosition.y, 0)));
+            Vector3 screenPosition = GetScreenPosFromScreenPixelPos(
+                new Vector3(screenPixelPosition.x, screenPixelPosition.y, 0));
 
             return new Vector2(screenPosition.x, screenPosition.y);
         }
 
         protected override void Start()
         {
-            UnityEngine.Assertions.Assert.IsNotNull(_camera, "ScreenRaycastController: Camera is null");
+            if (_camera == null)
+                _camera = Camera.main;
         }
 
         protected override void Update()
