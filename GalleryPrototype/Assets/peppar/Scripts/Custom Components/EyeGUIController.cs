@@ -43,14 +43,11 @@ namespace peppar
                 exp = 0;
                 _eyeInteractionController.EyeAnimator.SetInteger("Expression", exp);
             }
-
-            Debug.Log("EXPRESSION CHANGED!!!!!!!!:::" + exp);
-
         }
 
         public void ChangeScene()
         {
-            Debug.Log("SCENE CHANGED!!!!!!!!");
+            _eyeInteractionController.ChangeScene();
         }
     }
 }

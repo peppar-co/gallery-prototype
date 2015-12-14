@@ -4,11 +4,8 @@ using System.Collections.Generic;
 
 public class ObjectDropIn : MonoBehaviour
 {
-
-
     [SerializeField, Range(0, 1)]
     private float _colorLerp;
-
 
     [SerializeField]
     private GameObject _referenceObject;
@@ -18,12 +15,16 @@ public class ObjectDropIn : MonoBehaviour
     [SerializeField]
     private Material _triggerMaterial;
 
-
     [SerializeField]
     private bool _activated;
 
     [SerializeField]
     private bool _shuffle;
+    public bool Shuffle
+    {
+        get { return _shuffle; }
+        set { _shuffle = value; }
+    }
 
     [SerializeField]
     private List<GameObject> _gameObjectList = new List<GameObject>();
@@ -47,8 +48,6 @@ public class ObjectDropIn : MonoBehaviour
         }
 
         _referenceObjectDefaultPosition = _referenceObject.transform.position;
-
-
     }
 
     private void ShufflePositions()
@@ -76,24 +75,31 @@ public class ObjectDropIn : MonoBehaviour
         {
             MoveToDefaultPosition();
             _referenceObject.SetActive(true);
-            Destroy(GetComponent<MeshRenderer>());
+
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject.GetComponent<MeshRenderer>());
+                Destroy(child.GetChild(0).gameObject.GetComponent<MeshRenderer>());
+            }
         }
         else
         {
             _referenceObject.SetActive(false);
 
-            var meshRenderer = GetComponent<MeshRenderer>();
-
-            if (meshRenderer != null)
+            foreach (Transform child in transform)
             {
-                meshRenderer.material = _triggerMaterial;
-                Color lerpColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, _colorLerp));
-                lerpColor.a = Mathf.PingPong(Time.time, _colorLerp);
-                meshRenderer.material.color = lerpColor;
-            }
-            else
-            {
-                gameObject.AddComponent<MeshRenderer>();
+                var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
+                if (meshRenderer != null)
+                {
+                    //meshRenderer.material = _triggerMaterial;
+                    Color lerpColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, _colorLerp));
+                    lerpColor.a = Mathf.PingPong(Time.time, _colorLerp);
+                    meshRenderer.material.color = lerpColor;
+                }
+                else
+                {
+                    child.gameObject.AddComponent<MeshRenderer>();
+                }
             }
         }
 
@@ -103,8 +109,6 @@ public class ObjectDropIn : MonoBehaviour
             _shuffle = false;
             //_activated = false;
         }
-
-
 
         //get raycast from touch (android)       
         for (var i = 0; i < Input.touchCount; ++i)
@@ -124,7 +128,6 @@ public class ObjectDropIn : MonoBehaviour
                 }
             }
         }
-
 
         //mouse interaction for PC debugging
         if (Input.GetMouseButtonDown(0))

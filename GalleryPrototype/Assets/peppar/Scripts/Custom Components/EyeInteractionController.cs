@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace peppar
 {
@@ -9,7 +10,20 @@ namespace peppar
         private EyeGUIController _eyeGUIController;
 
         [SerializeField]
+        private ObjectDropIn _objectDropIn;
+
+        [SerializeField]
         private Animator _eyeAnimator;
+
+        [SerializeField]
+        private List<MeshRenderer> _stencilMeshes = new List<MeshRenderer>();
+
+        [SerializeField]
+        private List<Material> _stencilMasks = new List<Material>();
+
+        private List<Material> _defaultStencilMasks = new List<Material>();
+
+        private int _activeStencilIndex;
 
         public Animator EyeAnimator
         {
@@ -22,9 +36,40 @@ namespace peppar
 
         private float _blinkTime;
 
+        public void ChangeScene()
+        {
+            if (_activeStencilIndex < _stencilMasks.Count - 1)
+            {
+                _activeStencilIndex++;
+                ChangeStencil(_activeStencilIndex);
+                _objectDropIn.Shuffle = true;
+            }
+            else
+            {
+                _activeStencilIndex = -1;
+                SetDefaultStencil();
+                _objectDropIn.Shuffle = true;
+            }
+        }
+
+        private void ChangeStencil(int index)
+        {
+            foreach (var mesh in _stencilMeshes)
+            {
+                mesh.material = _stencilMasks[index];
+            }
+        }
+
+        private void SetDefaultStencil()
+        {
+            for (int i = 0; i < _stencilMeshes.Count; i++)
+            {
+                _stencilMeshes[i].material = _defaultStencilMasks[i];
+            }
+        }
+
         private void Blink()
         {
-            Debug.Log("DO BLINK!!!!!!!!");
             _eyeAnimator.SetTrigger("Blink");
         }
 
@@ -32,8 +77,21 @@ namespace peppar
         {
             UnityEngine.Assertions.Assert.IsNotNull(_eyeGUIController);
             UnityEngine.Assertions.Assert.IsNotNull(_eyeAnimator);
+            UnityEngine.Assertions.Assert.IsNotNull(_objectDropIn);
+            UnityEngine.Assertions.Assert.IsNotNull(_stencilMeshes);
+            UnityEngine.Assertions.Assert.IsNotNull(_stencilMasks);
             _maxIdleTime = 3;
             _blinkTime = _maxIdleTime;
+            _activeStencilIndex = -1;
+
+            if (_stencilMeshes != null)
+            {
+                foreach (var mesh in _stencilMeshes)
+                {
+                    _defaultStencilMasks.Add(mesh.material);
+                }
+            }
+
         }
 
         private void Update()
@@ -76,8 +134,6 @@ namespace peppar
                 _maxIdleTime = Random.RandomRange(.5f, _blinkTime);
                 Blink();
             }
-
-
         }
     }
 }
