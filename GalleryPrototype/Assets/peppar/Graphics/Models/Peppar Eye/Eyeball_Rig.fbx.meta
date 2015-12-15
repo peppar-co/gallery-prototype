@@ -1,0 +1,397 @@
+fileFormatVersion: 2
+guid: b14ebd03869ee8c4a9316ae38738ba7f
+timeCreated: 1450171764
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Eye
+    100004: Eyeball
+    100006: //RootNode
+    100008: EyeTargetShape
+    100010: EyeTargetShape_end
+    100012: Iris
+    100014: Iris_end
+    100016: LowerEyeLid.001
+    100018: LowerEyeLid.001_end
+    100020: LowerEyeLid.002
+    100022: LowerEyeLid.002_end
+    100024: LowerEyeLid.003
+    100026: LowerEyeLid.003_end
+    100028: LowerEyeLid.004
+    100030: LowerEyeLid.004_end
+    100032: LowerEyeLid.005
+    100034: LowerEyeLid.005_end
+    100036: LowerEyeLid.006
+    100038: LowerEyeLid.006_end
+    100040: LowerEyeLid.007
+    100042: LowerEyeLid.007_end
+    100044: LowerEyeLidTarget
+    100046: LowerEyeLidTarget.001
+    100048: LowerEyeLidTarget.001_end
+    100050: Root
+    100052: Sphere
+    100054: UpperEyeLid.001
+    100056: UpperEyeLid.001_end
+    100058: UpperEyeLid.002
+    100060: UpperEyeLid.002_end
+    100062: UpperEyeLid.003
+    100064: UpperEyeLid.003_end
+    100066: UpperEyeLid.004
+    100068: UpperEyeLid.004_end
+    100070: UpperEyeLid.005
+    100072: UpperEyeLid.005_end
+    100074: UpperEyeLid.006
+    100076: UpperEyeLid.006_end
+    100078: UpperEyeLid.007
+    100080: UpperEyeLid.007_end
+    100082: UpperEyeLidTarget
+    100084: UpperEyeLidTarget.001
+    100086: UpperEyeLidTarget.001_end
+    400000: Armature
+    400002: Eye
+    400004: Eyeball
+    400006: //RootNode
+    400008: EyeTargetShape
+    400010: EyeTargetShape_end
+    400012: Iris
+    400014: Iris_end
+    400016: LowerEyeLid.001
+    400018: LowerEyeLid.001_end
+    400020: LowerEyeLid.002
+    400022: LowerEyeLid.002_end
+    400024: LowerEyeLid.003
+    400026: LowerEyeLid.003_end
+    400028: LowerEyeLid.004
+    400030: LowerEyeLid.004_end
+    400032: LowerEyeLid.005
+    400034: LowerEyeLid.005_end
+    400036: LowerEyeLid.006
+    400038: LowerEyeLid.006_end
+    400040: LowerEyeLid.007
+    400042: LowerEyeLid.007_end
+    400044: LowerEyeLidTarget
+    400046: LowerEyeLidTarget.001
+    400048: LowerEyeLidTarget.001_end
+    400050: Root
+    400052: Sphere
+    400054: UpperEyeLid.001
+    400056: UpperEyeLid.001_end
+    400058: UpperEyeLid.002
+    400060: UpperEyeLid.002_end
+    400062: UpperEyeLid.003
+    400064: UpperEyeLid.003_end
+    400066: UpperEyeLid.004
+    400068: UpperEyeLid.004_end
+    400070: UpperEyeLid.005
+    400072: UpperEyeLid.005_end
+    400074: UpperEyeLid.006
+    400076: UpperEyeLid.006_end
+    400078: UpperEyeLid.007
+    400080: UpperEyeLid.007_end
+    400082: UpperEyeLidTarget
+    400084: UpperEyeLidTarget.001
+    400086: UpperEyeLidTarget.001_end
+    4300000: Sphere
+    7400000: Armature|IdleNeutral
+    7400002: Sphere|Idle01
+    7400004: Armature|IdleAngry
+    9500000: //RootNode
+    13700000: Sphere
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|IdleNeutral
+      takeName: Armature|Idle01
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Eye
+        weight: 1
+      - path: Armature/Root/Eye/Eyeball
+        weight: 1
+      - path: Armature/Root/Eye/Eyeball/Iris
+        weight: 1
+      - path: Armature/Root/Eye/Eyeball/Iris/Iris_end
+        weight: 1
+      - path: Armature/Root/Eye/EyeTargetShape
+        weight: 1
+      - path: Armature/Root/Eye/EyeTargetShape/EyeTargetShape_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.001
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.001/LowerEyeLid.001_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.002
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.002/LowerEyeLid.002_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.003
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.003/LowerEyeLid.003_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.004
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.004/LowerEyeLid.004_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.005
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.005/LowerEyeLid.005_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.006
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.006/LowerEyeLid.006_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.007
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.007/LowerEyeLid.007_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLidTarget
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLidTarget/LowerEyeLidTarget.001
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLidTarget/LowerEyeLidTarget.001/LowerEyeLidTarget.001_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.001
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.001/UpperEyeLid.001_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.002
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.002/UpperEyeLid.002_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.003
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.003/UpperEyeLid.003_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.004
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.004/UpperEyeLid.004_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.005
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.005/UpperEyeLid.005_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.006
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.006/UpperEyeLid.006_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.007
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.007/UpperEyeLid.007_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLidTarget
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLidTarget/UpperEyeLidTarget.001
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLidTarget/UpperEyeLidTarget.001/UpperEyeLidTarget.001_end
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|IdleAngry
+      takeName: Armature|Idle02
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Eye
+        weight: 1
+      - path: Armature/Root/Eye/Eyeball
+        weight: 1
+      - path: Armature/Root/Eye/Eyeball/Iris
+        weight: 1
+      - path: Armature/Root/Eye/Eyeball/Iris/Iris_end
+        weight: 1
+      - path: Armature/Root/Eye/EyeTargetShape
+        weight: 1
+      - path: Armature/Root/Eye/EyeTargetShape/EyeTargetShape_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.001
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.001/LowerEyeLid.001_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.002
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.002/LowerEyeLid.002_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.003
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.003/LowerEyeLid.003_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.004
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.004/LowerEyeLid.004_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.005
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.005/LowerEyeLid.005_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.006
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.006/LowerEyeLid.006_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.007
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLid.007/LowerEyeLid.007_end
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLidTarget
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLidTarget/LowerEyeLidTarget.001
+        weight: 1
+      - path: Armature/Root/Eye/LowerEyeLidTarget/LowerEyeLidTarget.001/LowerEyeLidTarget.001_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.001
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.001/UpperEyeLid.001_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.002
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.002/UpperEyeLid.002_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.003
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.003/UpperEyeLid.003_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.004
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.004/UpperEyeLid.004_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.005
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.005/UpperEyeLid.005_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.006
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.006/UpperEyeLid.006_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.007
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLid.007/UpperEyeLid.007_end
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLidTarget
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLidTarget/UpperEyeLidTarget.001
+        weight: 1
+      - path: Armature/Root/Eye/UpperEyeLidTarget/UpperEyeLidTarget.001/UpperEyeLidTarget.001_end
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
