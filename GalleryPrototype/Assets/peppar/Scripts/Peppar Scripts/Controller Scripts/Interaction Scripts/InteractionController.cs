@@ -38,36 +38,36 @@ namespace peppar
             return interactionObject.GetComponents(typeof(BehaviourController)).Where(c => c is InteractionFunctionality).Cast<InteractionFunctionality>();
         }
 
-        protected void HandleInteractions(InteractionState state, InteractionType type, params InteractionFunctionality[] components)
+        protected void HandleInteractions(InteractionState interactionState, InteractionType interactionType, params InteractionFunctionality[] components)
         {
             if (components == null)
                 return;
 
-            components.ForEach(c => c.Interaction(state, type));
+            components.ForEach(c => c.Interaction(interactionState, interactionType));
         }
 
-        protected void HandleInteractions(InteractionState state, InteractionType type, Transform interactionObject)
+        protected void HandleInteractions(InteractionState interactionState, InteractionType interactionType, Transform interactionObject)
         {
             if (interactionObject == null)
                 return;
 
-            HandleInteractions(state, type, GetInteractionComponents(interactionObject).ToArray());
+            HandleInteractions(interactionState, interactionType, GetInteractionComponents(interactionObject).ToArray());
         }
 
-        protected void HandleInteractions(InteractionType type, Transform interactionObject)
+        protected void HandleInteractions(InteractionType interactionType, Transform interactionObject)
         {
             if (interactionObject == _currentInteractionObject)
             {
                 if (interactionObject != null)
-                    HandleInteractions(InteractionState.Do, type, interactionObject);
+                    HandleInteractions(InteractionState.Do, interactionType, interactionObject);
             }
             else
             {
                 if (_currentInteractionObject != null)
-                    HandleInteractions(InteractionState.Stop, type, _currentInteractionObject);
+                    HandleInteractions(InteractionState.Stop, interactionType, _currentInteractionObject);
 
                 if (interactionObject != null)
-                    HandleInteractions(InteractionState.Start, type, interactionObject);
+                    HandleInteractions(InteractionState.Start, interactionType, interactionObject);
 
                 _currentInteractionObject = interactionObject;
             }

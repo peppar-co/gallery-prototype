@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
+﻿using System;
+using UnityEngine;
 
 namespace peppar
 {
@@ -139,6 +138,11 @@ namespace peppar
                 LookAt(LookAtTarget);
             else
                 LookAt(LookAtPosition);
+        }
+
+        protected override void Awake()
+        {
+
         }
     }
 }

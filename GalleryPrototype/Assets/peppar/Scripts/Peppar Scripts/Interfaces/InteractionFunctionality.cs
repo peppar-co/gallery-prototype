@@ -5,6 +5,6 @@ namespace peppar
 {
     public interface InteractionFunctionality
     {
-        void Interaction(InteractionState state, InteractionType type);
+        void Interaction(InteractionState interactionState, InteractionType interactionType);
     }
 }

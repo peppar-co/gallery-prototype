@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace peppar
 {
@@ -26,15 +27,20 @@ namespace peppar
 
         protected override void Start()
         {
-            _raycastController = GetComponent<ScreenRaycastController>();
-
-            HideInInspector(_raycastController);
+            
         }
 
         protected override void Update()
         {
             if (CheckInteraction)
                 HandleInteractions(InteractionType.LookAt, _raycastController.FirstObjectAtScreenCenter);
+        }
+
+        protected override void Awake()
+        {
+            _raycastController = GetComponent<ScreenRaycastController>();
+
+            HideInInspector(_raycastController);
         }
     }
 }

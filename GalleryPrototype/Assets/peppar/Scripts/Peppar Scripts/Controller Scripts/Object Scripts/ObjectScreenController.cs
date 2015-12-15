@@ -61,5 +61,10 @@ namespace peppar
         protected override void Update()
         {
         }
+
+        protected override void Awake()
+        {
+
+        }
     }
 }

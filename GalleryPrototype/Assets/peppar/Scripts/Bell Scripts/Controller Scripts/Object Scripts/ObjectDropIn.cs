@@ -146,7 +146,7 @@ public class ObjectDropIn : MonoBehaviour
 		}
 
 		//get raycast from touch (android)       
-		for (var i = 0; i < Input.touchCount; ++i)
+		for (var i = 0; i < Input.touchCount; i++)
 		{
 			if (Input.GetTouch(i).phase == TouchPhase.Began)
 			{

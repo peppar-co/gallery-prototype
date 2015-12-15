@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace peppar
 {
@@ -9,7 +10,7 @@ namespace peppar
         private bool _lerp = true;
 
         [SerializeField]
-        private Transform _goalTransform;
+        private Transform _targetTransform;
 
         [SerializeField]
         [Range(0, 100)]
@@ -32,16 +33,17 @@ namespace peppar
             }
         }
 
-        public Transform GoalTransform
+        public Transform TargetTransform
         {
             get
             {
-                return _goalTransform;
+                return _targetTransform;
             }
 
             set
             {
-                _goalTransform = value;
+                _targetTransform = value;
+                Lerp = true;
             }
         }
 
@@ -49,10 +51,14 @@ namespace peppar
         {
             get
             {
-                if (GoalTransform != null)
-                    return GoalTransform.rotation.eulerAngles;
+                if (TargetTransform != null)
+                    return TargetTransform.rotation.eulerAngles;
                 else
                     return transform.rotation.eulerAngles;
+            }
+            set
+            {
+                TargetTransform.rotation = GetQuaternion(value);
             }
         }
 
@@ -92,12 +98,12 @@ namespace peppar
             return Quaternion.Euler(vector);
         }
 
-        public float DistanceToGoal
+        public float DistanceToTarget
         {
             get { return Mathf.Abs(Quaternion.Angle(GetQuaternion(Rotation), GetQuaternion(GoalRotation))); }
         }
 
-        public void SetToGoalAndStopLerp()
+        public void SetToTargetAndStopLerp()
         {
             transform.rotation = Quaternion.Euler(GoalRotation);
             Lerp = false;
@@ -120,8 +126,13 @@ namespace peppar
 
             transform.rotation = GetQuaternion(Vector3.Lerp(Rotation, GoalRotation, LerpSpeed / 100));
 
-            if (DistanceToGoal <= StopLerpDistance)
-                SetToGoalAndStopLerp();
+            if (DistanceToTarget <= StopLerpDistance)
+                SetToTargetAndStopLerp();
+        }
+
+        protected override void Awake()
+        {
+
         }
     }
 }

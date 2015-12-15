@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace peppar
 {
@@ -76,6 +77,7 @@ namespace peppar
 
         protected override void Start()
         {
+
         }
 
         protected override void Update()
@@ -88,6 +90,11 @@ namespace peppar
 
             if (_followRotation)
                 SetRotation(_followTransform.rotation);
+        }
+
+        protected override void Awake()
+        {
+
         }
     }
 }

@@ -7,14 +7,14 @@ namespace peppar
     {
         bool Lerp { get; set; }
 
-        Transform GoalTransform { get; set; }
+        Transform TargetTransform { get; set; }
 
         float LerpSpeed { get; set; }
 
         float StopLerpDistance { get; set; }
 
-        float DistanceToGoal { get; }
+        float DistanceToTarget { get; }
 
-        void SetToGoalAndStopLerp();
+        void SetToTargetAndStopLerp();
     }
 }

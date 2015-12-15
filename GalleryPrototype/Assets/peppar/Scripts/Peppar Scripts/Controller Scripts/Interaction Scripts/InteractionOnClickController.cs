@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace peppar
 {
@@ -109,18 +110,21 @@ namespace peppar
 
         protected override void Start()
         {
-            _onMouseClickController = GetComponent<InteractionOnMouseClickController>();
-            _onTouchClickController = GetComponent<InteractionOnTouchClickController>();
-
             _onMouseClickController.CheckInteraction = false;
             _onTouchClickController.CheckInteraction = false;
-
-            HideInInspector(_onMouseClickController, _onTouchClickController);
         }
 
         protected override void Update()
         {
             HandleInteractions();
+        }
+
+        protected override void Awake()
+        {
+            _onMouseClickController = GetComponent<InteractionOnMouseClickController>();
+            _onTouchClickController = GetComponent<InteractionOnTouchClickController>();
+
+            HideInInspector(_onMouseClickController, _onTouchClickController);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace peppar
 {
@@ -22,27 +23,33 @@ namespace peppar
             Rotation = vector;
         }
 
+        public void SetToRotation(Transform targetTransformRotation)
+        {
+            if (targetTransformRotation != null)
+                SetToRotation(targetTransformRotation.rotation.eulerAngles);
+        }
+
         public void SetToRotation(float x, float y, float z)
         {
             SetToRotation(new Vector3(x, y, z));
         }
 
-        public void SetToPosition(int x, int y, int z)
+        public void SetToRotation(int x, int y, int z)
         {
             SetToRotation(new Vector3(x, y, z));
         }
 
-        public void SetToPositionStayX(float y, float z)
+        public void SetToRotationStayX(float y, float z)
         {
             SetToRotation(Rotation.x, y, z);
         }
 
-        public void SetToPositionStayY(float x, float z)
+        public void SetToRotationStayY(float x, float z)
         {
             SetToRotation(x, Rotation.y, z);
         }
 
-        public void SetToPositionStayZ(float x, float y)
+        public void SetToRotationStayZ(float x, float y)
         {
             SetToRotation(x, y, Rotation.z);
         }
@@ -53,6 +60,10 @@ namespace peppar
         }
 
         protected override void Update()
+        {
+
+        }
+        protected override void Awake()
         {
 
         }

@@ -27,5 +27,10 @@ namespace peppar
         {
 
         }
+
+        protected override void Awake()
+        {
+
+        }
     }
 }

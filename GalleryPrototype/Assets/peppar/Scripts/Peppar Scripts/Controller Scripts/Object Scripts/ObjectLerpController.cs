@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 namespace peppar
 {
@@ -12,7 +10,7 @@ namespace peppar
         private bool _lerp = true;
 
         [SerializeField]
-        private Transform _goalTransform;
+        private Transform _targetTransform;
 
         [SerializeField]
         [Range(0, 100)]
@@ -40,18 +38,18 @@ namespace peppar
             }
         }
 
-        public Transform GoalTransform
+        public Transform TargetTransform
         {
             get
             {
-                return _goalTransform;
+                return _targetTransform;
             }
 
             set
             {
-                _goalTransform = value;
-                _positionLerpController.GoalTransform = value;
-                _rotationLerpController.GoalTransform = value;
+                _targetTransform = value;
+                _positionLerpController.TargetTransform = value;
+                _rotationLerpController.TargetTransform = value;
             }
         }
 
@@ -101,36 +99,41 @@ namespace peppar
             }
         }
 
-        public float DistanceToGoal
+        public float DistanceToTarget
         {
             get
             {
-                return _positionLerpController.DistanceToGoal;
+                return _positionLerpController.DistanceToTarget;
             }
         }
 
-        public void SetToGoalAndStopLerp()
+        public void SetToTargetAndStopLerp()
         {
-            _positionLerpController.SetToGoalAndStopLerp();
-            _rotationLerpController.SetToGoalAndStopLerp();
+            _positionLerpController.SetToTargetAndStopLerp();
+            _rotationLerpController.SetToTargetAndStopLerp();
         }
 
         protected override void Start()
         {
-            _positionLerpController = GetComponent<ObjectPositionLerpController>();
-            _rotationLerpController = GetComponent<ObjectRotationLerpController>();
 
-            HideInInspector(_positionLerpController, _rotationLerpController);
         }
 
         protected override void Update()
         {
 #if UNITY_EDITOR
             Lerp = _lerp;
-            GoalTransform = _goalTransform;
+            TargetTransform = _targetTransform;
             LerpSpeed = _lerpSpeed;
             StopLerpDistance = _stopLerpDistance;
 #endif
+        }
+
+        protected override void Awake()
+        {
+            _positionLerpController = GetComponent<ObjectPositionLerpController>();
+            _rotationLerpController = GetComponent<ObjectRotationLerpController>();
+
+            HideInInspector(_positionLerpController, _rotationLerpController);
         }
     }
 }

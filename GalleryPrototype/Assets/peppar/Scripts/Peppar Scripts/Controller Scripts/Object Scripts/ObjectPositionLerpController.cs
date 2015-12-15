@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 namespace peppar
 {
     public class ObjectPositionLerpController : BehaviourController, LerpFunctionality
@@ -7,7 +8,7 @@ namespace peppar
         private bool _lerp = true;
 
         [SerializeField]
-        private Transform _goalTransform;
+        private Transform _targetTransform;
 
         [SerializeField]
         [Range(0, 100)]
@@ -30,27 +31,32 @@ namespace peppar
             }
         }
 
-        public Transform GoalTransform
+        public Transform TargetTransform
         {
             get
             {
-                return _goalTransform;
+                return _targetTransform;
             }
 
             set
             {
-                _goalTransform = value;
+                _targetTransform = value;
+                Lerp = true;
             }
         }
 
-        public Vector3 GoalPosition
+        public Vector3 TargetPosition
         {
             get
             {
-                if (GoalTransform != null)
-                    return GoalTransform.position;
+                if (TargetTransform != null)
+                    return TargetTransform.position;
                 else
                     return transform.position;
+            }
+            set
+            {
+                TargetTransform.position = value;
             }
         }
 
@@ -85,14 +91,14 @@ namespace peppar
             get { return transform.position; }
         }
 
-        public float DistanceToGoal
+        public float DistanceToTarget
         {
-            get { return Vector3.Distance(Position, GoalPosition); }
+            get { return Vector3.Distance(Position, TargetPosition); }
         }
 
-        public void SetToGoalAndStopLerp()
+        public void SetToTargetAndStopLerp()
         {
-            transform.position = GoalPosition;
+            transform.position = TargetPosition;
             Lerp = false;
         }
 
@@ -111,10 +117,15 @@ namespace peppar
             if (!Lerp)
                 return;
 
-            transform.position = Vector3.Lerp(Position, GoalPosition, LerpSpeed / 100);
+            transform.position = Vector3.Lerp(Position, TargetPosition, LerpSpeed / 100);
 
-            if (DistanceToGoal <= StopLerpDistance)
-                SetToGoalAndStopLerp();
+            if (DistanceToTarget <= StopLerpDistance)
+                SetToTargetAndStopLerp();
+        }
+
+        protected override void Awake()
+        {
+
         }
     }
 }

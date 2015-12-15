@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace peppar
 {
@@ -24,9 +25,10 @@ namespace peppar
             Position = vector;
         }
 
-        public void SetToPosition(Transform transform)
+        public void SetToPosition(Transform targetTransformPosition)
         {
-            SetToPosition(transform.position);
+            if (targetTransformPosition != null)
+                SetToPosition(targetTransformPosition.position);
         }
 
         public void SetToPosition(float x, float y, float z)
@@ -61,6 +63,10 @@ namespace peppar
         }
 
         protected override void Update()
+        {
+
+        }
+        protected override void Awake()
         {
 
         }
