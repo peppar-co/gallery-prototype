@@ -4,139 +4,179 @@ using System.Collections.Generic;
 
 public class ObjectDropIn : MonoBehaviour
 {
+	[SerializeField, Range(0, 1)]
+	private float _colorLerp;
 
+	[SerializeField]
+	private GameObject _referenceObject;
 
-    [SerializeField, Range(0, 1)]
-    private float _colorLerp;
+	private Vector3 _referenceObjectDefaultPosition;
 
+	[SerializeField]
+	private Material _triggerMaterial;
 
-    [SerializeField]
-    private GameObject _referenceObject;
+	[SerializeField]
+	private Material _pinPlastic, _pinMetal;
 
-    private Vector3 _referenceObjectDefaultPosition;
+	[SerializeField]
+	private bool _activated;
 
-    [SerializeField]
-    private Material _triggerMaterial;
+	[SerializeField]
+	private bool _shuffle;
+	public bool Shuffle
+	{
+		get { return _shuffle; }
+		set { _shuffle = value; }
+	}
 
+	[SerializeField]
+	private List<GameObject> _gameObjectList = new List<GameObject>();
 
-    [SerializeField]
-    private bool _activated;
+	private List<Vector3> _defaulPositions = new List<Vector3>();
 
-    [SerializeField]
-    private bool _shuffle;
+	[SerializeField, RangeAttribute(0f, 0.1f)]
+	private float _speed;
 
-    [SerializeField]
-    private List<GameObject> _gameObjectList = new List<GameObject>();
+	private void Awake()
+	{
+		UnityEngine.Assertions.Assert.IsNotNull(_gameObjectList);
+		UnityEngine.Assertions.Assert.IsNotNull(_referenceObject);
+		UnityEngine.Assertions.Assert.IsNotNull(_triggerMaterial);
+		UnityEngine.Assertions.Assert.IsNotNull(_pinMetal);
+		UnityEngine.Assertions.Assert.IsNotNull(_pinPlastic);
 
-    private List<Vector3> _defaulPositions = new List<Vector3>();
+		_activated = false;
+		_shuffle = true;
 
-    [SerializeField, RangeAttribute(0f, 0.1f)]
-    private float _speed;
+		foreach (var go in _gameObjectList)
+		{
+			_defaulPositions.Add(go.transform.position);
+		}
 
-    private void Awake()
-    {
-        UnityEngine.Assertions.Assert.IsNotNull(_gameObjectList);
-        UnityEngine.Assertions.Assert.IsNotNull(_referenceObject);
-        UnityEngine.Assertions.Assert.IsNotNull(_triggerMaterial);
-        _activated = false;
+		_referenceObjectDefaultPosition = _referenceObject.transform.position;
+	}
 
-        foreach (var go in _gameObjectList)
-        {
-            _defaulPositions.Add(go.transform.position);
-        }
+	private void ShufflePositions()
+	{
+		for (int i = 0; i < _defaulPositions.Count; i++)
+		{
+			_gameObjectList[i].transform.position = _defaulPositions[i] + (Vector3.up * Random.Range(20, 100));
+		}
 
-        _referenceObjectDefaultPosition = _referenceObject.transform.position;
-    }
+		_referenceObject.transform.position = _referenceObjectDefaultPosition - Vector3.up * 20;
+	}
 
-    private void ShufflePositions()
-    {
-        for (int i = 0; i < _defaulPositions.Count; i++)
-        {
-            _gameObjectList[i].transform.position = _defaulPositions[i] + (Vector3.up * Random.Range(20, 100));
-        }
+	private void MoveToDefaultPosition()
+	{
+		for (int i = 0; i < _defaulPositions.Count; i++)
+		{
+			_gameObjectList[i].transform.position = Vector3.Lerp(_gameObjectList[i].transform.position, _defaulPositions[i], _speed);
+		}
 
-        _referenceObject.transform.position = _referenceObjectDefaultPosition - Vector3.up * 20;
-    }
+		_referenceObject.transform.position = Vector3.Lerp(_referenceObject.transform.position, _referenceObjectDefaultPosition, _speed * 2);
+	}
 
-    private void MoveToDefaultPosition()
-    {
-        for (int i = 0; i < _defaulPositions.Count; i++)
-        {
-            _gameObjectList[i].transform.position = Vector3.Lerp(_gameObjectList[i].transform.position, _defaulPositions[i], _speed);
-        }
+	public void ResetShowcase()
+	{
+		_shuffle = true;
+		_activated = false;
 
-        _referenceObject.transform.position = Vector3.Lerp(_referenceObject.transform.position, _referenceObjectDefaultPosition, _speed * 2);
-    }
-    private void Update()
-    {
-        if (_activated)
-        {
-            MoveToDefaultPosition();
-            _referenceObject.SetActive(true);
-            Destroy(GetComponent<MeshRenderer>());
-        }
-        else
-        {
-            _referenceObject.SetActive(false);
+		//var allChild = GetComponentInChildren<Transform>();
 
-            var meshRenderer = GetComponent<MeshRenderer>();
+		//foreach (GameObject child in allChild)
+		//{
+		//	if (child.GetComponent<MeshRenderer>() == null)
+		//	{
+		//		child.AddComponent<MeshRenderer>();
+		//	}
 
-            if (meshRenderer != null)
-            {
-                meshRenderer.material = _triggerMaterial;
-                Color lerpColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, _colorLerp));
-                lerpColor.a = Mathf.PingPong(Time.time, _colorLerp);
-                meshRenderer.material.color = lerpColor;
-            }
-            else
-            {
-                gameObject.AddComponent<MeshRenderer>();
-            }
-        }
-
-        if (_shuffle)
-        {
-            ShufflePositions();
-            _shuffle = false;
-            //_activated = false;
-        }
+		//}
+	}
 
 
 
-        //get raycast from touch (android)       
-        for (var i = 0; i < Input.touchCount; ++i)
-        {
-            if (Input.GetTouch(i).phase == TouchPhase.Began)
-            {
-                // Construct a ray from the current touch coordinates
-                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+	private void Update()
+	{
+		if (_activated == true)
+		{
+			MoveToDefaultPosition();
+			_referenceObject.SetActive(true);
 
-                //utlDebugPrint.Inst.print(Input.GetTouch(i).position.ToString());
+			foreach (Transform child in transform)
+			{
+				Destroy(child.gameObject.GetComponent<MeshRenderer>());
+				Destroy(child.GetChild(0).gameObject.GetComponent<MeshRenderer>());
+			}
+		}
+		else
+		{
+			_referenceObject.SetActive(false);
 
-                if (Physics.Raycast(ray))
-                {
-                    _shuffle = true;
-                    _activated = !_activated;
-                    utlDebugPrint.Inst.print(_activated.ToString());
-                }
-            }
-        }
+			foreach (Transform child in transform)
+			{
+				var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
+				if (meshRenderer != null)
+				{
+					//meshRenderer.material = _triggerMaterial;
+					Color lerpColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, _colorLerp));
+					lerpColor.a = Mathf.PingPong(Time.time, _colorLerp);
+					meshRenderer.material.color = lerpColor;
+				}
+				else
+				{
+					child.gameObject.AddComponent<MeshRenderer>();
+					child.gameObject.GetComponent<MeshRenderer>().material = _pinPlastic;
+					child.GetChild(0).gameObject.AddComponent<MeshRenderer>();
+					child.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = _pinMetal;
 
+					//var childChild = child.GetComponentInChildren<Transform>();
+					//if (childChild.GetComponent<MeshRenderer>() == null)
+					//{
+					//	childChild.gameObject.AddComponent<MeshRenderer>();
+					//}
+				}
+			}
+		}
 
-        //mouse interaction for PC debugging
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (_shuffle)
+		{
+			ShufflePositions();
+			_shuffle = false;
+			//_activated = false;
+		}
 
-            //Debug.Log(Input.mousePosition);
+		//get raycast from touch (android)       
+		for (var i = 0; i < Input.touchCount; ++i)
+		{
+			if (Input.GetTouch(i).phase == TouchPhase.Began)
+			{
+				// Construct a ray from the current touch coordinates
+				Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
 
-            if (Physics.Raycast(mRay))
-            {
-                _shuffle = true;
-                _activated = !_activated;
-            }
-        }
-    }
+				//utlDebugPrint.Inst.print(Input.GetTouch(i).position.ToString());
+
+				if (Physics.Raycast(ray))
+				{
+					//_shuffle = true;
+					_activated = true;
+					utlDebugPrint.Inst.print(_activated.ToString());
+				}
+			}
+		}
+
+		//mouse interaction for PC debugging
+		if (Input.GetMouseButtonDown(0))
+		{
+			Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			if (Physics.Raycast(mRay))
+			{
+				//_shuffle = true;
+				//_activated = !_activated;
+				_activated = true;
+			}
+		}
+	}
 
 
 

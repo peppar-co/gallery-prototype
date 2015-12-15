@@ -16,4 +16,8 @@ Material:
     serializedVersion: 2
     m_TexEnvs: {}
     m_Floats: {}
-    m_Colors: {}
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 0, g: .420689583, b: 1, a: .533999979}
