@@ -10,6 +10,12 @@ namespace peppar
         [SerializeField]
         private bool _checkInteraction = true;
 
+        [SerializeField]
+        private bool _showViewTargetPosition = false;
+
+        [SerializeField]
+        private GameObject _viewTargetObject;
+
         private ScreenRaycastController _raycastController;
 
         public bool CheckInteraction
@@ -25,15 +31,36 @@ namespace peppar
             }
         }
 
+        public bool ShowViewTargetPosition
+        {
+            get
+            {
+                return _showViewTargetPosition;
+            }
+
+            set
+            {
+                _showViewTargetPosition = value;
+            }
+        }
+
         protected override void Start()
         {
-            
+
         }
 
         protected override void Update()
         {
+            if (CheckInteraction == false && ShowViewTargetPosition == false)
+                return;
+
+            var firstHitAtScreenCenter = _raycastController.FirstHitAtScreenCenter;
+
             if (CheckInteraction)
-                HandleInteractions(InteractionType.LookAt, _raycastController.FirstObjectAtScreenCenter);
+                HandleInteractions(InteractionType.LookAt, firstHitAtScreenCenter.transform);
+
+            if (_viewTargetObject && ShowViewTargetPosition)
+                _viewTargetObject.transform.position = firstHitAtScreenCenter.point;
         }
 
         protected override void Awake()

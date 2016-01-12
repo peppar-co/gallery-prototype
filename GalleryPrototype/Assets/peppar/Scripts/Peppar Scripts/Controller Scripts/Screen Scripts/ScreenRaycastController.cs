@@ -11,9 +11,19 @@ namespace peppar
         [SerializeField]
         private LayerMask _ignoredLayer;
 
+        public RaycastHit FirstHitAtScreenCenter
+        {
+            get { return GetFirstHitAtScreenPos(new Vector2(0.5f, 0.5f)); }
+        }
+
         public Transform FirstObjectAtScreenCenter
         {
             get { return GetFirstObjectAtScreenPos(new Vector2(0.5f, 0.5f)); }
+        }
+
+        public Vector3 FirstHitPosAtScreenCenter
+        {
+            get { return GetFirstHitPosAtScreenPos(new Vector2(0.5f, 0.5f)); }
         }
 
         public RaycastHit GetFirstHitAtScreenPos(Vector2 screenPosition)
