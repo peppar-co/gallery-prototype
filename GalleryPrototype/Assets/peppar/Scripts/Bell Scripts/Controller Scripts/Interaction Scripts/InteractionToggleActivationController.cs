@@ -7,7 +7,7 @@ namespace peppar.bell
     public class InteractionToggleActivationController : BehaviourController, InteractionFunctionality
     {
         [SerializeField]
-        private bool _onlyActiveOnLookAt = false;
+        private bool _onlyToggleOnLookAt = false;
 
         [SerializeField]
         private GameObject[] _activationObjects = new GameObject[1];
@@ -17,9 +17,8 @@ namespace peppar.bell
             if (interactionState == InteractionState.Start)
                 ToggleActivation();
 
-            if (_onlyActiveOnLookAt && interactionState == InteractionState.Stop)
-                SetInactive();
-
+            if (_onlyToggleOnLookAt && interactionState == InteractionState.Stop)
+                ToggleActivation();
         }
 
         private void ToggleActivation()
@@ -27,20 +26,6 @@ namespace peppar.bell
             foreach (var activationObject in _activationObjects)
                 if (activationObject != null)
                     activationObject.SetActive(!activationObject.activeSelf);
-        }
-
-        private void SetActive()
-        {
-            foreach (var activationObject in _activationObjects)
-                if (activationObject != null)
-                    activationObject.SetActive(true);
-        }
-
-        private void SetInactive()
-        {
-            foreach (var activationObject in _activationObjects)
-                if (activationObject != null)
-                    activationObject.SetActive(false);
         }
 
         protected override void Start()

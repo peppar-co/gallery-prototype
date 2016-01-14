@@ -19,7 +19,7 @@ namespace peppar
         private bool _controllCompleteObject = false;
 
         [SerializeField]
-        private List<Transform> _dependentObjects = new List<Transform>();
+        private List<GameObject> _dependentObjects = new List<GameObject>();
 
         private TrackableBehaviour mTrackableBehaviour;
 
@@ -111,9 +111,9 @@ namespace peppar
             if (_dependentObjects == null)
                 return;
 
-            foreach (Transform dependentObject in _dependentObjects)
+            foreach (GameObject dependentObject in _dependentObjects)
             {
-                ChangeObjectStatus(dependentObject, active);
+                ChangeObjectStatus(dependentObject.transform, active);
             }
         }
 
