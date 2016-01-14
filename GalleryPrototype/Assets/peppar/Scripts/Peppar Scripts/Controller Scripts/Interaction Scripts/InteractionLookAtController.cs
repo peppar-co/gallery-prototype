@@ -60,7 +60,7 @@ namespace peppar
                 HandleInteractions(InteractionType.LookAt, firstHitAtScreenCenter.transform);
 
             if (_viewTargetObject && ShowViewTargetPosition)
-                _viewTargetObject.transform.position = firstHitAtScreenCenter.point;
+                _viewTargetObject.transform.position = firstHitAtScreenCenter.point != Vector3.zero ? firstHitAtScreenCenter.point : new Vector3().Undefined();
         }
 
         protected override void Awake()

@@ -21,7 +21,7 @@ namespace peppar.bell
         private void Rotate()
         {
             foreach (var activationObject in _activationObjects)
-                activationObject.transform.Rotate(transform.up, _rotationSpeed);
+                activationObject.transform.Rotate(activationObject.transform.up, _rotationSpeed);
         }
 
         protected override void Start()

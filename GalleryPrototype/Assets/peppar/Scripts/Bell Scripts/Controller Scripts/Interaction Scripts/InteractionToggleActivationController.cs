@@ -25,19 +25,22 @@ namespace peppar.bell
         private void ToggleActivation()
         {
             foreach (var activationObject in _activationObjects)
-                activationObject.SetActive(!activationObject.activeSelf);
+                if (activationObject != null)
+                    activationObject.SetActive(!activationObject.activeSelf);
         }
 
         private void SetActive()
         {
             foreach (var activationObject in _activationObjects)
-                activationObject.SetActive(true);
+                if (activationObject != null)
+                    activationObject.SetActive(true);
         }
 
         private void SetInactive()
         {
             foreach (var activationObject in _activationObjects)
-                activationObject.SetActive(false);
+                if (activationObject != null)
+                    activationObject.SetActive(false);
         }
 
         protected override void Start()
