@@ -7,6 +7,9 @@ namespace peppar.bell
     public class InteractionToggleActivationController : BehaviourController, InteractionFunctionality
     {
         [SerializeField]
+        private InteractionState _toggleOnState = InteractionState.Start;
+
+        [SerializeField]
         private bool _onlyToggleOnLookAt = false;
 
         [SerializeField]
@@ -14,10 +17,12 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if (interactionState == InteractionState.Start)
+            if (_onlyToggleOnLookAt == false && interactionState == _toggleOnState)
+                ToggleActivation();
+            else if(interactionState == InteractionState.Start)
                 ToggleActivation();
 
-            if (_onlyToggleOnLookAt && interactionState == InteractionState.Stop)
+            if (_onlyToggleOnLookAt && _toggleOnState != interactionState && interactionState == InteractionState.Stop)
                 ToggleActivation();
         }
 
