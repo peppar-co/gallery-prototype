@@ -10,8 +10,8 @@ PlayerSettings:
   targetResolution: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: GalleryPrototype
+  companyName: Christoph
+  productName: Bachelor
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -85,7 +85,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleIdentifier: com.peppar.businesscard
+  bundleIdentifier: com.christoph.bachelor
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -94,7 +94,7 @@ PlayerSettings:
   virtualRealitySupported: 0
   productGUID: e2199361cad2da643a61eb9f0d45487f
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 9
+  AndroidMinSdkVersion: 22
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
