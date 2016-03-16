@@ -15,7 +15,7 @@ namespace Vuforia
     /// The VideoTextureRenderer class creates a texture which is used to 
     /// render video background using BTA.
     /// </summary>
-    public class VideoTextureRenderer : VideoTextureRendererAbstractBehaviour
+    public class VideoTextureRenderer : VideoBackgroundAbstractBehaviour
     {
 	
     }
