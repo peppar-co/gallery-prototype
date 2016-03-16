@@ -1,19 +1,27 @@
 ﻿using UnityEngine;
+
 namespace peppar
 {
-    public class ObjectLerpController : BehaviourController
+    [ExecuteInEditMode]
+    [RequireComponent(typeof(ObjectPositionLerpController), typeof(ObjectRotationLerpController))]
+    public class ObjectLerpController : BehaviourController, LerpFunctionality
     {
         [SerializeField]
-        private bool _lerp;
+        private bool _lerp = true;
 
         [SerializeField]
-        private Transform _goalPosition;
+        private Transform _targetTransform;
 
         [SerializeField]
+        [Range(0, 100)]
         private float _lerpSpeed = 10;
 
         [SerializeField]
+        [Range(-1, 10)]
         private float _stopLerpDistance = 0.001f;
+
+        private ObjectPositionLerpController _positionLerpController;
+        private ObjectRotationLerpController _rotationLerpController;
 
         public bool Lerp
         {
@@ -25,17 +33,23 @@ namespace peppar
             set
             {
                 _lerp = value;
+                _positionLerpController.Lerp = value;
+                _rotationLerpController.Lerp = value;
             }
         }
 
-        public Vector3 GoalPosition
+        public Transform TargetTransform
         {
             get
             {
-                if (_goalPosition != null)
-                    return _goalPosition.position;
-                else
-                    return transform.position;
+                return _targetTransform;
+            }
+
+            set
+            {
+                _targetTransform = value;
+                _positionLerpController.TargetTransform = value;
+                _rotationLerpController.TargetTransform = value;
             }
         }
 
@@ -49,6 +63,8 @@ namespace peppar
             set
             {
                 _lerpSpeed = value;
+                _positionLerpController.LerpSpeed = value;
+                _rotationLerpController.LerpSpeed = value;
             }
         }
 
@@ -62,17 +78,39 @@ namespace peppar
             set
             {
                 _stopLerpDistance = value;
+                _positionLerpController.StopLerpDistance = value;
+                _rotationLerpController.StopLerpDistance = value;
             }
         }
 
         public Vector3 Position
         {
-            get { return transform.position; }
+            get
+            {
+                return _positionLerpController.Position;
+            }
         }
 
-        public float DistanceToGoal
+        public Vector3 Rotation
         {
-            get { return Vector3.Distance(Position, GoalPosition); }
+            get
+            {
+                return _rotationLerpController.Rotation;
+            }
+        }
+
+        public float DistanceToTarget
+        {
+            get
+            {
+                return _positionLerpController.DistanceToTarget;
+            }
+        }
+
+        public void SetToTargetAndStopLerp()
+        {
+            _positionLerpController.SetToTargetAndStopLerp();
+            _rotationLerpController.SetToTargetAndStopLerp();
         }
 
         protected override void Start()
@@ -82,13 +120,20 @@ namespace peppar
 
         protected override void Update()
         {
-            if (!Lerp)
-                return;
+#if UNITY_EDITOR
+            Lerp = _lerp;
+            TargetTransform = _targetTransform;
+            LerpSpeed = _lerpSpeed;
+            StopLerpDistance = _stopLerpDistance;
+#endif
+        }
 
-            transform.position = Vector3.Lerp(Position, GoalPosition, LerpSpeed / 100);
+        protected override void Awake()
+        {
+            _positionLerpController = GetComponent<ObjectPositionLerpController>();
+            _rotationLerpController = GetComponent<ObjectRotationLerpController>();
 
-            if (DistanceToGoal <= StopLerpDistance)
-                Lerp = false;
+            HideInInspector(_positionLerpController, _rotationLerpController);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace peppar
 {
@@ -38,6 +39,11 @@ namespace peppar
         }
 
         protected override void Update()
+        {
+
+        }
+
+        protected override void Awake()
         {
 
         }
