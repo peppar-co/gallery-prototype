@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="GSC_Marker" size="10.000000 10.000000" />
     <ImageTarget name="simple_marker" size="1.000000 1.000000" />
+    <ImageTarget name="KARD" size="1.000000 0.692078" />
+    <ImageTarget name="KAR_FRONT" size="1.000000 0.669656" />
+    <ImageTarget name="card" size="1.000000 0.722500" />
+    <ImageTarget name="qr" size="1.000000 1.000000" />
+    <ImageTarget name="png" size="1.000000 0.706956" />
+    <ImageTarget name="pepparLogo" size="1.000000 0.974576" />
+    <ImageTarget name="CasparDavidColor" size="30.000000 21.738281" />
+    <ImageTarget name="CasparDavidBlackWhite" size="30.000000 21.738281" />
   </Tracking>
 </QCARConfig>
