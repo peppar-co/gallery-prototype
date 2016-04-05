@@ -20,6 +20,8 @@ namespace peppar
 
         private float _currentWaitingTime, _timeToMove, _timeAfterLastWaving, _timeToWave;
 
+        public bool Run { get; set; }
+
         private void StartNextAction()
         {
             if (_waiting == false && IsDestinationReached())
@@ -100,6 +102,8 @@ namespace peppar
 
         protected override void Start()
         {
+            Run = false;
+
             if (_navMeshAgent != null)
             {
                 _navMeshAgent.stoppingDistance = _destinationStoppingDistance;
@@ -108,6 +112,11 @@ namespace peppar
 
         protected override void Update()
         {
+            if(Run == false)
+            {
+                return;
+            }
+
             if (_waiting)
             {
                 _currentWaitingTime += Time.deltaTime;
