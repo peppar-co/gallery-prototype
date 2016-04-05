@@ -3,22 +3,23 @@ using System.Collections;
 
 public class BIGWGUIController : MonoBehaviour
 {
-    public GameObject MenuCreateCharacter;
-    public GameObject MenuCreateCharacterName;
-    public GameObject MenuCreateFaceSnapshot;
-    public GameObject MenuIdle;
+    [SerializeField]
+    private Animator GUIStateMachine;
 
-    private void LateUpdate()
+    public void IdleMenu()
     {
-
+        GUIStateMachine.SetInteger("MenuIndex", 0);
     }
-
-
-
-
-
-
-
-
-
+    public void CharacterMenu()
+    {
+        GUIStateMachine.SetInteger("MenuIndex", 1);
+    }
+    public void FaceMenu()
+    {
+        GUIStateMachine.SetInteger("MenuIndex", 2);
+    }
+    public void NameMenu()
+    {
+        GUIStateMachine.SetInteger("MenuIndex", 3);
+    }
 }
