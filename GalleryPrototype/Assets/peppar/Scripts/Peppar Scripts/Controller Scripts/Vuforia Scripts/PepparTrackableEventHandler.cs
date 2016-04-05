@@ -48,12 +48,12 @@ namespace peppar
                 TrackingFound(transform);
             }
 
-            if(TrackingFoundDetailed != null)
+            if (TrackingFoundDetailed != null)
             {
                 TrackingFoundDetailed(transform, newStatus);
             }
 
-            if(_debug || PepparManager.GameController.Debug)
+            if (_debug || PepparManager.GameController.Debug)
             {
                 Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             }
@@ -70,7 +70,7 @@ namespace peppar
                 TrackingLost(transform);
             }
 
-            if(_debug || PepparManager.GameController.Debug)
+            if (_debug || PepparManager.GameController.Debug)
             {
                 Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
             }
@@ -113,7 +113,10 @@ namespace peppar
 
             foreach (GameObject dependentObject in _dependentObjects)
             {
-                ChangeObjectStatus(dependentObject.transform, active);
+                if (dependentObject != null)
+                {
+                    ChangeObjectStatus(dependentObject.transform, active);
+                }
             }
         }
 

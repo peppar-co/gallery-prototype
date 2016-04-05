@@ -12,8 +12,8 @@ namespace peppar.bell
         private class OtherObject
         {
             public string Name = "Other Object";
-            public Transform Transform;
-            public Transform TargetTransform;
+            public Transform Transform = null;
+            public Transform TargetTransform = null;
 
             public ObjectTransformController TransformController
             {
