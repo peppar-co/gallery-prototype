@@ -20,7 +20,19 @@ namespace peppar
 
         private float _currentWaitingTime, _timeToMove, _timeAfterLastWaving, _timeToWave;
 
-        public bool Run { get; set; }
+        private bool _run;
+
+        public bool Run
+        {
+            get
+            { return _run; }
+            set
+            {
+                _run = value;
+                _navMeshAgent.enabled = value;
+
+            }
+        }
 
         private void StartNextAction()
         {
@@ -97,7 +109,7 @@ namespace peppar
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
 
-            UnityEngine.Assertions.Assert.IsNull(_navMeshAgent, "CharacterMoveComponent: NavMeshAgent is null");
+            UnityEngine.Assertions.Assert.IsNotNull(_navMeshAgent, "CharacterMoveComponent: NavMeshAgent is null");
         }
 
         protected override void Start()
@@ -112,7 +124,7 @@ namespace peppar
 
         protected override void Update()
         {
-            if(Run == false)
+            if (Run == false)
             {
                 return;
             }

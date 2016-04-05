@@ -160,7 +160,7 @@ Transform:
   m_Children:
   - {fileID: 455836}
   m_Father: {fileID: 451562}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &409766
 Transform:
   m_ObjectHideFlags: 1
@@ -173,7 +173,7 @@ Transform:
   m_Children:
   - {fileID: 432220}
   m_Father: {fileID: 451562}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &414540
 Transform:
   m_ObjectHideFlags: 1
@@ -198,7 +198,7 @@ Transform:
   m_Children:
   - {fileID: 484084}
   m_Father: {fileID: 451562}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &432220
 Transform:
   m_ObjectHideFlags: 1
@@ -223,7 +223,7 @@ Transform:
   m_Children:
   - {fileID: 414540}
   m_Father: {fileID: 451562}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &451562
 Transform:
   m_ObjectHideFlags: 1
@@ -231,13 +231,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.119, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
-  - {fileID: 447676}
   - {fileID: 404476}
-  - {fileID: 415658}
+  - {fileID: 447676}
   - {fileID: 409766}
+  - {fileID: 415658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &455836
@@ -441,14 +441,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hairObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 139706, guid: 00139827c845b3b40965cf383133eafb, type: 2}
+  - {fileID: 159502, guid: 7a25e0a424848cb45b87f8533da3f580, type: 2}
   _pantsObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 187296, guid: b0ced6cff83736d4f8173217da8f4b75, type: 2}
+  - {fileID: 149114, guid: 04a3912875153ac43b38e2758f285128, type: 2}
   _shirtObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 146718, guid: 77aafb84e227d6446a07c48e2448fc62, type: 2}
+  - {fileID: 106244, guid: c2e3af69c244ffb41b3b7b8db7fd1713, type: 2}
   _faceObject: {fileID: 105784}
   _hairObjectParent: {fileID: 447676}
   _pantsObjectParent: {fileID: 409766}

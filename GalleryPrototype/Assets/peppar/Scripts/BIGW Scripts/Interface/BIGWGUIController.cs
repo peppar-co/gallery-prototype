@@ -22,4 +22,12 @@ public class BIGWGUIController : MonoBehaviour
     {
         GUIStateMachine.SetInteger("MenuIndex", 3);
     }
+
+    public void FinishCharacterCreation()
+    {
+        /// TODO instantiate character and kill the temporary one
+    }
+
+
+
 }
