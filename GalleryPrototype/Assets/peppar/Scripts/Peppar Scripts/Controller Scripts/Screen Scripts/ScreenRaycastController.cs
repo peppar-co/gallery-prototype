@@ -28,6 +28,8 @@ namespace peppar
 
         public RaycastHit GetFirstHitAtScreenPos(Vector2 screenPosition)
         {
+            SetCameraToDefaultIfNull();
+
             Ray ray = _camera.ViewportPointToRay(new Vector3(screenPosition.x, screenPosition.y));
             RaycastHit hit;
 
@@ -64,10 +66,15 @@ namespace peppar
             return new Vector2(screenPosition.x, screenPosition.y);
         }
 
-        protected override void Start()
+        private void SetCameraToDefaultIfNull()
         {
             if (_camera == null)
                 _camera = Camera.main;
+        }
+
+        protected override void Start()
+        {
+            SetCameraToDefaultIfNull();
         }
 
         protected override void Update()

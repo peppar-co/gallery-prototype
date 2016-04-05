@@ -52,7 +52,9 @@ namespace peppar
         protected override void Update()
         {
             if (CheckInteraction == false && ShowViewTargetPosition == false)
+            {
                 return;
+            }
 
             var firstHitAtScreenCenter = _raycastController.FirstHitAtScreenCenter;
 
@@ -60,7 +62,14 @@ namespace peppar
                 HandleInteractions(InteractionType.LookAt, firstHitAtScreenCenter.transform);
 
             if (_viewTargetObject && ShowViewTargetPosition)
+            {
+                _viewTargetObject.SetActive(true);
                 _viewTargetObject.transform.position = firstHitAtScreenCenter.point != Vector3.zero ? firstHitAtScreenCenter.point : new Vector3().Undefined();
+            }
+            else if(_viewTargetObject)
+            {
+                _viewTargetObject.SetActive(false);
+            }
         }
 
         protected override void Awake()
