@@ -8,6 +8,9 @@ namespace peppar
     public class CharacterCreator : BehaviourController
     {
         [SerializeField]
+        private Camera _vuforiaCamera, _guiCamera;
+
+        [SerializeField]
         private GameObject _characterPrefab;
 
         [SerializeField]
@@ -24,6 +27,8 @@ namespace peppar
 
         public void StartCharacterCreation()
         {
+            SwitchCameras();
+
             _currentCharacterObject = Instantiate(_characterPrefab);
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterObject.transform.position = _creationPosition.position;
@@ -31,13 +36,23 @@ namespace peppar
 
         public void CancelCharacterCreation()
         {
+            SwitchCameras();
             Destroy(_currentCharacterObject);
         }
 
         public void FinishCharacterCreation()
         {
+            SwitchCameras();
+
             _currentCharacterObject.transform.position = _startMovingPosition.position;
+            _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterMoveComponent.Run = true;
+        }
+
+        private void SwitchCameras()
+        {
+            _vuforiaCamera.enabled = !_vuforiaCamera.enabled;
+            _guiCamera.enabled = !_guiCamera.enabled;
         }
 
         public void SetFace()
