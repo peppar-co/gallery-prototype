@@ -172,6 +172,7 @@ GameObject:
   - 195: {fileID: 19549822}
   - 114: {fileID: 11483072}
   - 114: {fileID: 11411474}
+  - 114: {fileID: 11423828}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -531,6 +532,26 @@ MonoBehaviour:
   _lookAtController: {fileID: 11447660}
   _defaultFaceMaterial: {fileID: 2100000, guid: d910d0bda132d0b4bad30a54e3b87ed8,
     type: 2}
+--- !u!114 &11423828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194576}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1402965e102e7ea4c8adc21263f4e867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transformIsTarget: 1
+  _lookAtTarget: {fileID: 0}
+  _lookAtPosition: {x: 0, y: 0, z: 0}
+  _x: 1
+  _y: 1
+  _z: 1
+  _flipForward: 0
+  _smooth: 1
+  _lerpSpeed: 10
 --- !u!114 &11447660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -564,9 +585,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundLengthX: 10
   _groundLengthY: 10
-  _maxTimeToWave: 1
-  _maxTimeToMove: 3
+  _maxTimeToWave: 5
+  _maxTimeToMove: 10
   _destinationStoppingDistance: 0
+  _nearToVuforiaCamera: 5
 --- !u!195 &19549822
 NavMeshAgent:
   m_ObjectHideFlags: 1

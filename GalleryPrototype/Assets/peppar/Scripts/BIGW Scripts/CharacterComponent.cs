@@ -44,8 +44,7 @@ namespace peppar
 
         public void SetFace(Texture2D faceTexture)
         {
-            _faceMaterial = _defaultFaceMaterial;
-            _faceMaterial.mainTexture = faceTexture;
+            _faceMaterial.mainTexture = Instantiate(faceTexture);
             FaceObject.GetComponent<Renderer>().material = _faceMaterial;
         }
 
@@ -55,7 +54,6 @@ namespace peppar
             _nameTagText.text = name;
             _lookAtController.LookAtTarget = vufCamera.transform;
             _lookAtController.enabled = true;
-
         }
 
         private void SetHair(int index)
@@ -171,6 +169,8 @@ namespace peppar
             SetHair(_hairIndex);
             SetPants(_pantsIndex);
             SetShirt(_shirtIndex);
+
+            _faceMaterial = Instantiate(_defaultFaceMaterial);
         }
 
         protected override void Update()

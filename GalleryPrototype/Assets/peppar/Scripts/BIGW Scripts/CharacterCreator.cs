@@ -34,7 +34,7 @@ namespace peppar
         public void StartCharacterCreation()
         {
             _currentCharacterObject = Instantiate(_characterPrefab);
-            
+
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
             _currentCharacterObject.transform.position = _creationPosition.position;
