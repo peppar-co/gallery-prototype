@@ -89,10 +89,9 @@ GameObject:
   - 20: {fileID: 2025270}
   - 114: {fileID: 11491168}
   - 92: {fileID: 9201194}
-  - 124: {fileID: 12421126}
   - 114: {fileID: 11488224}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Vuf Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +238,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.05
+  near clip plane: 0.01
   far clip plane: 2000
   field of view: 51
   orthographic: 0
@@ -666,13 +665,6 @@ MonoBehaviour:
   _mouseInteraction: 1
   _touchInteraction: 0
   _checkInteraction: 0
---- !u!124 &12421126
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151872}
-  m_Enabled: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

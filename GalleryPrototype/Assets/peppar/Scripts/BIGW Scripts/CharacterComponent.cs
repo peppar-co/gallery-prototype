@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace peppar
 {
@@ -17,6 +18,9 @@ namespace peppar
 
         [SerializeField]
         private GameObject _hairPlaceholder, _pantsPlaceholder, _shirtPlaceholder;
+
+        [SerializeField]
+        private Text _nameText;
 
         private GameObject _hairObject, _pantsObject, _shirtObject;
 
@@ -39,6 +43,7 @@ namespace peppar
         public void SetName(string name)
         {
             _name = name;
+            _nameText.text = name;
         }
 
         private void SetHair(int index)

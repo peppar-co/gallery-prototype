@@ -229,8 +229,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.119, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 404476}
   - {fileID: 447676}
@@ -421,6 +421,7 @@ MonoBehaviour:
   _hairPlaceholder: {fileID: 188842}
   _pantsPlaceholder: {fileID: 161906}
   _shirtPlaceholder: {fileID: 114288}
+  _nameText: {fileID: 0}
   _defaultFaceMaterial: {fileID: 2100000, guid: d910d0bda132d0b4bad30a54e3b87ed8,
     type: 2}
 --- !u!114 &11483072
@@ -434,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d114e67a95ae148a9aeae6c0d668b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLengthX: 1
-  _groundLengthY: 1
+  _groundLengthX: 10
+  _groundLengthY: 10
   _maxTimeToWave: 1
   _maxTimeToMove: 3
   _destinationStoppingDistance: 0
@@ -447,10 +448,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 194576}
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Speed: 0.52
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 150
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
