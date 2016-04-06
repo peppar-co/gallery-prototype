@@ -969,7 +969,7 @@ Camera:
   m_GameObject: {fileID: 148952}
   m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.056228384, g: 0.3553633, b: 0.38235295, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -978,7 +978,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 10
+  far clip plane: 5000
   field of view: 30
   orthographic: 0
   orthographic size: 5
@@ -3470,7 +3470,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2009610}
   m_PlaneDistance: 3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
