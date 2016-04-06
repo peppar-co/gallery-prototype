@@ -67,14 +67,12 @@ namespace peppar
         {
             _showPreviewFace = true;
             _currentCharacterObject.transform.position = _faceSnapshotPosition.position;
-            _vuforiaCamera.enabled = true;
         }
 
         public void HidePreviewFace()
         {
             _showPreviewFace = false;
             _currentCharacterObject.transform.position = _creationPosition.position;
-            _vuforiaCamera.enabled = false;
         }
 
         private IEnumerator TakeSnapshot()
