@@ -27,12 +27,12 @@ namespace peppar
 
         private bool _allowTakeSnapshot = true, _showPreviewFace = false;
 
-        Texture2D _faceTexture;
+        private Texture2D _faceTexture;
+
+        private int _previewFaceFrameCount;
 
         public void StartCharacterCreation()
         {
-            SwitchCameras();
-
             _currentCharacterObject = Instantiate(_characterPrefab);
             
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
@@ -42,24 +42,15 @@ namespace peppar
 
         public void CancelCharacterCreation()
         {
-            SwitchCameras();
             Destroy(_currentCharacterObject);
         }
 
         public void FinishCharacterCreation()
         {
-            SwitchCameras();
-
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterMoveComponent.Run = true;
             _currentCharacterObject = null;
-        }
-
-        private void SwitchCameras()
-        {
-            _vuforiaCamera.enabled = !_vuforiaCamera.enabled;
-            _guiCamera.enabled = !_guiCamera.enabled;
         }
 
         public void SetFace()
@@ -107,9 +98,12 @@ namespace peppar
                 return;
             }
 
-            if (_allowTakeSnapshot)
+            _previewFaceFrameCount++;
+
+            if (_allowTakeSnapshot && _previewFaceFrameCount > 4)
             {
                 StartCoroutine(TakeSnapshot());
+                _previewFaceFrameCount = 0;
             }
         }
 
