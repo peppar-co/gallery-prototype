@@ -989,38 +989,6 @@ Prefab:
       propertyPath: _startMovingPosition
       value: 
       objectReference: {fileID: 111987130}
-    - target: {fileID: 175914, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22474004, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22427524, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22427434, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 22417534, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2009610, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2009610, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_ClearFlags
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2009610, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: far clip plane
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
   m_IsPrefabParent: 0
