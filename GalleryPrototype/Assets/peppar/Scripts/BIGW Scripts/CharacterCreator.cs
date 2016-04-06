@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
+using System.Collections;
 using UnityEngine.UI;
 
 namespace peppar
@@ -14,7 +14,7 @@ namespace peppar
         private GameObject _characterPrefab;
 
         [SerializeField]
-        private Transform _creationPosition, _startMovingPosition;
+        private Transform _creationPosition, _startMovingPosition, _faceSnapshotPosition;
 
         [SerializeField]
         private Text _nameText;
@@ -24,6 +24,10 @@ namespace peppar
         private CharacterComponent _currentCharacterComponent;
 
         private CharacterMoveComponent _currentCharacterMoveComponent;
+
+        private bool _allowTakeSnapshot = true, _showPreviewFace = false;
+
+        Texture2D _faceTexture;
 
         public void StartCharacterCreation()
         {
@@ -48,6 +52,7 @@ namespace peppar
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterMoveComponent.Run = true;
+            _currentCharacterObject = null;
         }
 
         private void SwitchCameras()
@@ -58,7 +63,49 @@ namespace peppar
 
         public void SetFace()
         {
-            //_currentCharacterComponent.SetFace();
+            if (_allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot());
+            }
+
+            _showPreviewFace = false;
+        }
+
+        public void ShowPeviewFace()
+        {
+            _showPreviewFace = true;
+        }
+
+        public void HidePreviewFace()
+        {
+            _showPreviewFace = false;
+        }
+
+        private IEnumerator TakeSnapshot()
+        {
+            _allowTakeSnapshot = false;
+
+            yield return new WaitForEndOfFrame();
+
+            _faceTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+            _faceTexture.Apply();
+
+            _currentCharacterComponent.SetFace(_faceTexture);
+
+            _allowTakeSnapshot = true;
+        }
+
+        private void ShowFaceInPreview()
+        {
+            if (_showPreviewFace == false || _currentCharacterObject == null)
+            {
+                return;
+            }
+
+            if (_allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot());
+            }
         }
 
         public void SetName()
@@ -103,12 +150,12 @@ namespace peppar
 
         protected override void Start()
         {
-
+            _faceTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, true);
         }
 
         protected override void Update()
         {
-
+            ShowFaceInPreview();
         }
     }
 }

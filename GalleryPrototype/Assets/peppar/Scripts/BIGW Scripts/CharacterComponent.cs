@@ -35,7 +35,7 @@ namespace peppar
 
         public void SetFace(Texture2D faceTexture)
         {
-            _faceMaterial = new Material(_defaultFaceMaterial);
+            _faceMaterial = _defaultFaceMaterial;
             _faceMaterial.mainTexture = faceTexture;
             _faceObject.GetComponent<Renderer>().material = _faceMaterial;
         }
