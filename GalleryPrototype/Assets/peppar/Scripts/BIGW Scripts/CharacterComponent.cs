@@ -33,11 +33,17 @@ namespace peppar
 
         private string _name;
 
+        public GameObject FaceObject
+        {
+            get { return _faceObject; }
+            set { _faceObject = value; }
+        }
+
         public void SetFace(Texture2D faceTexture)
         {
             _faceMaterial = new Material(_defaultFaceMaterial);
             _faceMaterial.mainTexture = faceTexture;
-            _faceObject.GetComponent<Renderer>().material = _faceMaterial;
+            FaceObject.GetComponent<Renderer>().material = _faceMaterial;
         }
 
         public void SetName(string name)
@@ -48,7 +54,7 @@ namespace peppar
 
         private void SetHair(int index)
         {
-            if(_hairObject != null)
+            if (_hairObject != null)
             {
                 Destroy(_hairObject);
             }
@@ -123,7 +129,7 @@ namespace peppar
 
         private int NextIndex(int currentIndex, int count)
         {
-            if(currentIndex + 1 >= count)
+            if (currentIndex + 1 >= count)
             {
                 return 0;
             }
@@ -133,7 +139,7 @@ namespace peppar
 
         private int PreviousIndex(int currentIndex, int count)
         {
-            if(currentIndex - 1 < 0)
+            if (currentIndex - 1 < 0)
             {
                 return count - 1;
             }

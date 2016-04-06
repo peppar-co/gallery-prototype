@@ -17,5 +17,7 @@ EditorBuildSettings:
     path: Assets/peppar/Scenes/defaulttest.unity
   - enabled: 0
     path: Assets/peppar/Scenes/Greyboxing Chris.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/peppar/Scenes/BIGWMain.unity
+  - enabled: 1
+    path: Assets/peppar/Scenes/BIGWChris.unity

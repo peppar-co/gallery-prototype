@@ -17,7 +17,7 @@ namespace peppar
         private Transform _creationPosition, _startMovingPosition;
 
         [SerializeField]
-        private Text _nameText;
+        private TextMesh _nameText;
 
         private GameObject _currentCharacterObject;
 
@@ -33,6 +33,7 @@ namespace peppar
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
             _currentCharacterObject.transform.position = _creationPosition.position;
+            _guiCamera.GetComponent<FaceSnapshot>().FaceGameObject = _currentCharacterComponent.FaceObject;
         }
 
         public void CancelCharacterCreation()
