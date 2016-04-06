@@ -20,7 +20,10 @@ namespace peppar
         private GameObject _hairPlaceholder, _pantsPlaceholder, _shirtPlaceholder;
 
         [SerializeField]
-        private Text _nameText;
+        private TextMesh _nameTagText;
+
+        [SerializeField]
+        private ObjectLookAtController _lookAtController;
 
         private GameObject _hairObject, _pantsObject, _shirtObject;
 
@@ -41,15 +44,18 @@ namespace peppar
 
         public void SetFace(Texture2D faceTexture)
         {
-            _faceMaterial = new Material(_defaultFaceMaterial);
+            _faceMaterial = _defaultFaceMaterial;
             _faceMaterial.mainTexture = faceTexture;
             FaceObject.GetComponent<Renderer>().material = _faceMaterial;
         }
 
-        public void SetName(string name)
+        public void SetName(string name, Camera vufCamera)
         {
             _name = name;
-            _nameText.text = name;
+            _nameTagText.text = name;
+            _lookAtController.LookAtTarget = vufCamera.transform;
+            _lookAtController.enabled = true;
+
         }
 
         private void SetHair(int index)

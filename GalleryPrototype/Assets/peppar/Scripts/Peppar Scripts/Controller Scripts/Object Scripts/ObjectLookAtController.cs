@@ -23,8 +23,10 @@ namespace peppar
         private bool _y = true;
         [SerializeField]
         private bool _z = true;
-
         [Space]
+
+        [SerializeField]
+        private bool _flipForward = false;
 
         [SerializeField]
         private bool _smooth = true;
@@ -102,6 +104,11 @@ namespace peppar
             }
 
             CorrectStaticAxes(rotationBefore);
+
+            if (_flipForward == true)
+            {
+                transform.forward = -transform.forward;
+            }
         }
 
         private void LookAt(Transform target)

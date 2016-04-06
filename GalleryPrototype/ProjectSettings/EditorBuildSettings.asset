@@ -4,20 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/VRTestMike.unity
-  - enabled: 0
-    path: Assets/Scenes/Vuforia-FrameMarkers.unity
-  - enabled: 0
-    path: Assets/peppar/Scenes/Main.unity
-  - enabled: 0
-    path: Assets/peppar/Scenes/Greyboxing.unity
-  - enabled: 0
-    path: Assets/peppar/Scenes/defaulttest.unity
-  - enabled: 0
-    path: Assets/peppar/Scenes/Greyboxing Chris.unity
-  - enabled: 0
-    path: Assets/peppar/Scenes/BIGWMain.unity
-  - enabled: 1
-    path: Assets/peppar/Scenes/BIGWChris.unity
+  m_Scenes: []

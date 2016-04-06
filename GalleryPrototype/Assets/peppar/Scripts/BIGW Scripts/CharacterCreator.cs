@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
+using System.Collections;
 using UnityEngine.UI;
 
 namespace peppar
@@ -14,10 +14,10 @@ namespace peppar
         private GameObject _characterPrefab;
 
         [SerializeField]
-        private Transform _creationPosition, _startMovingPosition;
+        private Transform _creationPosition, _startMovingPosition, _faceSnapshotPosition;
 
         [SerializeField]
-        private TextMesh _nameText;
+        private Text _nameInputText;
 
         private GameObject _currentCharacterObject;
 
@@ -25,15 +25,19 @@ namespace peppar
 
         private CharacterMoveComponent _currentCharacterMoveComponent;
 
+        private bool _allowTakeSnapshot = true, _showPreviewFace = false;
+
+        Texture2D _faceTexture;
+
         public void StartCharacterCreation()
         {
             SwitchCameras();
 
             _currentCharacterObject = Instantiate(_characterPrefab);
+            
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
             _currentCharacterObject.transform.position = _creationPosition.position;
-            _guiCamera.GetComponent<FaceSnapshot>().FaceGameObject = _currentCharacterComponent.FaceObject;
         }
 
         public void CancelCharacterCreation()
@@ -49,6 +53,7 @@ namespace peppar
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterMoveComponent.Run = true;
+            _currentCharacterObject = null;
         }
 
         private void SwitchCameras()
@@ -59,12 +64,58 @@ namespace peppar
 
         public void SetFace()
         {
-            //_currentCharacterComponent.SetFace();
+            if (_allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot());
+            }
+
+            _showPreviewFace = false;
+        }
+
+        public void ShowPreviewFace()
+        {
+            _showPreviewFace = true;
+            _currentCharacterObject.transform.position = _faceSnapshotPosition.position;
+            _vuforiaCamera.enabled = true;
+        }
+
+        public void HidePreviewFace()
+        {
+            _showPreviewFace = false;
+            _currentCharacterObject.transform.position = _creationPosition.position;
+            _vuforiaCamera.enabled = false;
+        }
+
+        private IEnumerator TakeSnapshot()
+        {
+            _allowTakeSnapshot = false;
+
+            yield return new WaitForEndOfFrame();
+
+            _faceTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+            _faceTexture.Apply();
+
+            _currentCharacterComponent.SetFace(_faceTexture);
+
+            _allowTakeSnapshot = true;
+        }
+
+        private void ShowFaceInPreview()
+        {
+            if (_showPreviewFace == false || _currentCharacterObject == null)
+            {
+                return;
+            }
+
+            if (_allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot());
+            }
         }
 
         public void SetName()
         {
-            _currentCharacterComponent.SetName(_nameText.text);
+            _currentCharacterComponent.SetName(_nameInputText.text, _vuforiaCamera);
         }
 
         public void NextHair()
@@ -104,12 +155,12 @@ namespace peppar
 
         protected override void Start()
         {
-
+            _faceTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, true);
         }
 
         protected override void Update()
         {
-
+            ShowFaceInPreview();
         }
     }
 }
