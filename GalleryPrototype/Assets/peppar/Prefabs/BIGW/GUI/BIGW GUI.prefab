@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &178546
 GameObject:
   m_ObjectHideFlags: 1
@@ -905,10 +905,10 @@ Transform:
   m_Children:
   - {fileID: 414312}
   - {fileID: 420910}
+  - {fileID: 22474004}
   - {fileID: 22417534}
   - {fileID: 22427434}
   - {fileID: 22427524}
-  - {fileID: 22474004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &414312
@@ -967,9 +967,9 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148952}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.056228384, g: 0.3553633, b: 0.38235295, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -978,7 +978,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 5000
+  far clip plane: 100
   field of view: 30
   orthographic: 0
   orthographic size: 5
@@ -3706,7 +3706,7 @@ RectTransform:
   - {fileID: 22487170}
   - {fileID: 22448658}
   m_Father: {fileID: 409742}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3777,7 +3777,7 @@ RectTransform:
   m_Children:
   - {fileID: 22481018}
   m_Father: {fileID: 409742}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3796,7 +3796,7 @@ RectTransform:
   - {fileID: 22445256}
   - {fileID: 22415764}
   m_Father: {fileID: 409742}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4186,7 +4186,7 @@ RectTransform:
   m_Children:
   - {fileID: 22441562}
   m_Father: {fileID: 409742}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
