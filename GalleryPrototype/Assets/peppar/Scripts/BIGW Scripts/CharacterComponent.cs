@@ -8,16 +8,15 @@ namespace peppar
     public class CharacterComponent : BehaviourController
     {
         [SerializeField]
-        private List<GameObject> _hairObjects, _pantsObjects, _shirtObjects;
-
-        [SerializeField]
         private GameObject _faceObject;
 
         [SerializeField]
-        private Transform _hairObjectParent, _pantsObjectParent, _shirtObjectParent;
+        private Transform _hairObjectParent, _pantsObjectParent, _shirtObjectParent,
+            _rightHandObjectParent, _leftHandObjectParent;
 
         [SerializeField]
-        private GameObject _hairPlaceholder, _pantsPlaceholder, _shirtPlaceholder;
+        private GameObject _hairPlaceholder, _pantsPlaceholder, _shirtPlaceholder,
+            _rightHandPlaceholder, _leftHandPlaceholder;
 
         [SerializeField]
         private TextMesh _nameTagText;
@@ -25,27 +24,21 @@ namespace peppar
         [SerializeField]
         private ObjectLookAtController _lookAtController;
 
-        private GameObject _hairObject, _pantsObject, _shirtObject;
-
-        private int _faceIndex, _hairIndex, _pantsIndex, _shirtIndex;
+        private GameObject _headObject, _pantsObject, _shirtObject,
+            _rightHandObject, _leftHandObject,
+            _shirtPictureObject, _rightGadgetPictureObject, _leftGadgetPictureObject;
 
         [SerializeField]
-        private Material _defaultFaceMaterial;
+        private Material _defaultPictureMaterial;
 
-        private Material _faceMaterial;
+        private Material _faceMaterial, _shirtMaterial, _rightGadgetMaterial, _leftGadgetMaterial;
 
         private string _name;
 
-        public GameObject FaceObject
-        {
-            get { return _faceObject; }
-            set { _faceObject = value; }
-        }
-
-        public void SetFace(Texture2D faceTexture)
+        public void SetFace(Texture faceTexture)
         {
             _faceMaterial.mainTexture = Instantiate(faceTexture);
-            FaceObject.GetComponent<Renderer>().material = _faceMaterial;
+            _faceObject.GetComponent<Renderer>().material = _faceMaterial;
         }
 
         public void SetName(string name, Camera vufCamera)
@@ -56,80 +49,86 @@ namespace peppar
             _lookAtController.enabled = true;
         }
 
-        private void SetHair(int index)
+        public void SetHead(GameObject headObject)
         {
-            if (_hairObject != null)
+            if (_headObject != null)
             {
-                Destroy(_hairObject);
+                Destroy(_headObject);
             }
 
-            _hairObject = Instantiate(_hairObjects[index]);
-            _hairObject.transform.SetParent(_hairObjectParent);
-            _hairObject.transform.localPosition = Vector3.zero;
-            _hairObject.transform.localScale = Vector3.one;
+            _headObject = Instantiate(headObject);
+            _headObject.transform.SetParent(_hairObjectParent);
+            _headObject.transform.localPosition = Vector3.zero;
+            _headObject.transform.localScale = Vector3.one;
         }
 
-        public void NextHair()
-        {
-            _hairIndex = NextIndex(_hairIndex, _hairObjects.Count);
-            SetHair(_hairIndex);
-        }
-
-        public void PreviousHair()
-        {
-            _hairIndex = PreviousIndex(_hairIndex, _hairObjects.Count);
-            SetHair(_hairIndex);
-        }
-
-        private void SetPants(int index)
+        public void SetPants(GameObject pantsObject)
         {
             if (_pantsObject != null)
             {
                 Destroy(_pantsObject);
             }
 
-            _pantsObject = Instantiate(_pantsObjects[index]);
+            _pantsObject = Instantiate(pantsObject);
             _pantsObject.transform.SetParent(_pantsObjectParent);
             _pantsObject.transform.localPosition = Vector3.zero;
             _pantsObject.transform.localScale = Vector3.one;
         }
 
-        public void NextPants()
-        {
-            _pantsIndex = NextIndex(_pantsIndex, _pantsObjects.Count);
-            SetPants(_pantsIndex);
-        }
-
-        public void PreviousPants()
-        {
-            _pantsIndex = PreviousIndex(_pantsIndex, _pantsObjects.Count);
-            SetPants(_pantsIndex);
-        }
-
-        private void SetShirt(int index)
+        public void SetShirt(GameObject shirtObject)
         {
             if (_shirtObject != null)
             {
                 Destroy(_shirtObject);
             }
 
-            _shirtObject = Instantiate(_shirtObjects[index]);
+            _shirtObject = Instantiate(shirtObject);
             _shirtObject.transform.SetParent(_shirtObjectParent);
             _shirtObject.transform.localPosition = Vector3.zero;
             _shirtObject.transform.localScale = Vector3.one;
         }
 
-        public void NextShirt()
+        public void SetShirtPicture(Texture shirtTexture)
         {
-            _shirtIndex = NextIndex(_shirtIndex, _shirtObjects.Count);
-            SetShirt(_shirtIndex);
+            _shirtPictureObject = _shirtObject.transform.GetChild(0).gameObject;
+
+            if(_shirtPictureObject == null)
+            {
+                Debug.LogError("Shirt object: Picture object is missing");
+                return;
+            }
+
+            _shirtMaterial.mainTexture = Instantiate(shirtTexture);
+            _shirtPictureObject.GetComponent<Renderer>().material = _shirtMaterial;
         }
 
-        public void PreviousShirt()
+        public void SetRightHand(GameObject rightHandObject)
         {
-            _shirtIndex = PreviousIndex(_shirtIndex, _shirtObjects.Count);
-            SetShirt(_shirtIndex);
+            if (_rightHandObject != null)
+            {
+                Destroy(_rightHandObject);
+            }
+
+            _rightHandObject = Instantiate(rightHandObject);
+            _rightHandObject.transform.SetParent(_rightHandObjectParent);
+            _rightHandObject.transform.localPosition = Vector3.zero;
+            _rightHandObject.transform.localScale = Vector3.one;
         }
+
+        public void SetLeftHand(GameObject leftHandObject)
+        {
+            if (_leftHandObject != null)
+            {
+                Destroy(_leftHandObject);
+            }
+
+            _leftHandObject = Instantiate(leftHandObject);
+            _leftHandObject.transform.SetParent(_leftHandObjectParent);
+            _leftHandObject.transform.localPosition = Vector3.zero;
+            _leftHandObject.transform.localScale = Vector3.one;
+        }
+
+        // TODO: set picture for gadgets
 
         private int NextIndex(int currentIndex, int count)
         {
@@ -161,16 +160,13 @@ namespace peppar
             Destroy(_hairPlaceholder);
             Destroy(_pantsPlaceholder);
             Destroy(_shirtPlaceholder);
+            Destroy(_rightHandPlaceholder);
+            Destroy(_leftHandPlaceholder);
 
-            _hairIndex = Random.Range(0, _hairObjects.Count);
-            _pantsIndex = Random.Range(0, _pantsObjects.Count);
-            _shirtIndex = Random.Range(0, _shirtObjects.Count);
-
-            SetHair(_hairIndex);
-            SetPants(_pantsIndex);
-            SetShirt(_shirtIndex);
-
-            _faceMaterial = Instantiate(_defaultFaceMaterial);
+            _faceMaterial = Instantiate(_defaultPictureMaterial);
+            _shirtMaterial = Instantiate(_defaultPictureMaterial);
+            _rightGadgetMaterial = Instantiate(_defaultPictureMaterial);
+            _leftGadgetMaterial = Instantiate(_defaultPictureMaterial);
         }
 
         protected override void Update()
