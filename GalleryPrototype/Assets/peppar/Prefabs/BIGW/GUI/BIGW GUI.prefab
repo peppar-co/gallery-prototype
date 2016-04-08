@@ -1809,21 +1809,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &133612
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 466182}
-  m_Layer: 0
-  m_Name: Creation Position
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &133962
 GameObject:
   m_ObjectHideFlags: 1
@@ -5434,7 +5419,6 @@ Transform:
   m_LocalPosition: {x: 4.8, y: 9.41, z: 13.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 466182}
   - {fileID: 457646}
   m_Father: {fileID: 409742}
   m_RootOrder: 0
@@ -5458,18 +5442,6 @@ Transform:
   m_GameObject: {fileID: 168372}
   m_LocalRotation: {x: 0, y: -0.1284817, z: 0, w: 0.9917119}
   m_LocalPosition: {x: -1.234, y: -1.404, z: 4.546}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 414312}
-  m_RootOrder: 1
---- !u!4 &466182
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.08, z: 4.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 414312}
@@ -8365,7 +8337,7 @@ MonoBehaviour:
   _guiCamera: {fileID: 2009610}
   _guiAnimator: {fileID: 9529430}
   _characterPrefab: {fileID: 162026, guid: 06b52618b71539744ad40ff481460607, type: 2}
-  _creationPosition: {fileID: 466182}
+  _creationPosition: {fileID: 0}
   _startMovingPosition: {fileID: 0}
   _nameInputText: {fileID: 11497804}
   _shirtInputText: {fileID: 0}
