@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using peppar.bell;
 
 namespace peppar
 {
@@ -11,11 +12,11 @@ namespace peppar
         private GameObject _faceObject;
 
         [SerializeField]
-        private Transform _hairObjectParent, _pantsObjectParent, _shirtObjectParent,
+        private Transform _headObjectParent, _pantsObjectParent, _shirtObjectParent,
             _rightHandObjectParent, _leftHandObjectParent;
 
         [SerializeField]
-        private GameObject _hairPlaceholder, _pantsPlaceholder, _shirtPlaceholder,
+        private GameObject _headPlaceholder, _pantsPlaceholder, _shirtPlaceholder,
             _rightHandPlaceholder, _leftHandPlaceholder;
 
         [SerializeField]
@@ -57,7 +58,7 @@ namespace peppar
             }
 
             _headObject = Instantiate(headObject);
-            _headObject.transform.SetParent(_hairObjectParent);
+            _headObject.transform.SetParent(_headObjectParent);
             _headObject.transform.localPosition = Vector3.zero;
             _headObject.transform.localScale = Vector3.one;
         }
@@ -102,7 +103,7 @@ namespace peppar
             _shirtPictureObject.GetComponent<Renderer>().material = _shirtMaterial;
         }
 
-        public void SetRightHand(GameObject rightHandObject)
+        public void SetRightHand(GameObject rightHandObject, GameObject rightGadgetGui)
         {
             if (_rightHandObject != null)
             {
@@ -113,9 +114,12 @@ namespace peppar
             _rightHandObject.transform.SetParent(_rightHandObjectParent);
             _rightHandObject.transform.localPosition = Vector3.zero;
             _rightHandObject.transform.localScale = Vector3.one;
+
+            InteractionToggleActivationController toggleActivationController = _rightHandObject.GetComponent<InteractionToggleActivationController>();
+            toggleActivationController.AddActivationObject(rightGadgetGui);
         }
 
-        public void SetLeftHand(GameObject leftHandObject)
+        public void SetLeftHand(GameObject leftHandObject, GameObject leftGadgetGui)
         {
             if (_leftHandObject != null)
             {
@@ -126,9 +130,38 @@ namespace peppar
             _leftHandObject.transform.SetParent(_leftHandObjectParent);
             _leftHandObject.transform.localPosition = Vector3.zero;
             _leftHandObject.transform.localScale = Vector3.one;
+
+            InteractionToggleActivationController toggleActivationController = _leftHandObject.GetComponent<InteractionToggleActivationController>();
+            toggleActivationController.AddActivationObject(leftGadgetGui);
         }
 
-        // TODO: set picture for gadgets
+        public void SetRightGadgetPicture(Texture rightGadgetTexture)
+        {
+            _rightGadgetPictureObject = _rightHandObject.transform.GetChild(0).GetChild(0).gameObject;
+
+            if (_rightGadgetPictureObject== null)
+            {
+                Debug.LogError("Right gadget object: Picture object is missing");
+                return;
+            }
+
+            _rightGadgetMaterial.mainTexture = Instantiate(rightGadgetTexture);
+            _rightGadgetPictureObject.GetComponent<Renderer>().material = _rightGadgetMaterial;
+        }
+
+        public void SetLeftGadgetPicture(Texture leftGadgetTexture)
+        {
+            _leftGadgetPictureObject = _leftHandObject.transform.GetChild(0).GetChild(0).gameObject;
+
+            if (_leftGadgetPictureObject == null)
+            {
+                Debug.LogError("Left gadget object: Picture object is missing");
+                return;
+            }
+
+            _leftGadgetMaterial.mainTexture = Instantiate(leftGadgetTexture);
+            _leftGadgetPictureObject.GetComponent<Renderer>().material = _leftGadgetMaterial;
+        }
 
         private int NextIndex(int currentIndex, int count)
         {
@@ -150,6 +183,16 @@ namespace peppar
             return currentIndex - 1;
         }
 
+        public void Initialize(GameObject headGui, GameObject pantsGui, GameObject shirtGui,
+            GameObject rightHandGui, GameObject leftHandGui)
+        {
+            _headObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(headGui);
+            _pantsObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(pantsGui);
+            _shirtObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(shirtGui);
+            _rightHandObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(rightHandGui);
+            _leftHandObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(leftHandGui);
+        }
+
         protected override void Awake()
         {
 
@@ -157,7 +200,7 @@ namespace peppar
 
         protected override void Start()
         {
-            Destroy(_hairPlaceholder);
+            Destroy(_headPlaceholder);
             Destroy(_pantsPlaceholder);
             Destroy(_shirtPlaceholder);
             Destroy(_rightHandPlaceholder);

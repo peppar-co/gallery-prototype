@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 namespace peppar.bell
 {
@@ -13,7 +14,25 @@ namespace peppar.bell
         private bool _onlyToggleOnLookAt = false;
 
         [SerializeField]
-        private GameObject[] _activationObjects = new GameObject[1];
+        private List<GameObject> _activationObjects = new List<GameObject>();
+
+        public IEnumerable<GameObject> ActivationObjects
+        {
+            get
+            {
+                return _activationObjects;
+            }
+        }
+
+        public void AddActivationObject(params GameObject[] activationObject)
+        {
+            _activationObjects.AddRange(activationObject);
+        }
+
+        public void RemoveActivationObject(params GameObject[] activationObject)
+        {
+            activationObject.ForEach(o => _activationObjects.Remove(o));
+        }
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
@@ -28,7 +47,7 @@ namespace peppar.bell
 
         private void ToggleActivation()
         {
-            foreach (var activationObject in _activationObjects)
+            foreach (var activationObject in ActivationObjects)
                 if (activationObject != null)
                     activationObject.SetActive(!activationObject.activeSelf);
         }

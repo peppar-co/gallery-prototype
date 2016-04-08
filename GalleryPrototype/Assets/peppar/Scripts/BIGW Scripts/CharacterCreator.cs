@@ -11,6 +11,10 @@ namespace peppar
         private List<GameObject> _headObjects, _pantsObjects, _shirtObjects, _handObjects;
 
         [SerializeField]
+        private GameObject _headGui, _pantsGui, _shirtGui, _rightHandGui, _leftHandGui,
+            _rightGadgetGui, _leftGadgetGui;
+
+        [SerializeField]
         private List<Texture> _faceTextures, _shirtTextures, _gadgetTextures;
 
         [SerializeField]
@@ -41,6 +45,9 @@ namespace peppar
 
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
+
+            _currentCharacterComponent.Initialize(_headGui, _pantsGui, _shirtGui, _rightHandGui, _leftHandGui);
+
             _currentCharacterObject.transform.position = _creationPosition.position;
             _currentCharacterObject.transform.localScale = _creationPosition.localScale;
 
@@ -162,12 +169,12 @@ namespace peppar
 
         public void SetRightHand(int index)
         {
-            _currentCharacterComponent.SetRightHand(_handObjects[index]);
+            _currentCharacterComponent.SetRightHand(_handObjects[index], _rightGadgetGui);
         }
 
         public void SetLeftHand(int index)
         {
-            _currentCharacterComponent.SetLeftHand(_handObjects[index]);
+            _currentCharacterComponent.SetLeftHand(_handObjects[index], _rightGadgetGui);
         }
 
         protected override void Awake()
