@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 namespace peppar
 {
@@ -34,13 +32,17 @@ namespace peppar
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
             if (interactionState == _setIntOnState)
+            {
                 ControllAnimation();
+            }
         }
 
         private void ControllAnimation()
         {
             if (Animator != null)
+            {
                 Animator.SetInteger(_animatorIntID, _setAnimatorIntValueTo);
+            }
         }
 
         protected override void Start()

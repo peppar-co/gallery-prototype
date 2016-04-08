@@ -923,7 +923,7 @@ MonoBehaviour:
   _rightHandPlaceholder: {fileID: 102878}
   _leftHandPlaceholder: {fileID: 166124}
   _nameTagText: {fileID: 10290824}
-  _lookAtController: {fileID: 11417166}
+  _nameLookAtController: {fileID: 0}
   _defaultPictureMaterial: {fileID: 2100000, guid: 5340b9e4468e0e341ab90d45bc1e4b81,
     type: 2}
 --- !u!114 &11489326

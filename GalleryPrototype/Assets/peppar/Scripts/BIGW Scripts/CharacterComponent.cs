@@ -1,8 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using peppar.bell;
 
 namespace peppar
 {
@@ -93,7 +89,7 @@ namespace peppar
         {
             _shirtPictureObject = _shirtObject.transform.GetChild(0).gameObject;
 
-            if(_shirtPictureObject == null)
+            if (_shirtPictureObject == null)
             {
                 Debug.LogError("Shirt object: Picture object is missing");
                 return;
@@ -116,7 +112,11 @@ namespace peppar
             _rightHandObject.transform.localScale = Vector3.one;
 
             InteractionAnimationController interactionAnimationController = _rightHandObject.GetComponent<InteractionAnimationController>();
-            interactionAnimationController.Animator = guiAnimator;
+
+            if (interactionAnimationController != null)
+            {
+                interactionAnimationController.Animator = guiAnimator;
+            }
         }
 
         public void SetLeftHand(GameObject leftHandObject, Animator guiAnimator)
@@ -132,14 +132,18 @@ namespace peppar
             _leftHandObject.transform.localScale = Vector3.one;
 
             InteractionAnimationController interactionAnimationController = _leftHandObject.GetComponent<InteractionAnimationController>();
-            interactionAnimationController.Animator = guiAnimator;
+
+            if (interactionAnimationController != null)
+            {
+                interactionAnimationController.Animator = guiAnimator;
+            }
         }
 
         public void SetRightGadgetPicture(Texture rightGadgetTexture)
         {
             _rightGadgetPictureObject = _rightHandObject.transform.GetChild(0).GetChild(0).gameObject;
 
-            if (_rightGadgetPictureObject== null)
+            if (_rightGadgetPictureObject == null)
             {
                 Debug.LogError("Right gadget object: Picture object is missing");
                 return;
