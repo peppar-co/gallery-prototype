@@ -23,7 +23,7 @@ namespace peppar
         private GameObject _characterPrefab;
 
         [SerializeField]
-        private Transform _creationPosition, _startMovingPosition; // _faceSnapshotPosition;
+        private Transform _creationPosition, _startMovingPosition;//, _snapshotPosition;
 
         [SerializeField]
         private Text _nameInputText, _shirtInputText, _rightGadgetInputText, _leftGadgetInputText;
@@ -33,10 +33,21 @@ namespace peppar
         private CharacterComponent _currentCharacterComponent;
         private CharacterMoveComponent _currentCharacterMoveComponent;
 
-        // Face snapshot
-        private bool _allowTakeSnapshot = true, _showPreviewFace = false;
-        private Texture2D _faceTexture;
-        private int _previewFaceFrameCount;
+        private bool _showPreviewFace = false, _showPreviewShirt = false,
+            _showPreviewRightGadget = false, _showPreviewLeftGadget = false;
+
+        // Snapshot
+        private bool _allowTakeSnapshot = true;
+        private Texture2D _snapshotTexture;
+        private int _previewSnapshotFrameCount;
+
+        private enum SnapshotTexture
+        {
+            Face,
+            Shirt,
+            RightGadget,
+            LeftGadget
+        }
 
         public void StartCharacterCreation()
         {
@@ -84,7 +95,7 @@ namespace peppar
         {
             if (index < 0 && _allowTakeSnapshot)
             {
-                StartCoroutine(TakeSnapshot());
+                StartCoroutine(TakeSnapshot(SnapshotTexture.Face));
             }
             else if (index >= 0)
             {
@@ -106,16 +117,26 @@ namespace peppar
             //_currentCharacterObject.transform.position = _creationPosition.position;
         }
 
-        private IEnumerator TakeSnapshot()
+        private IEnumerator TakeSnapshot(SnapshotTexture snapshotTexture)
         {
             _allowTakeSnapshot = false;
 
             yield return new WaitForEndOfFrame();
 
-            _faceTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-            _faceTexture.Apply();
+            _snapshotTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+            _snapshotTexture.Apply();
 
-            _currentCharacterComponent.SetFace(_faceTexture);
+            switch (snapshotTexture)
+            {
+                case SnapshotTexture.Face:
+                    _currentCharacterComponent.SetFace(_snapshotTexture);
+                    break;
+                case SnapshotTexture.Shirt:
+                    _currentCharacterComponent.SetShirtPicture(_snapshotTexture);
+                    break;
+                    //case SnapshotTexture.RightGadget:
+                    //_currentCharacterComponent.
+            }
 
             _allowTakeSnapshot = true;
         }
@@ -127,12 +148,12 @@ namespace peppar
                 return;
             }
 
-            _previewFaceFrameCount++;
+            _previewSnapshotFrameCount++;
 
-            if (_allowTakeSnapshot && _previewFaceFrameCount > 4)
+            if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
             {
-                StartCoroutine(TakeSnapshot());
-                _previewFaceFrameCount = 0;
+                StartCoroutine(TakeSnapshot(SnapshotTexture.Face));
+                _previewSnapshotFrameCount = 0;
             }
         }
 
@@ -158,7 +179,44 @@ namespace peppar
 
         public void SetShirtPicture(int index)
         {
+            if (index < 0 && _allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot(SnapshotTexture.Shirt));
+            }
+            else if (index >= 0)
+            {
+                _currentCharacterComponent.SetShirtPicture(_shirtTextures[index]);
+            }
 
+            _showPreviewShirt = false;
+        }
+
+        public void ShowPreviewShirt()
+        {
+            _showPreviewShirt = true;
+            //_currentCharacterObject.transform.position = _faceSnapshotPosition.position;
+        }
+
+        public void HidePreviewShirt()
+        {
+            _showPreviewShirt = false;
+            //_currentCharacterObject.transform.position = _creationPosition.position;
+        }
+
+        private void ShowShirtInPreview()
+        {
+            if (_showPreviewShirt == false || _currentCharacterObject == null)
+            {
+                return;
+            }
+
+            _previewSnapshotFrameCount++;
+
+            if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
+            {
+                StartCoroutine(TakeSnapshot(SnapshotTexture.Shirt));
+                _previewSnapshotFrameCount = 0;
+            }
         }
 
         public void SetShirtText(int index)
@@ -176,6 +234,90 @@ namespace peppar
             _currentCharacterComponent.SetLeftHand(_handObjects[index], _guiAnimator);
         }
 
+        public void SetRightGadgetPicture(int index)
+        {
+            if (index < 0 && _allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot(SnapshotTexture.RightGadget));
+            }
+            else if (index >= 0)
+            {
+                _currentCharacterComponent.SetRightGadgetPicture(_gadgetTextures[index]);
+            }
+
+            _showPreviewRightGadget = false;
+        }
+
+        public void ShowPreviewRightGadget()
+        {
+            _showPreviewRightGadget = true;
+            //_currentCharacterObject.transform.position = _faceSnapshotPosition.position;
+        }
+
+        public void HidePreviewRightgGadget()
+        {
+            _showPreviewRightGadget = false;
+            //_currentCharacterObject.transform.position = _creationPosition.position;
+        }
+
+        private void ShowRightGadgetInPreview()
+        {
+            if (_showPreviewRightGadget == false || _currentCharacterObject == null)
+            {
+                return;
+            }
+
+            _previewSnapshotFrameCount++;
+
+            if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
+            {
+                StartCoroutine(TakeSnapshot(SnapshotTexture.RightGadget));
+                _previewSnapshotFrameCount = 0;
+            }
+        }
+
+        public void SetLeftGadgetPicture(int index)
+        {
+            if (index < 0 && _allowTakeSnapshot)
+            {
+                StartCoroutine(TakeSnapshot(SnapshotTexture.LeftGadget));
+            }
+            else if (index >= 0)
+            {
+                _currentCharacterComponent.SetLeftGadgetPicture(_gadgetTextures[index]);
+            }
+
+            _showPreviewLeftGadget = false;
+        }
+
+        public void ShowPreviewLeftGadget()
+        {
+            _showPreviewLeftGadget = true;
+            //_currentCharacterObject.transform.position = _faceSnapshotPosition.position;
+        }
+
+        public void HidePreviewLeftGadget()
+        {
+            _showPreviewLeftGadget = false;
+            //_currentCharacterObject.transform.position = _creationPosition.position;
+        }
+
+        private void ShowLeftGadgetInPreview()
+        {
+            if (_showPreviewLeftGadget == false || _currentCharacterObject == null)
+            {
+                return;
+            }
+
+            _previewSnapshotFrameCount++;
+
+            if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
+            {
+                StartCoroutine(TakeSnapshot(SnapshotTexture.LeftGadget));
+                _previewSnapshotFrameCount = 0;
+            }
+        }
+
         protected override void Awake()
         {
 
@@ -183,12 +325,15 @@ namespace peppar
 
         protected override void Start()
         {
-            _faceTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, true);
+            _snapshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, true);
         }
 
         protected override void Update()
         {
             ShowFaceInPreview();
+            ShowShirtInPreview();
+            ShowRightGadgetInPreview();
+            ShowLeftGadgetInPreview();
         }
     }
 }

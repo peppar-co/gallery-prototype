@@ -23,7 +23,7 @@ namespace peppar
         private TextMesh _nameTagText;
 
         [SerializeField]
-        private ObjectLookAtController _lookAtController;
+        private ObjectLookAtController _nameLookAtController;
 
         private GameObject _headObject, _pantsObject, _shirtObject,
             _rightHandObject, _leftHandObject,
@@ -46,8 +46,8 @@ namespace peppar
         {
             _name = name;
             _nameTagText.text = name;
-            _lookAtController.LookAtTarget = vufCamera.transform;
-            _lookAtController.enabled = true;
+            _nameLookAtController.LookAtTarget = vufCamera.transform;
+            _nameLookAtController.enabled = true;
         }
 
         public void SetHead(GameObject headObject)

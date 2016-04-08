@@ -25,8 +25,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412716}
-  - 114: {fileID: 11457072}
   - 136: {fileID: 13689708}
+  - 114: {fileID: 11406238}
   m_Layer: 0
   m_Name: Gadget Controller
   m_TagString: Untagged
@@ -230,8 +230,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451924}
-  - 114: {fileID: 11488594}
   - 136: {fileID: 13683448}
+  - 114: {fileID: 11455860}
   m_Layer: 0
   m_Name: Gadget Controller
   m_TagString: Untagged
@@ -753,6 +753,21 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4283563978
+--- !u!114 &11406238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 7
 --- !u!114 &11417166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -823,6 +838,21 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 6
+--- !u!114 &11455860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 8
 --- !u!114 &11456450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -838,20 +868,6 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 2
---- !u!114 &11457072
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
 --- !u!114 &11464112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -910,20 +926,6 @@ MonoBehaviour:
   _lookAtController: {fileID: 11417166}
   _defaultPictureMaterial: {fileID: 2100000, guid: 5340b9e4468e0e341ab90d45bc1e4b81,
     type: 2}
---- !u!114 &11488594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
 --- !u!114 &11489326
 MonoBehaviour:
   m_ObjectHideFlags: 1
