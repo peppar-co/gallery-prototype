@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 490916}
   - 135: {fileID: 13540780}
-  - 114: {fileID: 11413268}
+  - 114: {fileID: 11438504}
   m_Layer: 0
   m_Name: Left Hand Controller
   m_TagString: Untagged
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456742}
   - 135: {fileID: 13586192}
-  - 114: {fileID: 11473580}
+  - 114: {fileID: 11489326}
   m_Layer: 0
   m_Name: Pants Controller
   m_TagString: Untagged
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458682}
   - 135: {fileID: 13512626}
-  - 114: {fileID: 11454800}
+  - 114: {fileID: 11456450}
   m_Layer: 0
   m_Name: Head Controller
   m_TagString: Untagged
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 409016}
   - 135: {fileID: 13536446}
-  - 114: {fileID: 11460748}
+  - 114: {fileID: 11428154}
   m_Layer: 0
   m_Name: Right Hand Controller
   m_TagString: Untagged
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 479384}
   - 135: {fileID: 13582746}
-  - 114: {fileID: 11451066}
+  - 114: {fileID: 11464112}
   m_Layer: 0
   m_Name: Shirt Controller
   m_TagString: Untagged
@@ -753,20 +753,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4283563978
---- !u!114 &11413268
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
 --- !u!114 &11417166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,21 +793,37 @@ MonoBehaviour:
   _flipForward: 1
   _smooth: 0
   _lerpSpeed: 10
---- !u!114 &11451066
+--- !u!114 &11428154
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162472}
+  m_GameObject: {fileID: 158066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
---- !u!114 &11454800
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 5
+--- !u!114 &11438504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 6
+--- !u!114 &11456450
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -829,12 +831,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 157536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 2
 --- !u!114 &11457072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -849,20 +852,21 @@ MonoBehaviour:
   _toggleOnState: 0
   _onlyToggleOnLookAt: 1
   _activationObjects: []
---- !u!114 &11460748
+--- !u!114 &11464112
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158066}
+  m_GameObject: {fileID: 162472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 3
 --- !u!114 &11468966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -880,20 +884,6 @@ MonoBehaviour:
   _maxTimeToMove: 10
   _destinationStoppingDistance: 0
   _nearToVuforiaCamera: 5
---- !u!114 &11473580
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d7c3050a2e6ce41b0eaf84ed26bf2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggleOnState: 0
-  _onlyToggleOnLookAt: 1
-  _activationObjects: []
 --- !u!114 &11484024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,6 +924,21 @@ MonoBehaviour:
   _toggleOnState: 0
   _onlyToggleOnLookAt: 1
   _activationObjects: []
+--- !u!114 &11489326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setIntOnState: 0
+  _animator: {fileID: 0}
+  _animatorIntID: MenuIndex
+  _setAnimatorIntValueTo: 4
 --- !u!135 &13512626
 SphereCollider:
   m_ObjectHideFlags: 1
