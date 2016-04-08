@@ -23,7 +23,7 @@ namespace peppar
         private TextMesh _nameTagText;
 
         [SerializeField]
-        private ObjectLookAtController _lookAtController;
+        private ObjectLookAtController _nameLookAtController;
 
         private GameObject _headObject, _pantsObject, _shirtObject,
             _rightHandObject, _leftHandObject,
@@ -46,8 +46,8 @@ namespace peppar
         {
             _name = name;
             _nameTagText.text = name;
-            _lookAtController.LookAtTarget = vufCamera.transform;
-            _lookAtController.enabled = true;
+            _nameLookAtController.LookAtTarget = vufCamera.transform;
+            _nameLookAtController.enabled = true;
         }
 
         public void SetHead(GameObject headObject)
@@ -103,7 +103,7 @@ namespace peppar
             _shirtPictureObject.GetComponent<Renderer>().material = _shirtMaterial;
         }
 
-        public void SetRightHand(GameObject rightHandObject, GameObject rightGadgetGui)
+        public void SetRightHand(GameObject rightHandObject, Animator guiAnimator)
         {
             if (_rightHandObject != null)
             {
@@ -115,11 +115,11 @@ namespace peppar
             _rightHandObject.transform.localPosition = Vector3.zero;
             _rightHandObject.transform.localScale = Vector3.one;
 
-            InteractionToggleActivationController toggleActivationController = _rightHandObject.GetComponent<InteractionToggleActivationController>();
-            toggleActivationController.AddActivationObject(rightGadgetGui);
+            InteractionAnimationController interactionAnimationController = _rightHandObject.GetComponent<InteractionAnimationController>();
+            interactionAnimationController.Animator = guiAnimator;
         }
 
-        public void SetLeftHand(GameObject leftHandObject, GameObject leftGadgetGui)
+        public void SetLeftHand(GameObject leftHandObject, Animator guiAnimator)
         {
             if (_leftHandObject != null)
             {
@@ -131,8 +131,8 @@ namespace peppar
             _leftHandObject.transform.localPosition = Vector3.zero;
             _leftHandObject.transform.localScale = Vector3.one;
 
-            InteractionToggleActivationController toggleActivationController = _leftHandObject.GetComponent<InteractionToggleActivationController>();
-            toggleActivationController.AddActivationObject(leftGadgetGui);
+            InteractionAnimationController interactionAnimationController = _leftHandObject.GetComponent<InteractionAnimationController>();
+            interactionAnimationController.Animator = guiAnimator;
         }
 
         public void SetRightGadgetPicture(Texture rightGadgetTexture)
@@ -183,14 +183,13 @@ namespace peppar
             return currentIndex - 1;
         }
 
-        public void Initialize(GameObject headGui, GameObject pantsGui, GameObject shirtGui,
-            GameObject rightHandGui, GameObject leftHandGui)
+        public void Initialize(Animator guiAnimator)
         {
-            _headObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(headGui);
-            _pantsObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(pantsGui);
-            _shirtObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(shirtGui);
-            _rightHandObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(rightHandGui);
-            _leftHandObjectParent.GetComponent<InteractionToggleActivationController>().AddActivationObject(leftHandGui);
+            _headObjectParent.GetComponent<InteractionAnimationController>().Animator = guiAnimator;
+            _pantsObjectParent.GetComponent<InteractionAnimationController>().Animator = guiAnimator;
+            _shirtObjectParent.GetComponent<InteractionAnimationController>().Animator = guiAnimator;
+            _rightHandObjectParent.GetComponent<InteractionAnimationController>().Animator = guiAnimator;
+            _leftHandObjectParent.GetComponent<InteractionAnimationController>().Animator = guiAnimator;
         }
 
         protected override void Awake()
