@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace peppar
 {
@@ -39,6 +40,18 @@ namespace peppar
 
         private void ControllAnimation()
         {
+            //if (Animator != null)
+            //{
+            //    Animator.SetInteger(_animatorIntID, _setAnimatorIntValueTo);
+            //}
+
+            StartCoroutine(ControllAnimationAtEndOfFrame());
+        }
+
+        private IEnumerator ControllAnimationAtEndOfFrame()
+        {
+            yield return new WaitForEndOfFrame();
+
             if (Animator != null)
             {
                 Animator.SetInteger(_animatorIntID, _setAnimatorIntValueTo);

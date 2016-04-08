@@ -52,6 +52,7 @@ namespace peppar
         public void StartCharacterCreation()
         {
             _currentCharacterObject = Instantiate(_characterPrefab);
+            _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
 
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
@@ -86,7 +87,6 @@ namespace peppar
         {
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.localScale = _startMovingPosition.localScale;
-            _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterMoveComponent.Run = true;
             _currentCharacterObject = null;
         }
