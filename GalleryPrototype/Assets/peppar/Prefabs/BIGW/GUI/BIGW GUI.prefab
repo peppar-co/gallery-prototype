@@ -4015,7 +4015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &174714
 GameObject:
   m_ObjectHideFlags: 1
@@ -5412,9 +5412,9 @@ Transform:
   - {fileID: 420910}
   - {fileID: 22497598}
   - {fileID: 22427434}
-  - {fileID: 22427524}
   - {fileID: 22474004}
   - {fileID: 22437920}
+  - {fileID: 22427524}
   - {fileID: 22442836}
   - {fileID: 22408956}
   - {fileID: 22487384}
@@ -8339,16 +8339,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a23b8982d93725478c8627c41554c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _headObjects: []
-  _pantsObjects: []
-  _shirtObjects: []
-  _handObjects: []
-  _faceTextures: []
-  _shirtTextures: []
-  _gadgetTextures: []
+  _headObjects:
+  - {fileID: 119674, guid: 7f575168611e17f4c84b8492f0f05564, type: 2}
+  - {fileID: 160896, guid: d28333e8a4c6bfa4c9fd39310f5b56da, type: 2}
+  - {fileID: 118140, guid: 119a2d5d42cc3ab48bcda8408ad5476d, type: 2}
+  _pantsObjects:
+  - {fileID: 180694, guid: ef607937ea2280c4daa885777d2e8d8b, type: 2}
+  - {fileID: 181294, guid: b0ced6cff83736d4f8173217da8f4b75, type: 2}
+  - {fileID: 161592, guid: 04a3912875153ac43b38e2758f285128, type: 2}
+  _shirtObjects:
+  - {fileID: 150362, guid: 5c8cad066ad126c41a2915ed72995c2b, type: 2}
+  - {fileID: 136336, guid: 77aafb84e227d6446a07c48e2448fc62, type: 2}
+  - {fileID: 177710, guid: c2e3af69c244ffb41b3b7b8db7fd1713, type: 2}
+  _handObjects:
+  - {fileID: 195278, guid: 8d95bcd760cefae4fb7e82a906f8d8c4, type: 2}
+  - {fileID: 110706, guid: 8834ee6312074d447855dfa0592a19d7, type: 2}
+  - {fileID: 142342, guid: c1d677c586cb859448737c2f946ed8b7, type: 2}
+  _faceTextures:
+  - {fileID: 2800000, guid: b33243defefb98c4d97f5bd9c720a535, type: 3}
+  _shirtTextures:
+  - {fileID: 2800000, guid: b33243defefb98c4d97f5bd9c720a535, type: 3}
+  _gadgetTextures:
+  - {fileID: 2800000, guid: b33243defefb98c4d97f5bd9c720a535, type: 3}
   _vuforiaCamera: {fileID: 0}
   _guiCamera: {fileID: 2009610}
-  _guiAnimator: {fileID: 0}
+  _guiAnimator: {fileID: 9529430}
   _characterPrefab: {fileID: 162026, guid: 06b52618b71539744ad40ff481460607, type: 2}
   _creationPosition: {fileID: 466182}
   _startMovingPosition: {fileID: 0}
@@ -23500,7 +23515,7 @@ RectTransform:
   m_Children:
   - {fileID: 22415764}
   m_Father: {fileID: 409742}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -24043,7 +24058,7 @@ RectTransform:
   m_Children:
   - {fileID: 22409636}
   m_Father: {fileID: 409742}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -26093,7 +26108,7 @@ RectTransform:
   m_Children:
   - {fileID: 22441562}
   m_Father: {fileID: 409742}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
