@@ -3,30 +3,28 @@ using System.Collections;
 
 public class BIGWGUIController : MonoBehaviour
 {
-    [SerializeField]
-    private Animator GUIStateMachine;
+	[SerializeField]
+	private Animator GUIStateMachine;
 
-    public void IdleMenu()
-    {
-        GUIStateMachine.SetInteger("MenuIndex", 0);
-    }
-    public void CharacterMenu()
-    {
-        GUIStateMachine.SetInteger("MenuIndex", 1);
-    }
-    public void FaceMenu()
-    {
-        GUIStateMachine.SetInteger("MenuIndex", 2);
-    }
-    public void NameMenu()
-    {
-        GUIStateMachine.SetInteger("MenuIndex", 3);
-    }
+	public void SetMenuIndex(int index)
+	{
+		GUIStateMachine.SetInteger("MenuIndex", index);
+	}
 
-    public void FinishCharacterCreation()
-    {
-        /// TODO instantiate character and kill the temporary one
-    }
+	public void SetSubMenuIndex(int index)
+	{
+		GUIStateMachine.SetInteger("SubMenuIndex", index);
+	}
+
+	public void SetSubMenuState(bool isInSubMenu)
+	{
+		GUIStateMachine.SetBool("IsInSubMenu", isInSubMenu);
+	}
+	
+	public void FinishCharacterCreation()
+	{
+		/// TODO instantiate character and kill the temporary one
+	}
 
 
 
