@@ -96,6 +96,7 @@ namespace peppar
 
         public void FinishCharacterCreation()
         {
+            Destroy(_currentCharacterComponent);
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.localScale = _startMovingPosition.localScale;
