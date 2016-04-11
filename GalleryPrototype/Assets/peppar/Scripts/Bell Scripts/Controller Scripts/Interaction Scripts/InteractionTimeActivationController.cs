@@ -7,7 +7,7 @@ namespace peppar.bell
     public class InteractionTimeActivationController : BehaviourController, InteractionFunctionality
     {
         [SerializeField]
-        private InteractionState _startTimeOnState = InteractionState.Stop;
+        private InteractionState _startTimeOnState = InteractionState.OnStop;
 
         [SerializeField]
         [Range(0.001f, 30f)]
@@ -20,7 +20,7 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if (interactionState == InteractionState.Start)
+            if (interactionState == InteractionState.OnStart)
                 SetActive();
 
             if (interactionState != _startTimeOnState)

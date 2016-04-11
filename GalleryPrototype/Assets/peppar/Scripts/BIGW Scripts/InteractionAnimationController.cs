@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 namespace peppar
 {
     public class InteractionAnimationController : BehaviourController, InteractionFunctionality
     {
         [SerializeField]
-        private InteractionState _setIntOnState = InteractionState.Start;
+        private InteractionType[] _interactionOnTypes = new InteractionType[] { InteractionType.MouseClick, InteractionType.TouchClick, InteractionType.LookAt };
+
+        [SerializeField]
+        private InteractionState _interactionOnState = InteractionState.OnStart;
 
         [SerializeField]
         private Animator _animator;
@@ -16,6 +20,8 @@ namespace peppar
 
         [SerializeField]
         private int _setAnimatorIntValueTo;
+
+        private bool _interactionOnHover = false;
 
         public Animator Animator
         {
@@ -32,9 +38,25 @@ namespace peppar
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if (interactionState == _setIntOnState)
+            if (_interactionOnTypes.Contains(interactionType) == false)
+            {
+                return;
+            }
+
+            if (interactionState == _interactionOnState && _interactionOnHover == false)
             {
                 ControllAnimation();
+
+                if (interactionState == InteractionState.OnHover)
+                {
+                    _interactionOnHover = true;
+                }
+            }
+
+            if (_interactionOnState == InteractionState.OnHover
+                && interactionState == InteractionState.OnStop)
+            {
+                _interactionOnHover = false;
             }
         }
 

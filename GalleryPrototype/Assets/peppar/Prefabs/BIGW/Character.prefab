@@ -769,7 +769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 010000000200000000000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 7
@@ -804,10 +805,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lerpColorOnState: 0
+  _interactionOnTypes: 00000000
+  _interactionOnState: 1
   _meshRenderer: {fileID: 2383802}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _onlyLerpColorOnInteraction: 1
   _loopColorLerp: 1
   _lerpSpeed: 5
 --- !u!114 &11422280
@@ -841,7 +842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 0100000002000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 5
@@ -856,7 +858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 0100000002000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 6
@@ -871,10 +874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lerpColorOnState: 0
+  _interactionOnTypes: 00000000
+  _interactionOnState: 1
   _meshRenderer: {fileID: 2383802}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _onlyLerpColorOnInteraction: 1
   _loopColorLerp: 1
   _lerpSpeed: 5
 --- !u!114 &11455860
@@ -888,7 +891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 010000000200000000000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 8
@@ -903,7 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 0100000002000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 2
@@ -918,7 +923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 0100000002000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 3
@@ -933,10 +939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lerpColorOnState: 0
+  _interactionOnTypes: 00000000
+  _interactionOnState: 1
   _meshRenderer: {fileID: 2383802}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _onlyLerpColorOnInteraction: 1
   _loopColorLerp: 1
   _lerpSpeed: 5
 --- !u!114 &11468966
@@ -967,10 +973,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lerpColorOnState: 0
+  _interactionOnTypes: 00000000
+  _interactionOnState: 1
   _meshRenderer: {fileID: 2383802}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _onlyLerpColorOnInteraction: 1
   _loopColorLerp: 1
   _lerpSpeed: 5
 --- !u!114 &11484024
@@ -1010,7 +1016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db67bb1f1d78e442b9350ff9cec3412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setIntOnState: 0
+  _interactionOnTypes: 0100000002000000
+  _interactionOnState: 0
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 4
@@ -1025,10 +1032,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lerpColorOnState: 0
+  _interactionOnTypes: 00000000
+  _interactionOnState: 1
   _meshRenderer: {fileID: 2383802}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _onlyLerpColorOnInteraction: 1
   _loopColorLerp: 1
   _lerpSpeed: 5
 --- !u!135 &13512626

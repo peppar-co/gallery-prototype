@@ -14,7 +14,7 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if (interactionState == InteractionState.Do)
+            if (interactionState == InteractionState.OnHover)
                 Rotate();
         }
 

@@ -14,12 +14,12 @@ namespace peppar
 
     public enum InteractionState
     {
-        Start,
-        Do,
-        Stop
+        OnStart,
+        OnHover,
+        OnStop
     }
 
-    public abstract class InteractionController : BehaviourController
+    public abstract class HandleInteractionController : BehaviourController
     {
         protected Transform _currentInteractionObject;
 
@@ -59,15 +59,15 @@ namespace peppar
             if (interactionObject == _currentInteractionObject)
             {
                 if (interactionObject != null)
-                    HandleInteractions(InteractionState.Do, interactionType, interactionObject);
+                    HandleInteractions(InteractionState.OnHover, interactionType, interactionObject);
             }
             else
             {
                 if (_currentInteractionObject != null)
-                    HandleInteractions(InteractionState.Stop, interactionType, _currentInteractionObject);
+                    HandleInteractions(InteractionState.OnStop, interactionType, _currentInteractionObject);
 
                 if (interactionObject != null)
-                    HandleInteractions(InteractionState.Start, interactionType, interactionObject);
+                    HandleInteractions(InteractionState.OnStart, interactionType, interactionObject);
 
                 _currentInteractionObject = interactionObject;
             }

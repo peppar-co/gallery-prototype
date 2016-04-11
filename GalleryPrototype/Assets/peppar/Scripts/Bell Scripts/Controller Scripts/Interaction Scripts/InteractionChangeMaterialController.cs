@@ -17,7 +17,7 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if(interactionState == InteractionState.Start)
+            if(interactionState == InteractionState.OnStart)
             {
 
             }

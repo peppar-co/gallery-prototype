@@ -10,13 +10,13 @@ namespace peppar
         {
             switch (state)
             {
-                case InteractionState.Start:
+                case InteractionState.OnStart:
                     print("start");
                     break;
-                case InteractionState.Do:
+                case InteractionState.OnHover:
                     print("do");
                     break;
-                case InteractionState.Stop:
+                case InteractionState.OnStop:
                     print("stop");
                     break;
             }

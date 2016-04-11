@@ -5,7 +5,7 @@ namespace peppar
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(InteractionOnMouseClickController), typeof(InteractionOnTouchClickController))]
-    public class InteractionOnClickController : InteractionController
+    public class InteractionOnClickController : HandleInteractionController
     {
         [SerializeField]
         private bool _mouseInteraction = true;

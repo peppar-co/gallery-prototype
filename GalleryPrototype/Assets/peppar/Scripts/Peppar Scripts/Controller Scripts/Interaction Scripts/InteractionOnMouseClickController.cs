@@ -5,7 +5,7 @@ namespace peppar
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(ScreenRaycastController))]
-    public class InteractionOnMouseClickController : InteractionController
+    public class InteractionOnMouseClickController : HandleInteractionController
     {
         [SerializeField]
         private bool _checkInteraction = true;
@@ -32,7 +32,7 @@ namespace peppar
 
         public Transform GetFirstObjectAtLeftMouseClickPosition()
         {
-            if (GetLeftMouseButtonDown())
+            if (GetLeftMouseButton())
             {
                 return GetFirstObjectAtMousePosition();
             }
@@ -42,7 +42,7 @@ namespace peppar
 
         public Vector3 GetFirstHitPosAtLeftMouseClickPosition()
         {
-            if (GetLeftMouseButtonDown())
+            if (GetLeftMouseButton())
             {
                 return GetFirstHitPosAtMousePosition();
             }
@@ -68,6 +68,16 @@ namespace peppar
         public bool GetLeftMouseButtonDown()
         {
             return Input.GetMouseButtonDown(0);
+        }
+
+        public bool GetLeftMouseButton()
+        {
+            return Input.GetMouseButton(0);
+        }
+
+        public bool GetLeftMouseButtonUp()
+        {
+            return Input.GetMouseButtonUp(0);
         }
 
         public bool GetRightMouseButtonDown()

@@ -5,7 +5,7 @@ namespace peppar
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(ScreenRaycastController))]
-    public class InteractionLookAtController : InteractionController
+    public class InteractionLookAtController : HandleInteractionController
     {
         [SerializeField]
         private bool _checkInteraction = true;

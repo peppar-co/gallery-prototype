@@ -4,7 +4,7 @@ using UnityEngine;
 namespace peppar
 {
     [ExecuteInEditMode]
-    public class InteractionOnTouchClickController : InteractionController
+    public class InteractionOnTouchClickController : HandleInteractionController
     {
         [SerializeField]
         private bool _checkInteraction = true;

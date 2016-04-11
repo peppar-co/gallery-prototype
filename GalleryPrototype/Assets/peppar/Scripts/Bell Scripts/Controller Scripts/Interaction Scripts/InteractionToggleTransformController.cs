@@ -63,7 +63,7 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interationType)
         {
-            if (interactionState == InteractionState.Start &&
+            if (interactionState == InteractionState.OnStart &&
                 (interationType == InteractionType.MouseClick || interationType == InteractionType.TouchClick))
             {
                 TogglePosition();

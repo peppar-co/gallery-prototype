@@ -59,7 +59,7 @@ namespace peppar.bell
 
         public virtual void Interaction(InteractionState interactionState, InteractionType interationType)
         {
-            if (interactionState == InteractionState.Start &&
+            if (interactionState == InteractionState.OnStart &&
                 (interationType == InteractionType.MouseClick || interationType == InteractionType.TouchClick))
             {
                 SetToPosition();

@@ -1,22 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+using System.Linq;
 
 namespace peppar
 {
     public class InteractionLerpMaterialColorController : BehaviourController, InteractionFunctionality
     {
         [SerializeField]
-        private InteractionState _lerpColorOnState = InteractionState.Start;
+        private InteractionType[] _interactionOnTypes = new InteractionType[] { InteractionType.MouseClick, InteractionType.TouchClick, InteractionType.LookAt };
+
+        [SerializeField]
+        private InteractionState _interactionOnState = InteractionState.OnStart;
 
         [SerializeField]
         private MeshRenderer _meshRenderer;
 
         [SerializeField]
         private Color _color = Color.red;
-
-        [SerializeField]
-        private bool _onlyLerpColorOnInteraction;
 
         [SerializeField]
         private bool _loopColorLerp = false;
@@ -30,6 +30,9 @@ namespace peppar
         private bool _doColorLerp = false;
 
         private float _lerpDelta = 0;
+
+
+        private bool _interactionOnHover = false;
 
         public MeshRenderer MeshRenderer
         {
@@ -73,20 +76,29 @@ namespace peppar
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if (_onlyLerpColorOnInteraction == false && interactionState == _lerpColorOnState)
+            if (_interactionOnTypes.Contains(interactionType) == false)
             {
-                _doColorLerp = true;
-            }
-            else if (interactionState == InteractionState.Start)
-            {
-                _doColorLerp = true;
+                return;
             }
 
-            if (_onlyLerpColorOnInteraction && _lerpColorOnState != interactionState && interactionState == InteractionState.Stop)
+            if (_interactionOnState == interactionState && _interactionOnHover == false)
+            {
+                _doColorLerp = true;
+
+                if(interactionState == InteractionState.OnHover)
+                {
+                    _interactionOnHover = true;
+                }
+            }
+
+            if (_interactionOnState == InteractionState.OnHover
+                && interactionState == InteractionState.OnStop)
             {
                 MeshRenderer.material.color = _initialColor;
                 _lerpDelta = 0;
                 _doColorLerp = false;
+
+                _interactionOnHover = false;
             }
         }
 
