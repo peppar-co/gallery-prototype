@@ -1025,8 +1025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseInteraction: 1
-  _touchInteraction: 0
-  _checkInteraction: 0
+  _touchInteraction: 1
+  _checkInteraction: 1
 --- !u!114 &1397310817
 MonoBehaviour:
   m_ObjectHideFlags: 2
