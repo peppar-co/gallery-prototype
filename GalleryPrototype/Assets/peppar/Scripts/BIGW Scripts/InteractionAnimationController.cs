@@ -13,6 +13,10 @@ namespace peppar
 
         [SerializeField]
         private string _animatorIntID;
+        [SerializeField]
+        private string _animatorBoolID;
+        [SerializeField]
+        private bool _isInSubMenu = false;
 
         [SerializeField]
         private int _setAnimatorIntValueTo;
@@ -55,6 +59,9 @@ namespace peppar
             if (Animator != null)
             {
                 Animator.SetInteger(_animatorIntID, _setAnimatorIntValueTo);
+
+                if (_animatorBoolID != string.Empty)
+                    Animator.SetBool(_animatorBoolID, _isInSubMenu);
             }
         }
 
