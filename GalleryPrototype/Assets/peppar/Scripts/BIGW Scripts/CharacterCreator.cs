@@ -8,6 +8,9 @@ namespace peppar
     public class CharacterCreator : BehaviourController
     {
         [SerializeField]
+        private GameObject _creationObject, _worldObject, _characterObject;
+
+        [SerializeField]
         private List<GameObject> _headObjects, _pantsObjects, _shirtObjects, _handObjects;
 
         [SerializeField]
@@ -52,7 +55,7 @@ namespace peppar
         public void StartCharacterCreation()
         {
             _currentCharacterObject = Instantiate(_characterPrefab);
-            _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
+            _currentCharacterObject.transform.SetParent(_creationPosition.transform.parent);
 
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
@@ -76,19 +79,33 @@ namespace peppar
             SetShirt(shirtIndex);
             SetRightHand(rightHandIndex);
             SetLeftHand(leftHandIndex);
+
+            _worldObject.SetActive(false);
+            _characterObject.SetActive(false);
+            _creationObject.SetActive(true);
         }
 
         public void CancelCharacterCreation()
         {
             Destroy(_currentCharacterObject);
+
+            _worldObject.SetActive(true);
+            _characterObject.SetActive(true);
+            _creationObject.SetActive(false);
         }
 
         public void FinishCharacterCreation()
         {
+            Destroy(_currentCharacterComponent);
+            _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.localScale = _startMovingPosition.localScale;
             _currentCharacterMoveComponent.Run = true;
             _currentCharacterObject = null;
+
+            _worldObject.SetActive(true);
+            _characterObject.SetActive(true);
+            _creationObject.SetActive(false);
         }
 
         public void SetFace(int index = -1)
