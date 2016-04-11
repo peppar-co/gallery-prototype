@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 490916}
   - 135: {fileID: 13540780}
   - 114: {fileID: 11438504}
+  - 114: {fileID: 11492070}
   m_Layer: 0
   m_Name: Left Hand Controller
   m_TagString: Untagged
@@ -93,6 +94,7 @@ GameObject:
   - 4: {fileID: 456742}
   - 135: {fileID: 13586192}
   - 114: {fileID: 11489326}
+  - 114: {fileID: 11474030}
   m_Layer: 0
   m_Name: Pants Controller
   m_TagString: Untagged
@@ -128,6 +130,7 @@ GameObject:
   - 4: {fileID: 458682}
   - 135: {fileID: 13512626}
   - 114: {fileID: 11456450}
+  - 114: {fileID: 11466248}
   m_Layer: 0
   m_Name: Head Controller
   m_TagString: Untagged
@@ -145,6 +148,7 @@ GameObject:
   - 4: {fileID: 409016}
   - 135: {fileID: 13536446}
   - 114: {fileID: 11428154}
+  - 114: {fileID: 11442004}
   m_Layer: 0
   m_Name: Right Hand Controller
   m_TagString: Untagged
@@ -215,6 +219,7 @@ GameObject:
   - 4: {fileID: 479384}
   - 135: {fileID: 13582746}
   - 114: {fileID: 11464112}
+  - 114: {fileID: 11421368}
   m_Layer: 0
   m_Name: Shirt Controller
   m_TagString: Untagged
@@ -788,6 +793,23 @@ MonoBehaviour:
   _flipForward: 0
   _smooth: 1
   _lerpSpeed: 10
+--- !u!114 &11421368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpColorOnState: 0
+  _meshRenderer: {fileID: 2383802}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _onlyLerpColorOnInteraction: 1
+  _loopColorLerp: 1
+  _lerpSpeed: 5
 --- !u!114 &11422280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -838,6 +860,23 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 6
+--- !u!114 &11442004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpColorOnState: 0
+  _meshRenderer: {fileID: 2383802}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _onlyLerpColorOnInteraction: 1
+  _loopColorLerp: 1
+  _lerpSpeed: 5
 --- !u!114 &11455860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -883,6 +922,23 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 3
+--- !u!114 &11466248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpColorOnState: 0
+  _meshRenderer: {fileID: 2383802}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _onlyLerpColorOnInteraction: 1
+  _loopColorLerp: 1
+  _lerpSpeed: 5
 --- !u!114 &11468966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -900,6 +956,23 @@ MonoBehaviour:
   _maxTimeToMove: 10
   _destinationStoppingDistance: 0
   _nearToVuforiaCamera: 5
+--- !u!114 &11474030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpColorOnState: 0
+  _meshRenderer: {fileID: 2383802}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _onlyLerpColorOnInteraction: 1
+  _loopColorLerp: 1
+  _lerpSpeed: 5
 --- !u!114 &11484024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -941,6 +1014,23 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _animatorIntID: MenuIndex
   _setAnimatorIntValueTo: 4
+--- !u!114 &11492070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lerpColorOnState: 0
+  _meshRenderer: {fileID: 2383802}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _onlyLerpColorOnInteraction: 1
+  _loopColorLerp: 1
+  _lerpSpeed: 5
 --- !u!135 &13512626
 SphereCollider:
   m_ObjectHideFlags: 1

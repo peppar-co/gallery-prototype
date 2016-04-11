@@ -11,7 +11,7 @@ namespace peppar.bell
         private InteractionState _toggleOnState = InteractionState.Start;
 
         [SerializeField]
-        private bool _onlyToggleOnLookAt = false;
+        private bool _onlyToggleOnInteraction = false;
 
         [SerializeField]
         private List<GameObject> _activationObjects = new List<GameObject>();
@@ -36,12 +36,12 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if (_onlyToggleOnLookAt == false && interactionState == _toggleOnState)
+            if (_onlyToggleOnInteraction == false && interactionState == _toggleOnState)
                 ToggleActivation();
             else if(interactionState == InteractionState.Start)
                 ToggleActivation();
 
-            if (_onlyToggleOnLookAt && _toggleOnState != interactionState && interactionState == InteractionState.Stop)
+            if (_onlyToggleOnInteraction && _toggleOnState != interactionState && interactionState == InteractionState.Stop)
                 ToggleActivation();
         }
 
