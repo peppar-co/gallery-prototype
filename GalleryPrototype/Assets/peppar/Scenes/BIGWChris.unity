@@ -892,60 +892,6 @@ Material:
         first:
           name: _Color
         second: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
---- !u!1001 &1117967634
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419466, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: _vuforiaCamera
-      value: 
-      objectReference: {fileID: 2030233647}
-    - target: {fileID: 11419466, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: _creationPosition
-      value: 
-      objectReference: {fileID: 1896888176}
-    - target: {fileID: 11419466, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-      propertyPath: _startMovingPosition
-      value: 
-      objectReference: {fileID: 111987130}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1192295955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,8 +1025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseInteraction: 1
-  _touchInteraction: 0
-  _checkInteraction: 0
+  _touchInteraction: 1
+  _checkInteraction: 1
 --- !u!114 &1397310817
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1264,6 +1210,60 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &1679712334
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409742, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419466, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: _vuforiaCamera
+      value: 
+      objectReference: {fileID: 2030233647}
+    - target: {fileID: 11419466, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: _creationPosition
+      value: 
+      objectReference: {fileID: 1896888176}
+    - target: {fileID: 11419466, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: _startMovingPosition
+      value: 
+      objectReference: {fileID: 111987130}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1896888175
 GameObject:
   m_ObjectHideFlags: 0
