@@ -57,6 +57,8 @@ namespace peppar
             _headObject.transform.SetParent(_headObjectParent);
             _headObject.transform.localPosition = Vector3.zero;
             _headObject.transform.localScale = Vector3.one;
+
+            _headObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _headObject.GetComponent<MeshRenderer>();
         }
 
         public void SetPants(GameObject pantsObject)
@@ -70,6 +72,8 @@ namespace peppar
             _pantsObject.transform.SetParent(_pantsObjectParent);
             _pantsObject.transform.localPosition = Vector3.zero;
             _pantsObject.transform.localScale = Vector3.one;
+
+            _pantsObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _pantsObject.GetComponent<MeshRenderer>();
         }
 
         public void SetShirt(GameObject shirtObject)
@@ -83,6 +87,8 @@ namespace peppar
             _shirtObject.transform.SetParent(_shirtObjectParent);
             _shirtObject.transform.localPosition = Vector3.zero;
             _shirtObject.transform.localScale = Vector3.one;
+
+            _shirtObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _shirtObject.GetComponent<MeshRenderer>();
         }
 
         public void SetShirtPicture(Texture shirtTexture)
@@ -117,6 +123,8 @@ namespace peppar
             {
                 interactionAnimationController.Animator = guiAnimator;
             }
+
+            _rightHandObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _rightHandObject.GetComponent<MeshRenderer>();
         }
 
         public void SetLeftHand(GameObject leftHandObject, Animator guiAnimator)
@@ -137,6 +145,8 @@ namespace peppar
             {
                 interactionAnimationController.Animator = guiAnimator;
             }
+
+            _leftHandObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _leftHandObject.GetComponent<MeshRenderer>();
         }
 
         public void SetRightGadgetPicture(Texture rightGadgetTexture)
