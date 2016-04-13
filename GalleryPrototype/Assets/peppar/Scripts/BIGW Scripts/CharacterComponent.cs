@@ -55,8 +55,8 @@ namespace peppar
 
             _headObject = Instantiate(headObject);
             _headObject.transform.SetParent(_headObjectParent);
-            _headObject.transform.localPosition = Vector3.zero;
-            _headObject.transform.localScale = Vector3.one;
+            _headObject.transform.localPosition = headObject.transform.localPosition;
+            _headObject.transform.localScale = headObject.transform.localScale;
 
             _headObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _headObject.GetComponent<MeshRenderer>();
         }
@@ -70,8 +70,8 @@ namespace peppar
 
             _pantsObject = Instantiate(pantsObject);
             _pantsObject.transform.SetParent(_pantsObjectParent);
-            _pantsObject.transform.localPosition = Vector3.zero;
-            _pantsObject.transform.localScale = Vector3.one;
+            _pantsObject.transform.localPosition = pantsObject.transform.localPosition;
+            _pantsObject.transform.localScale = pantsObject.transform.localScale;
 
             _pantsObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _pantsObject.GetComponent<MeshRenderer>();
         }
@@ -85,8 +85,8 @@ namespace peppar
 
             _shirtObject = Instantiate(shirtObject);
             _shirtObject.transform.SetParent(_shirtObjectParent);
-            _shirtObject.transform.localPosition = Vector3.zero;
-            _shirtObject.transform.localScale = Vector3.one;
+            _shirtObject.transform.localPosition = shirtObject.transform.localPosition; 
+            _shirtObject.transform.localScale = shirtObject.transform.localScale;
 
             _shirtObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _shirtObject.GetComponent<MeshRenderer>();
         }
@@ -115,7 +115,7 @@ namespace peppar
             _rightHandObject = Instantiate(rightHandObject);
             _rightHandObject.transform.SetParent(_rightHandObjectParent);
             _rightHandObject.transform.localPosition = Vector3.zero;
-            _rightHandObject.transform.localScale = Vector3.one;
+            _rightHandObject.transform.localScale = rightHandObject.transform.localScale;
 
             InteractionAnimationController interactionAnimationController = _rightHandObject.GetComponent<InteractionAnimationController>();
 
@@ -137,7 +137,7 @@ namespace peppar
             _leftHandObject = Instantiate(leftHandObject);
             _leftHandObject.transform.SetParent(_leftHandObjectParent);
             _leftHandObject.transform.localPosition = Vector3.zero;
-            _leftHandObject.transform.localScale = Vector3.one;
+            _leftHandObject.transform.localScale = leftHandObject.transform.localScale;
 
             InteractionAnimationController interactionAnimationController = _leftHandObject.GetComponent<InteractionAnimationController>();
 

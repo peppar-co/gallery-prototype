@@ -6,10 +6,55 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Face
+    100004: Hair
+    100006: Hands
+    100008: Pants
+    100010: Shirt
+    100012: HandShield
+    100014: LeftHand
+    100016: RightHand
+    100018: Sword
     400000: //RootNode
+    400002: Face
+    400004: Hair
+    400006: Hands
+    400008: Pants
+    400010: Shirt
+    400012: HandShield
+    400014: LeftHand
+    400016: RightHand
+    400018: Sword
     2300000: //RootNode
+    2300002: Face
+    2300004: Hair
+    2300006: Hands
+    2300008: Pants
+    2300010: Shirt
+    2300012: HandShield
+    2300014: LeftHand
+    2300016: RightHand
+    2300018: Sword
     3300000: //RootNode
+    3300002: Face
+    3300004: Hair
+    3300006: Hands
+    3300008: Pants
+    3300010: Shirt
+    3300012: HandShield
+    3300014: LeftHand
+    3300016: RightHand
+    3300018: Sword
     4300000: Male
+    4300002: Hands
+    4300004: Shirt
+    4300006: Pants
+    4300008: Face
+    4300010: Hair
+    4300012: RightHand
+    4300014: LeftHand
+    4300016: Sword
+    4300018: HandShield
   materials:
     importMaterials: 1
     materialName: 0

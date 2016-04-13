@@ -7014,7 +7014,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10364,21 +10364,20 @@ MonoBehaviour:
   _worldObject: {fileID: 0}
   _characterObject: {fileID: 0}
   _headObjects:
-  - {fileID: 119674, guid: 7f575168611e17f4c84b8492f0f05564, type: 2}
-  - {fileID: 160896, guid: d28333e8a4c6bfa4c9fd39310f5b56da, type: 2}
-  - {fileID: 118140, guid: 119a2d5d42cc3ab48bcda8408ad5476d, type: 2}
+  - {fileID: 175082, guid: d28333e8a4c6bfa4c9fd39310f5b56da, type: 2}
+  - {fileID: 104412, guid: 119a2d5d42cc3ab48bcda8408ad5476d, type: 2}
+  - {fileID: 127466, guid: d4de4443f7d8d5f48b5a8fd45d3831d4, type: 2}
   _pantsObjects:
-  - {fileID: 180694, guid: ef607937ea2280c4daa885777d2e8d8b, type: 2}
-  - {fileID: 181294, guid: b0ced6cff83736d4f8173217da8f4b75, type: 2}
-  - {fileID: 161592, guid: 04a3912875153ac43b38e2758f285128, type: 2}
+  - {fileID: 128520, guid: b0ced6cff83736d4f8173217da8f4b75, type: 2}
+  - {fileID: 172184, guid: 04a3912875153ac43b38e2758f285128, type: 2}
+  - {fileID: 127732, guid: a5f55d4116c483f418d0b5a3c19ab462, type: 2}
   _shirtObjects:
-  - {fileID: 150362, guid: 5c8cad066ad126c41a2915ed72995c2b, type: 2}
-  - {fileID: 136336, guid: 77aafb84e227d6446a07c48e2448fc62, type: 2}
-  - {fileID: 177710, guid: c2e3af69c244ffb41b3b7b8db7fd1713, type: 2}
+  - {fileID: 130596, guid: 77aafb84e227d6446a07c48e2448fc62, type: 2}
+  - {fileID: 173406, guid: c2e3af69c244ffb41b3b7b8db7fd1713, type: 2}
+  - {fileID: 149850, guid: eddc81ffc724f4f439347baedf2634b4, type: 2}
   _handObjects:
-  - {fileID: 195278, guid: 8d95bcd760cefae4fb7e82a906f8d8c4, type: 2}
-  - {fileID: 110706, guid: 8834ee6312074d447855dfa0592a19d7, type: 2}
-  - {fileID: 142342, guid: c1d677c586cb859448737c2f946ed8b7, type: 2}
+  - {fileID: 188706, guid: 061d4e64574860c4082624e6de080bc2, type: 2}
+  - {fileID: 137914, guid: 74de0247648eb3e44a7eec07ad84b507, type: 2}
   _faceTextures:
   - {fileID: 2800000, guid: b33243defefb98c4d97f5bd9c720a535, type: 3}
   _shirtTextures:
@@ -14615,7 +14614,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19579,7 +19578,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
