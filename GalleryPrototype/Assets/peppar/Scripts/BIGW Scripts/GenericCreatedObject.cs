@@ -8,39 +8,107 @@ namespace peppar
     public class GenericCreatedObject : BehaviourController
     {
         [Serializable]
-        public class GenericCreatedComponent
+        public class GenericCreatedModule
         {
             [SerializeField]
-            private string _componentName;
+            private string _moduleName = "New Module";
 
             [SerializeField]
-            private Transform _componentParent;
+            private Transform _moduleParent;
 
             [SerializeField]
-            private Transform _componentPlaceholder;
+            private Transform _modulePlaceholder;
 
-            private GameObject _componentObject;
+            private Transform _moduleObject, _moduleGraphicObject;
 
-            public void CreateComponent(GameObject newComponentObject)
+            private Material _moduleGraphicMaterial;
+
+            public string ModuleName
             {
-                if(_componentObject != null)
+                get
                 {
-                    Destroy(_componentObject);
+                    return _moduleName;
+                }
+            }
+
+            public void ChangeModule(GameObject newModuleObject)
+            {
+                if (_moduleObject != null)
+                {
+                    Destroy(_moduleObject);
                 }
 
-                _componentObject = Instantiate(newComponentObject);
-                _componentObject.transform.SetParent(_componentParent);
-                _componentObject.transform.localPosition = Vector3.zero;
-                _componentObject.transform.localScale = Vector3.one;
+                _moduleObject = Instantiate(newModuleObject).transform;
+                _moduleObject.SetParent(_moduleParent);
+                _moduleObject.localPosition = Vector3.zero;
+                _moduleObject.localScale = Vector3.one;
 
-                _componentParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _componentObject.GetComponent<MeshRenderer>();
+                _moduleParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _moduleObject.GetComponent<MeshRenderer>();
+            }
+
+            public void SetModuleGraphic(Texture moduleTexture)
+            {
+                if (_moduleGraphicMaterial == null)
+                {
+                    return;
+                }
+
+                _moduleGraphicObject = _moduleObject.transform.FindChild("Graphic Module");
+
+                if (_moduleGraphicObject == null)
+                {
+                    Debug.LogError("GenericCreatedModule: Graphic object is missing (child with name \"Graphic Module\" is needed)");
+                    return;
+                }
+
+                _moduleGraphicMaterial.mainTexture = Instantiate(moduleTexture);
+                _moduleGraphicObject.GetComponent<Renderer>().material = _moduleGraphicMaterial;
             }
         }
 
         [SerializeField]
-        private List<GenericCreatedComponent> _genericComponents = new List<GenericCreatedComponent>();
+        private string _name = "New Object";
 
+        [SerializeField]
+        private List<GenericCreatedModule> _genericModules = new List<GenericCreatedModule>();
 
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+        }
+
+        public void ChangeModule(string moduleName, GameObject newModuleObject)
+        {
+            var genericModule = GetGenericModule(moduleName);
+
+            if (genericModule == null)
+            {
+                return;
+            }
+
+            genericModule.ChangeModule(newModuleObject);
+        }
+
+        public void SetModuleGraphic(string moduleName, Texture moduleTexture)
+        {
+            var genericModule = GetGenericModule(moduleName);
+
+            if(genericModule == null)
+            {
+                return;
+            }
+
+            genericModule.SetModuleGraphic(moduleTexture);
+        }
+
+        public GenericCreatedModule GetGenericModule(string moduleName)
+        {
+            return _genericModules.Find(gm => gm.ModuleName == moduleName);
+
+        }
 
         protected override void Awake()
         {
