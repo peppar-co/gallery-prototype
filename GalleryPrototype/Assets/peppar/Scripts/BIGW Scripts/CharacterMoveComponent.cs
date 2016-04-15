@@ -36,13 +36,16 @@ namespace peppar
             None,
             Idle,
             Moving,
-            Waving
+            Waving,
+            End
         }
 
         public bool Run
         {
             get
-            { return _run; }
+            {
+                return _run;
+            }
             set
             {
                 _run = value;
@@ -52,7 +55,8 @@ namespace peppar
 
         private void StartNextAction()
         {
-            if (_state != State.Idle && _waiting == false && IsDestinationReached())
+            if (_state != State.Idle
+             && _waiting == false && IsDestinationReached())
             {
                 if (NearToVuforiaCamera())
                 {
@@ -61,11 +65,14 @@ namespace peppar
 
                 Idle();
             }
-            else if (_state != State.Waving && _state != State.Moving && _waiting && _timeAfterLastWaving > _timeToWave)
+            else if (_state != State.Waving
+                  && _state != State.Moving
+                  && _waiting && _timeAfterLastWaving > _timeToWave)
             {
                 Wave();
             }
-            else if (_state != State.Moving && _waiting && _currentWaitingTime > _timeToMove)
+            else if (_state != State.Moving
+                  && _waiting && _currentWaitingTime > _timeToMove)
             {
                 Move();
             }
