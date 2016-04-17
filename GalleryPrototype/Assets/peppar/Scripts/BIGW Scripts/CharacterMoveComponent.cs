@@ -12,9 +12,6 @@ namespace peppar
         private float _maxTimeToWave = 1, _maxTimeToMove = 3;
 
         [SerializeField]
-        private Vector3[] _endPositions = new Vector3[] { Vector3.zero };
-
-        [SerializeField]
         private float _destinationStoppingDistance = 0;
 
         [SerializeField]
@@ -34,8 +31,6 @@ namespace peppar
 
         private State _state = State.None;
 
-        private GenericObjectCreator _genericObjectCreator;
-
         private enum State
         {
             None,
@@ -48,7 +43,9 @@ namespace peppar
         public bool Run
         {
             get
-            { return _run; }
+            {
+                return _run;
+            }
             set
             {
                 _run = value;
@@ -68,22 +65,16 @@ namespace peppar
 
                 Idle();
             }
-            else if (_state != State.Waving 
-                  && _state != State.Moving && _waiting && _timeAfterLastWaving > _timeToWave)
+            else if (_state != State.Waving
+                  && _state != State.Moving
+                  && _waiting && _timeAfterLastWaving > _timeToWave)
             {
                 Wave();
             }
-            else if (_state != State.Moving 
+            else if (_state != State.Moving
                   && _waiting && _currentWaitingTime > _timeToMove)
             {
-                if (false) //zu viele character in szene
-                {
-
-                }
-                else
-                {
-                    Move();
-                }
+                Move();
             }
         }
 
@@ -127,18 +118,6 @@ namespace peppar
             _state = State.Idle;
         }
 
-        private void End()
-        {
-            _lookAtController.enabled = false;
-
-            // Start Moving Animation ??
-            StartMovingToRandomEndPosition();
-            _waiting = false;
-            _currentWaitingTime = 0;
-
-            _state = State.End;
-        }
-
         private bool IsDestinationReached()
         {
             // Check if we've reached the destination
@@ -159,22 +138,12 @@ namespace peppar
             _navMeshAgent.SetDestination(GetRandomPosition());
         }
 
-        private void StartMovingToRandomEndPosition()
-        {
-            _navMeshAgent.SetDestination(GetRandomEndPosition());
-        }
-
         private Vector3 GetRandomPosition()
         {
             return new Vector3(
                 Random.Range(-_groundLengthX / 2, _groundLengthX / 2),
                 0,
                 Random.Range(-_groundLengthY / 2, _groundLengthY / 2));
-        }
-
-        private Vector3 GetRandomEndPosition()
-        {
-            return _endPositions[Random.Range(0, _endPositions.Length)];
         }
 
         private bool NearToVuforiaCamera()
@@ -194,8 +163,6 @@ namespace peppar
             _vufCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
             _lookAtController = GetComponent<ObjectLookAtController>();
-
-            _genericObjectCreator = GameObject.FindGameObjectWithTag("GUI").GetComponent<GenericObjectCreator>();
 
             UnityEngine.Assertions.Assert.IsNotNull(_vufCamera, "CharacterMoveComponent: VuforiaCamera is null");
 

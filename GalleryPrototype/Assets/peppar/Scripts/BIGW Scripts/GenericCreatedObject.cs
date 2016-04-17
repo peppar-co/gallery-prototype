@@ -11,7 +11,7 @@ namespace peppar
         public class GenericCreatedModule
         {
             [SerializeField]
-            private string _moduleName = "New Module";
+            private string _moduleID = "New Module";
 
             [SerializeField]
             private Transform _moduleParent;
@@ -23,11 +23,11 @@ namespace peppar
 
             private Material _moduleGraphicMaterial;
 
-            public string ModuleName
+            public string ModuleID
             {
                 get
                 {
-                    return _moduleName;
+                    return _moduleID;
                 }
             }
 
@@ -63,6 +63,28 @@ namespace peppar
 
                 _moduleGraphicMaterial.mainTexture = Instantiate(moduleTexture);
                 _moduleGraphicObject.GetComponent<Renderer>().material = _moduleGraphicMaterial;
+            }
+
+            public void SetModuleText(string moduleText)
+            {
+                Debug.LogError("SetModuleText: not implemented yet");
+                // TODO
+
+                //if (_moduleGraphicMaterial == null)
+                //{
+                //    return;
+                //}
+
+                //_moduleGraphicObject = _moduleObject.transform.FindChild("Graphic Module");
+
+                //if (_moduleGraphicObject == null)
+                //{
+                //    Debug.LogError("GenericCreatedModule: Graphic object is missing (child with name \"Graphic Module\" is needed)");
+                //    return;
+                //}
+
+                //_moduleGraphicMaterial.mainTexture = Instantiate(moduleTexture);
+                //_moduleGraphicObject.GetComponent<Renderer>().material = _moduleGraphicMaterial;
             }
         }
 
@@ -104,9 +126,21 @@ namespace peppar
             genericModule.SetModuleGraphic(moduleTexture);
         }
 
+        public void SetModuleText(string moduleName, string moduleText)
+        {
+            var genericModule = GetGenericModule(moduleName);
+
+            if (genericModule == null)
+            {
+                return;
+            }
+
+            genericModule.SetModuleText(moduleText);
+        }
+
         public GenericCreatedModule GetGenericModule(string moduleName)
         {
-            return _genericModules.Find(gm => gm.ModuleName == moduleName);
+            return _genericModules.Find(gm => gm.ModuleID == moduleName);
 
         }
 

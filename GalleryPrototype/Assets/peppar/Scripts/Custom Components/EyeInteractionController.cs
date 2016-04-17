@@ -161,7 +161,7 @@ namespace peppar
             _maxIdleTime -= Time.deltaTime;
             if (_maxIdleTime < 0)
             {
-                _maxIdleTime = Random.RandomRange(.5f, _blinkTime);
+                _maxIdleTime = Random.Range(.5f, _blinkTime);
                 Blink();
             }
         }
