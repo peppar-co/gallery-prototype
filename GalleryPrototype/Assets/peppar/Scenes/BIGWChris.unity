@@ -1077,6 +1077,10 @@ Prefab:
       propertyPath: _startMovingPosition
       value: 
       objectReference: {fileID: 111987130}
+    - target: {fileID: 122188, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
+      propertyPath: m_TagString
+      value: GUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 163c5638ac78ffb4bb285e76406219c5, type: 2}
   m_IsPrefabParent: 0

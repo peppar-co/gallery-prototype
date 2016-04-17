@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WorldCenter
   - BackgroundPlane
+  - GUI
   layers:
   - Default
   - TransparentFX
