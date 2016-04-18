@@ -91,7 +91,7 @@ namespace peppar
             }
         }
 
-        public Vector3 Rotation
+        public Quaternion Rotation
         {
             get
             {
