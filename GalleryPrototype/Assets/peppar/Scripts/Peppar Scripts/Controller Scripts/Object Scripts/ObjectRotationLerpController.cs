@@ -47,18 +47,18 @@ namespace peppar
             }
         }
 
-        public Vector3 GoalRotation
+        public Quaternion GoalRotation
         {
             get
             {
                 if (TargetTransform != null)
-                    return TargetTransform.rotation.eulerAngles;
+                    return TargetTransform.rotation;
                 else
-                    return transform.rotation.eulerAngles;
+                    return transform.rotation;
             }
             set
             {
-                TargetTransform.rotation = GetQuaternion(value);
+                TargetTransform.rotation = value;
             }
         }
 
@@ -88,24 +88,24 @@ namespace peppar
             }
         }
 
-        public Vector3 Rotation
+        public Quaternion Rotation
         {
-            get { return transform.rotation.eulerAngles; }
+            get { return transform.rotation; }
         }
 
-        public Quaternion GetQuaternion(Vector3 vector)
-        {
-            return Quaternion.Euler(vector);
-        }
+        //public Quaternion GetQuaternion(Vector3 vector)
+        //{
+        //    return Quaternion.Euler(vector);
+        //}
 
         public float DistanceToTarget
         {
-            get { return Mathf.Abs(Quaternion.Angle(GetQuaternion(Rotation), GetQuaternion(GoalRotation))); }
+            get { return Mathf.Abs(Quaternion.Angle(Rotation, GoalRotation)); }
         }
 
         public void SetToTargetAndStopLerp()
         {
-            transform.rotation = Quaternion.Euler(GoalRotation);
+            transform.rotation = GoalRotation;
             Lerp = false;
         }
 
@@ -124,7 +124,9 @@ namespace peppar
             if (!Lerp)
                 return;
 
-            transform.rotation = GetQuaternion(Vector3.Lerp(Rotation, GoalRotation, LerpSpeed / 100));
+            //transform.rotation = GetQuaternion(Quaternion.Lerp(Rotation, GoalRotation, LerpSpeed / 100));
+            transform.rotation = Quaternion.Lerp(Rotation, GoalRotation,LerpSpeed / 100);
+
 
             if (DistanceToTarget <= StopLerpDistance)
                 SetToTargetAndStopLerp();
