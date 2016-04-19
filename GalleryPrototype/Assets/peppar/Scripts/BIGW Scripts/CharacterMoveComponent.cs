@@ -36,8 +36,7 @@ namespace peppar
             None,
             Idle,
             Moving,
-            Waving,
-            End
+            Waving
         }
 
         public bool Run
@@ -58,11 +57,6 @@ namespace peppar
             if (_state != State.Idle
              && _waiting == false && IsDestinationReached())
             {
-                if (NearToVuforiaCamera())
-                {
-                    //Wave();
-                }
-
                 Idle();
             }
             else if (_state != State.Waving
@@ -144,16 +138,6 @@ namespace peppar
                 Random.Range(-_groundLengthX / 2, _groundLengthX / 2),
                 0,
                 Random.Range(-_groundLengthY / 2, _groundLengthY / 2));
-        }
-
-        private bool NearToVuforiaCamera()
-        {
-            if (Vector3.Distance(transform.position, _vufCamera.transform.position) < _nearToVuforiaCamera)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         protected override void Awake()

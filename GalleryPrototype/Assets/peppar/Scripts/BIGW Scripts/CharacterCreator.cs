@@ -71,8 +71,6 @@ namespace peppar
             int shirtIndex = Random.Range(0, _shirtObjects.Count);
             int rightHandIndex = Random.Range(0, _handObjects.Count);
             int leftHandIndex = Random.Range(0, _handObjects.Count);
-            //int rightGadgetIndex = Random.Range(0, _shirtObjects.Count);
-            //int leftGadgetIndex = Random.Range(0, _shirtObjects.Count);
 
             SetHead(headIndex);
             SetPants(pantsIndex);
@@ -100,7 +98,6 @@ namespace peppar
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.localScale = _startMovingPosition.localScale;
-            _currentCharacterMoveComponent.Run = true;
             _currentCharacterObject = null;
 
             _worldObject.SetActive(true);
@@ -151,8 +148,6 @@ namespace peppar
                 case SnapshotTexture.Shirt:
                     _currentCharacterComponent.SetShirtPicture(_snapshotTexture);
                     break;
-                    //case SnapshotTexture.RightGadget:
-                    //_currentCharacterComponent.
             }
 
             _allowTakeSnapshot = true;
@@ -211,13 +206,11 @@ namespace peppar
         public void ShowPreviewShirt()
         {
             _showPreviewShirt = true;
-            //_currentCharacterObject.transform.position = _faceSnapshotPosition.position;
         }
 
         public void HidePreviewShirt()
         {
             _showPreviewShirt = false;
-            //_currentCharacterObject.transform.position = _creationPosition.position;
         }
 
         private void ShowShirtInPreview()
@@ -251,89 +244,85 @@ namespace peppar
             _currentCharacterComponent.SetLeftHand(_handObjects[index], _guiAnimator);
         }
 
-        public void SetRightGadgetPicture(int index)
-        {
-            if (index < 0 && _allowTakeSnapshot)
-            {
-                StartCoroutine(TakeSnapshot(SnapshotTexture.RightGadget));
-            }
-            else if (index >= 0)
-            {
-                _currentCharacterComponent.SetRightGadgetPicture(_gadgetTextures[index]);
-            }
+        //public void SetRightGadgetPicture(int index)
+        //{
+        //    if (index < 0 && _allowTakeSnapshot)
+        //    {
+        //        StartCoroutine(TakeSnapshot(SnapshotTexture.RightGadget));
+        //    }
+        //    else if (index >= 0)
+        //    {
+        //        _currentCharacterComponent.SetRightGadgetPicture(_gadgetTextures[index]);
+        //    }
 
-            _showPreviewRightGadget = false;
-        }
+        //    _showPreviewRightGadget = false;
+        //}
 
-        public void ShowPreviewRightGadget()
-        {
-            _showPreviewRightGadget = true;
-            //_currentCharacterObject.transform.position = _faceSnapshotPosition.position;
-        }
+        //public void ShowPreviewRightGadget()
+        //{
+        //    _showPreviewRightGadget = true;
+        //}
 
-        public void HidePreviewRightgGadget()
-        {
-            _showPreviewRightGadget = false;
-            //_currentCharacterObject.transform.position = _creationPosition.position;
-        }
+        //public void HidePreviewRightgGadget()
+        //{
+        //    _showPreviewRightGadget = false;
+        //}
 
-        private void ShowRightGadgetInPreview()
-        {
-            if (_showPreviewRightGadget == false || _currentCharacterObject == null)
-            {
-                return;
-            }
+        //private void ShowRightGadgetInPreview()
+        //{
+        //    if (_showPreviewRightGadget == false || _currentCharacterObject == null)
+        //    {
+        //        return;
+        //    }
 
-            _previewSnapshotFrameCount++;
+        //    _previewSnapshotFrameCount++;
 
-            if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
-            {
-                StartCoroutine(TakeSnapshot(SnapshotTexture.RightGadget));
-                _previewSnapshotFrameCount = 0;
-            }
-        }
+        //    if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
+        //    {
+        //        StartCoroutine(TakeSnapshot(SnapshotTexture.RightGadget));
+        //        _previewSnapshotFrameCount = 0;
+        //    }
+        //}
 
-        public void SetLeftGadgetPicture(int index)
-        {
-            if (index < 0 && _allowTakeSnapshot)
-            {
-                StartCoroutine(TakeSnapshot(SnapshotTexture.LeftGadget));
-            }
-            else if (index >= 0)
-            {
-                _currentCharacterComponent.SetLeftGadgetPicture(_gadgetTextures[index]);
-            }
+        //public void SetLeftGadgetPicture(int index)
+        //{
+        //    if (index < 0 && _allowTakeSnapshot)
+        //    {
+        //        StartCoroutine(TakeSnapshot(SnapshotTexture.LeftGadget));
+        //    }
+        //    else if (index >= 0)
+        //    {
+        //        _currentCharacterComponent.SetLeftGadgetPicture(_gadgetTextures[index]);
+        //    }
 
-            _showPreviewLeftGadget = false;
-        }
+        //    _showPreviewLeftGadget = false;
+        //}
 
-        public void ShowPreviewLeftGadget()
-        {
-            _showPreviewLeftGadget = true;
-            //_currentCharacterObject.transform.position = _faceSnapshotPosition.position;
-        }
+        //public void ShowPreviewLeftGadget()
+        //{
+        //    _showPreviewLeftGadget = true;
+        //}
 
-        public void HidePreviewLeftGadget()
-        {
-            _showPreviewLeftGadget = false;
-            //_currentCharacterObject.transform.position = _creationPosition.position;
-        }
+        //public void HidePreviewLeftGadget()
+        //{
+        //    _showPreviewLeftGadget = false;
+        //}
 
-        private void ShowLeftGadgetInPreview()
-        {
-            if (_showPreviewLeftGadget == false || _currentCharacterObject == null)
-            {
-                return;
-            }
+        //private void ShowLeftGadgetInPreview()
+        //{
+        //    if (_showPreviewLeftGadget == false || _currentCharacterObject == null)
+        //    {
+        //        return;
+        //    }
 
-            _previewSnapshotFrameCount++;
+        //    _previewSnapshotFrameCount++;
 
-            if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
-            {
-                StartCoroutine(TakeSnapshot(SnapshotTexture.LeftGadget));
-                _previewSnapshotFrameCount = 0;
-            }
-        }
+        //    if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
+        //    {
+        //        StartCoroutine(TakeSnapshot(SnapshotTexture.LeftGadget));
+        //        _previewSnapshotFrameCount = 0;
+        //    }
+        //}
 
         protected override void Awake()
         {
@@ -349,8 +338,8 @@ namespace peppar
         {
             ShowFaceInPreview();
             ShowShirtInPreview();
-            ShowRightGadgetInPreview();
-            ShowLeftGadgetInPreview();
+            //ShowRightGadgetInPreview();
+            //ShowLeftGadgetInPreview();
         }
     }
 }
