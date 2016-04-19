@@ -112,7 +112,7 @@ namespace peppar
             _state = State.Idle;
         }
 
-        private bool IsDestinationReached()
+        public bool IsDestinationReached()
         {
             // Check if we've reached the destination
             if (!_navMeshAgent.pathPending)
@@ -127,9 +127,19 @@ namespace peppar
             return false;
         }
 
+        public Vector3 GetDestination()
+        {
+            return _navMeshAgent.destination;
+        }
+
+        public void StartMovingToPosition(Vector3 position)
+        {
+            _navMeshAgent.SetDestination(position);
+        }
+
         private void StartMovingToNextRandomPosition()
         {
-            _navMeshAgent.SetDestination(GetRandomPosition());
+            StartMovingToPosition(GetRandomPosition());
         }
 
         private Vector3 GetRandomPosition()

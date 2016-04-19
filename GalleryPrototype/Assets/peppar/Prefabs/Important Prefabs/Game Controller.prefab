@@ -54,8 +54,8 @@ GameObject:
   - 114: {fileID: 11440916}
   - 114: {fileID: 11418528}
   - 114: {fileID: 11464780}
-  - 114: {fileID: 11493210}
   - 114: {fileID: 11471726}
+  - 114: {fileID: 11493210}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -281,7 +281,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168112}
-  m_LocalRotation: {x: 0.707106, y: 0, z: 0, w: 0.7071076}
+  m_LocalRotation: {x: 0.853553, y: -0.14644699, z: 0.35355267, w: 0.35355493}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -483,7 +483,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 3
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0
@@ -495,7 +495,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6a46b4845b7674c8ebeab77613444b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debug: 0
+  _debug: 1
 --- !u!114 &11418528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkInteraction: 0
+  _showChildComponents: 0
 --- !u!114 &11430514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -628,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66285fd345c7d204985c5ac3fed703d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 2025270}
+  _camera: {fileID: 2076706}
   _ignoredLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -745,6 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkInteraction: 0
+  _showChildComponents: 0
 --- !u!114 &11471726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -759,6 +761,7 @@ MonoBehaviour:
   _checkInteraction: 1
   _showViewTargetPosition: 1
   _viewTargetObject: {fileID: 114846}
+  _showChildComponents: 0
 --- !u!114 &11480288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -842,6 +845,7 @@ MonoBehaviour:
   _mouseInteraction: 1
   _touchInteraction: 1
   _checkInteraction: 1
+  _showChildComponents: 0
 --- !u!124 &12440980
 Behaviour:
   m_ObjectHideFlags: 1

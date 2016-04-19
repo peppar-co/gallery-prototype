@@ -16,8 +16,13 @@ namespace peppar
         [SerializeField]
         private bool _checkInteraction = true;
 
+        [SerializeField]
+        private bool _showChildComponents = false;
+
         private InteractionOnMouseClickController _onMouseClickController;
         private InteractionOnTouchClickController _onTouchClickController;
+
+        private bool _currentShowChildComponents = false;
 
         public bool MouseInteraction
         {
@@ -117,14 +122,26 @@ namespace peppar
         protected override void Update()
         {
             HandleInteractions();
+
+            if (_currentShowChildComponents != _showChildComponents)
+            {
+                if (_showChildComponents == false)
+                {
+                    HideInChildComponentsInspector(_onMouseClickController, _onTouchClickController);
+                }
+                else
+                {
+                    ShowChildComponentsInInspector(_onMouseClickController, _onTouchClickController);
+                }
+
+                _currentShowChildComponents = _showChildComponents;
+            }
         }
 
         protected override void Awake()
         {
             _onMouseClickController = GetComponent<InteractionOnMouseClickController>();
             _onTouchClickController = GetComponent<InteractionOnTouchClickController>();
-
-            HideInInspector(_onMouseClickController, _onTouchClickController);
         }
     }
 }

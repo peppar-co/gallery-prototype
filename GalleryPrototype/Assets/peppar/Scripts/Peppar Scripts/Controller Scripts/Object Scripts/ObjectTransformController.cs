@@ -37,7 +37,7 @@ namespace peppar
             _positionController = GetComponent<ObjectPositionController>();
             _rotationController = GetComponent<ObjectRotationController>();
 
-            HideInInspector(_positionController, _rotationController);
+            HideInChildComponentsInspector(_positionController, _rotationController);
         }
     }
 }

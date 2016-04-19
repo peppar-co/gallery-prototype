@@ -106,7 +106,7 @@ namespace peppar.bell
             _transformController = GetComponent<ObjectTransformController>();
             _lerpController = GetComponent<ObjectLerpController>();
 
-            HideInInspector(_transformController, _lerpController);
+            HideInChildComponentsInspector(_transformController, _lerpController);
         }
     }
 }
