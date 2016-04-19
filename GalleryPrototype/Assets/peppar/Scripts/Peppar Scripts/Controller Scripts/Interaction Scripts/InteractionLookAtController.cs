@@ -16,7 +16,12 @@ namespace peppar
         [SerializeField]
         private GameObject _viewTargetObject;
 
+        [SerializeField]
+        private bool _showChildComponents = false;
+
         private ScreenRaycastController _raycastController;
+
+        private bool _currentShowChildComponents = false;
 
         public bool CheckInteraction
         {
@@ -70,13 +75,25 @@ namespace peppar
             {
                 _viewTargetObject.SetActive(false);
             }
+
+            if (_currentShowChildComponents != _showChildComponents)
+            {
+                if (_showChildComponents == false)
+                {
+                    HideInChildComponentsInspector(_raycastController);
+                }
+                else
+                {
+                    ShowChildComponentsInInspector(_raycastController);
+                }
+
+                _currentShowChildComponents = _showChildComponents;
+            }
         }
 
         protected override void Awake()
         {
             _raycastController = GetComponent<ScreenRaycastController>();
-
-            HideInInspector(_raycastController);
         }
     }
 }

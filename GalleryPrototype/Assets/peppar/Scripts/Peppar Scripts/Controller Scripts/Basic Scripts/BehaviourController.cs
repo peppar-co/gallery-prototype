@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace peppar
 {
@@ -10,9 +11,28 @@ namespace peppar
 
         protected abstract void Awake();
 
-        protected void HideInInspector(params BehaviourController[] script)
+        protected void ShowInInspector()
         {
-            script.ForEach(s => s.hideFlags = HideFlags.HideInInspector);
+            hideFlags = HideFlags.None;
+        }
+
+        protected void HideInInspector()
+        {
+            hideFlags = HideFlags.HideInInspector;
+        }
+
+        protected void ShowChildComponentsInInspector(params BehaviourController[] scripts)
+        {
+#if UNITY_EDITOR
+            scripts.ForEach(s => s.ShowInInspector());
+#endif
+        }
+
+        protected void HideInChildComponentsInspector(params BehaviourController[] scripts)
+        {
+#if UNITY_EDITOR
+            scripts.ForEach(s => s.HideInInspector());
+#endif
         }
     }
 }

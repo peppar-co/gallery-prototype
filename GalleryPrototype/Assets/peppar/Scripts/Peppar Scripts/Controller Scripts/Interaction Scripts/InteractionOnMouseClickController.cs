@@ -10,7 +10,12 @@ namespace peppar
         [SerializeField]
         private bool _checkInteraction = true;
 
+        [SerializeField]
+        private bool _showChildComponents = false;
+
         private ScreenRaycastController _raycastController;
+
+        private bool _currentShowChildComponents = false;
 
         public bool CheckInteraction
         {
@@ -99,13 +104,25 @@ namespace peppar
         {
             if (CheckInteraction)
                 HandleInteractions(InteractionType.MouseClick, GetFirstObjectAtLeftMouseClickPosition());
+
+            if (_currentShowChildComponents != _showChildComponents)
+            {
+                if (_showChildComponents == false)
+                {
+                    HideInChildComponentsInspector(_raycastController);
+                }
+                else
+                {
+                    ShowChildComponentsInInspector(_raycastController);
+                }
+
+                _currentShowChildComponents = _showChildComponents;
+            }
         }
 
         protected override void Awake()
         {
             _raycastController = GetComponent<ScreenRaycastController>();
-
-            HideInInspector(_raycastController);
         }
     }
 }

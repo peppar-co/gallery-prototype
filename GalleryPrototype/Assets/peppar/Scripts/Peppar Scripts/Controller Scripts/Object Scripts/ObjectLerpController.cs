@@ -133,7 +133,7 @@ namespace peppar
             _positionLerpController = GetComponent<ObjectPositionLerpController>();
             _rotationLerpController = GetComponent<ObjectRotationLerpController>();
 
-            HideInInspector(_positionLerpController, _rotationLerpController);
+            HideInChildComponentsInspector(_positionLerpController, _rotationLerpController);
         }
     }
 }
