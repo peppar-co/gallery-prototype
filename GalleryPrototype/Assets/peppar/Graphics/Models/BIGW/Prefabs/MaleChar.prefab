@@ -230,14 +230,14 @@ GameObject:
   - 114: {fileID: 11436628}
   - 114: {fileID: 11409656}
   - 114: {fileID: 11438826}
-  - 114: {fileID: 11416932}
+  - 114: {fileID: 11422454}
   m_Layer: 0
   m_Name: MaleChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &123540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   _nameLookAtController: {fileID: 0}
   _defaultPictureMaterial: {fileID: 2100000, guid: 5340b9e4468e0e341ab90d45bc1e4b81,
     type: 2}
---- !u!114 &11416932
+--- !u!114 &11422454
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
