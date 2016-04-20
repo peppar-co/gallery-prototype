@@ -6,6 +6,12 @@ namespace peppar
     public class CharacterMoveComponent : BehaviourController
     {
         [SerializeField]
+        private Animator _animator;
+
+        [SerializeField]
+        private Camera _vufCamera;
+
+        [SerializeField]
         private float _groundLengthX = 1, _groundLengthY = 1;
 
         [SerializeField]
@@ -18,8 +24,6 @@ namespace peppar
         private float _nearToVuforiaCamera = 5;
 
         private NavMeshAgent _navMeshAgent;
-
-        private Camera _vufCamera;
 
         private ObjectLookAtController _lookAtController;
 
@@ -134,7 +138,10 @@ namespace peppar
 
         public void StartMovingToPosition(Vector3 position)
         {
-            _navMeshAgent.SetDestination(position);
+            NavMeshHit navMeshHit;
+            NavMesh.SamplePosition(position, out navMeshHit, 10, NavMesh.AllAreas);
+
+            _navMeshAgent.SetDestination(navMeshHit.position);
         }
 
         private void StartMovingToNextRandomPosition()
@@ -154,7 +161,10 @@ namespace peppar
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
 
-            _vufCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            if (_vufCamera == null)
+            {
+                _vufCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            }
 
             _lookAtController = GetComponent<ObjectLookAtController>();
 
@@ -168,12 +178,12 @@ namespace peppar
             {
                 _lookAtController.LookAtTarget = _vufCamera.transform;
             }
+
+            Run = false;
         }
 
         protected override void Start()
         {
-            Run = false;
-
             if (_navMeshAgent != null)
             {
                 _navMeshAgent.stoppingDistance = _destinationStoppingDistance;
@@ -186,6 +196,12 @@ namespace peppar
             {
                 return;
             }
+
+            //float runValue = _navMeshAgent.velocity.magnitude > 0.1f ? 0.3f : 0;
+
+            _animator.SetFloat("Walk", _navMeshAgent.velocity.magnitude);
+
+            Debug.Log(_navMeshAgent.velocity.magnitude);
 
             if (_waiting)
             {

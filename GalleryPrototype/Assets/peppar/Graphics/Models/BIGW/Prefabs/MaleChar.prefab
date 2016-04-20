@@ -71,7 +71,6 @@ GameObject:
   - 4: {fileID: 426234}
   - 33: {fileID: 3396764}
   - 136: {fileID: 13697694}
-  - 114: {fileID: 11438730}
   - 114: {fileID: 11404376}
   m_Layer: 0
   m_Name: EditCollider Pants
@@ -90,7 +89,6 @@ GameObject:
   - 4: {fileID: 417956}
   - 33: {fileID: 3315586}
   - 136: {fileID: 13603908}
-  - 114: {fileID: 11420440}
   - 114: {fileID: 11482032}
   m_Layer: 0
   m_Name: EditCollider Shirt
@@ -231,13 +229,15 @@ GameObject:
   - 195: {fileID: 19529700}
   - 114: {fileID: 11436628}
   - 114: {fileID: 11409656}
+  - 114: {fileID: 11438826}
+  - 114: {fileID: 11416932}
   m_Layer: 0
   m_Name: MaleChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &123540
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +355,6 @@ GameObject:
   - 4: {fileID: 436010}
   - 33: {fileID: 3386634}
   - 136: {fileID: 13625846}
-  - 114: {fileID: 11437688}
   - 114: {fileID: 11424790}
   m_Layer: 0
   m_Name: EditCollider Face
@@ -1257,23 +1256,26 @@ MonoBehaviour:
   _nameLookAtController: {fileID: 0}
   _defaultPictureMaterial: {fileID: 2100000, guid: 5340b9e4468e0e341ab90d45bc1e4b81,
     type: 2}
---- !u!114 &11420440
+--- !u!114 &11416932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108854}
-  m_Enabled: 0
+  m_GameObject: {fileID: 120962}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1402965e102e7ea4c8adc21263f4e867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionOnTypes: 00000000
-  _interactionOnState: 1
-  _meshRenderer: {fileID: 0}
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _loopColorLerp: 1
-  _lerpSpeed: 5
+  _transformIsTarget: 1
+  _lookAtTarget: {fileID: 0}
+  _lookAtPosition: {x: 0, y: 0, z: 0}
+  _x: 1
+  _y: 1
+  _z: 1
+  _flipForward: 0
+  _smooth: 1
+  _lerpSpeed: 10
 --- !u!114 &11424790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,46 +1305,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d114e67a95ae148a9aeae6c0d668b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 9544706}
+  _vufCamera: {fileID: 0}
   _groundLengthX: 10
   _groundLengthY: 10
   _maxTimeToWave: 5
   _maxTimeToMove: 10
   _destinationStoppingDistance: 0
   _nearToVuforiaCamera: 5
---- !u!114 &11437688
+--- !u!114 &11438826
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133126}
-  m_Enabled: 0
+  m_GameObject: {fileID: 120962}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d1f288483f71c04d96b987d4dad81d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionOnTypes: 00000000
-  _interactionOnState: 1
-  _meshRenderer: {fileID: 0}
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _loopColorLerp: 1
-  _lerpSpeed: 5
---- !u!114 &11438730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105500}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4597c6686e377c845bb07b259220520a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionOnTypes: 00000000
-  _interactionOnState: 1
-  _meshRenderer: {fileID: 0}
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _loopColorLerp: 1
-  _lerpSpeed: 5
+  _movementComponent: {fileID: 11436628}
+  _animator: {fileID: 9544706}
+  _quests:
+  - QuestType: 0
+    QuestItemPrefab: {fileID: 0}
+    PeppIdA: 
+    PeppIdB: 
+    PeppIdC: 
+    TaskADescription: 
+    TaskBDescription: 
+    TaskCDescription: 
+  CurrentQuest:
+    QuestType: 0
+    QuestItemPrefab: {fileID: 0}
+    PeppIdA: 
+    PeppIdB: 
+    PeppIdC: 
+    TaskADescription: 
+    TaskBDescription: 
+    TaskCDescription: 
 --- !u!114 &11482032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1768,8 +1769,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 120962}
   m_Enabled: 1
   m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 8
+  m_Speed: 0.7
+  m_Acceleration: 0.1
   avoidancePriority: 50
   m_AngularSpeed: 150
   m_StoppingDistance: 0

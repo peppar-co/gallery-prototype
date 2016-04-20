@@ -26,7 +26,7 @@ namespace peppar
         private GameObject _characterScenePrefab;
 
         [SerializeField]
-        private Transform _creationPosition, _startMovingPosition;     //, _snapshotPosition;
+        private Transform _creationPosition, _startMovingPosition;
 
         [SerializeField]
         private Text _nameInputText;
@@ -35,22 +35,14 @@ namespace peppar
         private GameObject _currentCharacterObject;
         private CharacterComponent _currentCharacterComponent;
         private CharacterMoveComponent _currentCharacterMoveComponent;
+        private CharacterQuestMachine _characterQuestMachine;
 
-        private bool _showPreviewFace = false, _showPreviewShirt = false,
-            _showPreviewRightGadget = false, _showPreviewLeftGadget = false;
+        private bool _showPreviewFace = false;
 
         // Snapshot
         private bool _allowTakeSnapshot = true;
         private Texture2D _snapshotTexture;
         private int _previewSnapshotFrameCount;
-
-        private enum SnapshotTexture
-        {
-            Face,
-            Shirt,
-            RightGadget,
-            LeftGadget
-        }
 
         public void StartCharacterCreation()
         {
@@ -59,6 +51,7 @@ namespace peppar
 
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
+            _characterQuestMachine = _currentCharacterObject.GetComponent<CharacterQuestMachine>();
 
             _currentCharacterObject.transform.position = _creationPosition.position;
             _currentCharacterObject.transform.localScale = _creationPosition.localScale;
@@ -102,13 +95,15 @@ namespace peppar
             _worldObject.SetActive(true);
             _characterObject.SetActive(true);
             _creationObject.SetActive(false);
+
+            _characterQuestMachine.SetQuest();
         }
 
         public void SetFace(int index = -1)
         {
             if (index < 0 && _allowTakeSnapshot)
             {
-                StartCoroutine(TakeSnapshot(SnapshotTexture.Face));
+                StartCoroutine(TakeSnapshot());
             }
             else if (index >= 0)
             {
@@ -130,7 +125,7 @@ namespace peppar
             //_currentCharacterObject.transform.position = _creationPosition.position;
         }
 
-        private IEnumerator TakeSnapshot(SnapshotTexture snapshotTexture)
+        private IEnumerator TakeSnapshot()
         {
             _allowTakeSnapshot = false;
 
@@ -139,12 +134,7 @@ namespace peppar
             _snapshotTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
             _snapshotTexture.Apply();
 
-            switch (snapshotTexture)
-            {
-                case SnapshotTexture.Face:
-                    _currentCharacterComponent.SetFace(_snapshotTexture);
-                    break;
-            }
+            _currentCharacterComponent.SetFace(_snapshotTexture);
 
             _allowTakeSnapshot = true;
         }
@@ -160,7 +150,7 @@ namespace peppar
 
             if (_allowTakeSnapshot && _previewSnapshotFrameCount > 4)
             {
-                StartCoroutine(TakeSnapshot(SnapshotTexture.Face));
+                StartCoroutine(TakeSnapshot());
                 _previewSnapshotFrameCount = 0;
             }
         }

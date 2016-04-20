@@ -36,9 +36,6 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-
-            Debug.Log("foo");
-
             if (_onlyToggleOnInteraction == false && interactionState == _toggleOnState)
                 ToggleActivation();
             else if(interactionState == InteractionState.OnStart)

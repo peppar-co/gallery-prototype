@@ -17,6 +17,7 @@ namespace peppar
         public enum State
         {
             Idle,
+            Move,
             DoingQuest,
             Done
         }
@@ -40,10 +41,13 @@ namespace peppar
         }
 
         [SerializeField]
-        private List<Quest> _quests = new List<Quest>();
+        private CharacterMoveComponent _movementComponent;
 
         [SerializeField]
-        private CharacterMoveComponent _movementComponent;
+        private Animator _animator;
+
+        [SerializeField]
+        private List<Quest> _quests = new List<Quest>();
 
         private PeppController _peppController;
 
@@ -111,20 +115,29 @@ namespace peppar
             }
         }
 
-        private void SetQuest()
+        public void SetQuest()
         {
-            int randomQuest = UnityEngine.Random.Range(0, 2);
+            int randomQuest = UnityEngine.Random.Range(0, _quests.Count);
 
             CurrentQuest = _quests[randomQuest];
 
             CurrentQuest.ShowQuestInterface = true;
 
             _peppController.SetPeppsActivation(this, true, CurrentQuest.PeppIdA, CurrentQuest.PeppIdB, CurrentQuest.PeppIdC);
+
+            _stateMachine.ChangeState(State.Move);
+        }
+
+        private void Move_Enter()
+        {
+            _movementComponent.Run = true;
         }
 
         private void Idle_Enter()
         {
-            _movementComponent.Run = true;
+            _movementComponent.Run = false;
+
+            _animator.SetFloat("Run", 0);
         }
 
         private void DoingQuest_Enter()
@@ -157,7 +170,7 @@ namespace peppar
 
             // Add quest Item to character
 
-            StateMachine.ChangeState(State.Idle);
+            StateMachine.ChangeState(State.Move);
         }
 
         protected override void Awake()
@@ -176,8 +189,6 @@ namespace peppar
         protected override void Start()
         {
             StateMachine = StateMachine<State>.Initialize(this, State.Idle);
-
-            SetQuest();
         }
 
         protected override void Update()
