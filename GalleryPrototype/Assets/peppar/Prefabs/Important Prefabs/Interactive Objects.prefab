@@ -137,6 +137,7 @@ MonoBehaviour:
   _dependentObjects:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11459360
 MonoBehaviour:
   m_ObjectHideFlags: 1
