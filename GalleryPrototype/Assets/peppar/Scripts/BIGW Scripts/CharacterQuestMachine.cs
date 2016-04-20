@@ -5,7 +5,7 @@ using System;
 
 namespace peppar
 {
-    public class CharacterStateMachine : BehaviourController
+    public class CharacterQuestMachine : BehaviourController
     {
         public enum QuestType
         {
@@ -26,14 +26,16 @@ namespace peppar
         {
             public QuestType QuestType;
 
-            public bool ShowQuestInterface = false;
-
             public GameObject QuestItemPrefab;
 
             public string PeppIdA, PeppIdB, PeppIdC;
 
-            public string TaskA, TaskB, TaskC;
+            public string TaskADescription, TaskBDescription, TaskCDescription;
 
+            [NonSerialized]
+            public bool ShowQuestInterface = false;
+
+            [NonSerialized]
             public bool TaskADone, TaskBDone, TaskCDone;
         }
 
@@ -51,7 +53,7 @@ namespace peppar
 
         private int _finishedTasks = 0;
 
-        private Quest _currentQuest;
+        public Quest CurrentQuest;
 
         private List<Vector3> _questTaskPositions;
 
@@ -80,26 +82,26 @@ namespace peppar
             }
         }
 
-        public void FinishedTask(int task)
+        public void FinishedTask(string peppId)
         {
-            if (_currentQuest == null)
+            if (CurrentQuest == null)
             {
                 return;
             }
 
-            if (task == 1 && _currentQuest.TaskADone == false)
+            if (peppId == CurrentQuest.PeppIdA && CurrentQuest.TaskADone == false)
             {
-                _currentQuest.TaskADone = true;
+                CurrentQuest.TaskADone = true;
                 _finishedTasks++;
             }
-            else if (task == 2 && _currentQuest.TaskBDone == false)
+            else if (peppId == CurrentQuest.PeppIdB && CurrentQuest.TaskBDone == false)
             {
-                _currentQuest.TaskBDone = true;
+                CurrentQuest.TaskBDone = true;
                 _finishedTasks++;
             }
-            else if (task == 3 && _currentQuest.TaskCDone == false)
+            else if (peppId == CurrentQuest.PeppIdC && CurrentQuest.TaskCDone == false)
             {
-                _currentQuest.TaskCDone = true;
+                CurrentQuest.TaskCDone = true;
                 _finishedTasks++;
             }
 
@@ -109,51 +111,15 @@ namespace peppar
             }
         }
 
-        public void SetTask(int task)
-        {
-            if (_currentQuest == null)
-            {
-                return;
-            }
-
-            if (task == 1 && _currentQuest.TaskADone == false)
-            {
-                _currentQuest.TaskADone = true;
-
-                _peppController.SetPeppBuildingHighlighting(0, _currentQuest.PeppIdA);
-                _peppController.SetPeppsActivation(true, _currentQuest.PeppIdA);
-
-                _finishedTasks++;
-            }
-            else if (task == 2 && _currentQuest.TaskBDone == false)
-            {
-                _currentQuest.TaskBDone = true;
-
-                _peppController.SetPeppBuildingHighlighting(0, _currentQuest.PeppIdB);
-                _peppController.SetPeppsActivation(true, _currentQuest.PeppIdB);
-
-                _finishedTasks++;
-            }
-            else if (task == 3 && _currentQuest.TaskCDone == false)
-            {
-                _currentQuest.TaskCDone = true;
-
-                _peppController.SetPeppBuildingHighlighting(0, _currentQuest.PeppIdC);
-                _peppController.SetPeppsActivation(true, _currentQuest.PeppIdC);
-
-                _finishedTasks++;
-            }
-        }
-
         private void SetQuest()
         {
             int randomQuest = UnityEngine.Random.Range(0, 2);
 
-            _currentQuest = _quests[randomQuest];
+            CurrentQuest = _quests[randomQuest];
 
-            _currentQuest.ShowQuestInterface = true;
+            CurrentQuest.ShowQuestInterface = true;
 
-            _peppController.SetPeppBuildingHighlighting(1, _currentQuest.PeppIdA, _currentQuest.PeppIdB, _currentQuest.PeppIdC);
+            _peppController.SetPeppsActivation(this, true, CurrentQuest.PeppIdA, CurrentQuest.PeppIdB, CurrentQuest.PeppIdC);
         }
 
         private void Idle_Enter()
@@ -176,7 +142,7 @@ namespace peppar
 
                 if (_movementComponent.IsDestinationReached())
                 {
-                    // DO All Pepp reached stuff !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    // DO All Pepp reached stuff ?????
 
                     _questTaskPositions.RemoveAt(0);
                 }
@@ -187,7 +153,7 @@ namespace peppar
 
         private void Done_Enter()
         {
-            _currentQuest.ShowQuestInterface = false;
+            CurrentQuest.ShowQuestInterface = false;
 
             // Add quest Item to character
 
