@@ -95,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &151872
 GameObject:
   m_ObjectHideFlags: 1
@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &168112
 GameObject:
   m_ObjectHideFlags: 1
@@ -281,7 +281,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168112}
-  m_LocalRotation: {x: 0.853553, y: -0.14644699, z: 0.35355267, w: 0.35355493}
+  m_LocalRotation: {x: 0.35355315, y: -0.35355493, z: 0.8535528, w: 0.1464472}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -483,11 +483,11 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: 3
+    m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
-    m_NormalBias: 0
-    m_NearPlane: 0.2
+    m_NormalBias: 0.1
+    m_NearPlane: 0.5
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerp: 1
-  _targetTransform: {fileID: 430260}
+  _targetTransform: {fileID: 401322}
   _lerpSpeed: 10
   _stopLerpDistance: -1
 --- !u!114 &11415478
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerp: 1
-  _targetTransform: {fileID: 430260}
+  _targetTransform: {fileID: 401322}
   _lerpSpeed: 10
   _stopLerpDistance: 0.001
 --- !u!114 &11456224
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerp: 1
-  _targetTransform: {fileID: 430260}
+  _targetTransform: {fileID: 401322}
   _lerpSpeed: 10
   _stopLerpDistance: 0.001
 --- !u!114 &11464780
