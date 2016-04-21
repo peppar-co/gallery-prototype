@@ -197,11 +197,7 @@ namespace peppar
                 return;
             }
 
-            //float runValue = _navMeshAgent.velocity.magnitude > 0.1f ? 0.3f : 0;
-
             _animator.SetFloat("Walk", _navMeshAgent.velocity.magnitude);
-
-            Debug.Log(_navMeshAgent.velocity.magnitude);
 
             if (_waiting)
             {

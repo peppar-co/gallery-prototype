@@ -137,7 +137,7 @@ namespace peppar
         {
             _movementComponent.Run = false;
 
-            _animator.SetFloat("Run", 0);
+            _animator.SetFloat("Walk", 0);
         }
 
         private void DoingQuest_Enter()
