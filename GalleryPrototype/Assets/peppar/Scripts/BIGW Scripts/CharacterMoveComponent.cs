@@ -63,12 +63,12 @@ namespace peppar
             {
                 Idle();
             }
-            else if (_state != State.Waving
-                  && _state != State.Moving
-                  && _waiting && _timeAfterLastWaving > _timeToWave)
-            {
-                Wave();
-            }
+            //else if (_state != State.Waving
+            //      && _state != State.Moving
+            //      && _waiting && _timeAfterLastWaving > _timeToWave)
+            //{
+            //    Wave();
+            //}
             else if (_state != State.Moving
                   && _waiting && _currentWaitingTime > _timeToMove)
             {

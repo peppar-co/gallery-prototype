@@ -37,6 +37,8 @@ namespace peppar
         private CharacterMoveComponent _currentCharacterMoveComponent;
         private CharacterQuestMachine _characterQuestMachine;
 
+        private readonly List<GameObject> _createdCharacterObjects = new List<GameObject>();
+
         private bool _showPreviewFace = false;
 
         // Snapshot
@@ -47,7 +49,14 @@ namespace peppar
         public void StartCharacterCreation()
         {
             _currentCharacterObject = Instantiate(_characterScenePrefab);
+            _createdCharacterObjects.Add(_currentCharacterObject);
             _currentCharacterObject.transform.SetParent(_creationPosition.transform.parent);
+
+            if(_createdCharacterObjects != null && _createdCharacterObjects.Count > 5)
+            {
+                Destroy(_createdCharacterObjects[0]);
+                _createdCharacterObjects.RemoveAt(0);
+            }
 
             _currentCharacterComponent = _currentCharacterObject.GetComponent<CharacterComponent>();
             _currentCharacterMoveComponent = _currentCharacterObject.GetComponent<CharacterMoveComponent>();
