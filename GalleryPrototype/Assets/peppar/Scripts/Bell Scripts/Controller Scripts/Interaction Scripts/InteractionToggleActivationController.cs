@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace peppar.bell
 {
     public class InteractionToggleActivationController : BehaviourController, InteractionFunctionality
     {
+        [SerializeField]
+        private InteractionType[] _interactionOnTypes = new InteractionType[] { InteractionType.MouseClick, InteractionType.TouchClick, InteractionType.LookAt };
+
         [SerializeField]
         private InteractionState _toggleOnState = InteractionState.OnStart;
 
@@ -36,13 +40,24 @@ namespace peppar.bell
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
+            if (_interactionOnTypes.Contains(interactionType) == false)
+            {
+                return;
+            }
+
             if (_onlyToggleOnInteraction == false && interactionState == _toggleOnState)
+            {
                 ToggleActivation();
-            else if(interactionState == InteractionState.OnStart)
+            }
+            else if (interactionState == InteractionState.OnStart)
+            {
                 ToggleActivation();
+            }
 
             if (_onlyToggleOnInteraction && _toggleOnState != interactionState && interactionState == InteractionState.OnStop)
+            {
                 ToggleActivation();
+            }
         }
 
         private void ToggleActivation()
