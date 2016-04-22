@@ -52,7 +52,6 @@ namespace peppar
             set
             {
                 _run = value;
-                _navMeshAgent.enabled = value;
             }
         }
 

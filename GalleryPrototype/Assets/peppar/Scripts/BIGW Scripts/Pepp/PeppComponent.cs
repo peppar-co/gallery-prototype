@@ -15,6 +15,10 @@ namespace peppar
         [SerializeField]
         private GameObject _peppGUI;
 
+        [SerializeField]
+        private GUIQuestChoiceController _guiQuestChoiceController;
+
+        [SerializeField]
         private PeppController _peppController;
 
         private bool _active;
@@ -81,7 +85,7 @@ namespace peppar
 
             HighlightChilds(true);
 
-            // Set description
+            _guiQuestChoiceController.SetChoiceButtonLabels(optionDescription1, optionDescription2);
         }
 
         private void HighlightChilds(bool highlight)

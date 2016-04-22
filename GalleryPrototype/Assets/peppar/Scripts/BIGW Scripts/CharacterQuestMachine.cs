@@ -75,7 +75,7 @@ namespace peppar
 
         private Quest _currentQuest;
 
-        private List<Vector3> _questTaskPositions;
+        private List<Vector3> _questTaskPositions = new List<Vector3>();
 
         private Vector3 _currentTaskPosition;
 

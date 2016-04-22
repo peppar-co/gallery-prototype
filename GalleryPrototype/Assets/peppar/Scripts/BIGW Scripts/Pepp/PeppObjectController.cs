@@ -21,6 +21,8 @@ namespace peppar
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log(other.name + " trigger");
+
             if(_active == false)
             {
                 return;
@@ -29,6 +31,8 @@ namespace peppar
             if (other.tag == "Character")
             {
                 var characterQuestMachine = other.GetComponent<CharacterQuestMachine>();
+
+                Debug.Log("trigger");
 
                 if (characterQuestMachine != null)
                 {

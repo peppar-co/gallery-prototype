@@ -504,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &115258
 GameObject:
   m_ObjectHideFlags: 1
@@ -970,7 +970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &129628
 GameObject:
   m_ObjectHideFlags: 1
@@ -3758,7 +3758,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 2.97, z: 1.87}
+  m_LocalPosition: {x: 1.16, y: 0.43, z: 1.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 455248}
@@ -11015,10 +11015,10 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113722}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6591902
 BoxCollider:
@@ -11481,9 +11481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f14c4de44dcc4e46bd95b6e52b5b948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _peppId: Shop Pepp
+  _peppId: Print Shop Pepp
   _peppObject: {fileID: 11457610}
   _peppGUI: {fileID: 129298}
+  _guiQuestChoiceController: {fileID: 11483324}
+  _peppController: {fileID: 0}
 --- !u!114 &11447490
 MonoBehaviour:
   m_ObjectHideFlags: 1
