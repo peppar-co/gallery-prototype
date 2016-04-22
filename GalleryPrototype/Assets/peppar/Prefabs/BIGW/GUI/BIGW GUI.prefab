@@ -506,7 +506,7 @@ GameObject:
   - 114: {fileID: 11418990}
   - 114: {fileID: 11456718}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,7 +540,7 @@ GameObject:
   - 114: {fileID: 11489664}
   - 114: {fileID: 11472746}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: Toggle B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
