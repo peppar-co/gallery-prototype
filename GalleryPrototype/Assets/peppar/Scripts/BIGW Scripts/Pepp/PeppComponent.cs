@@ -29,7 +29,7 @@ namespace peppar
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
-            if(_active == false)
+            if (_active == false)
             {
                 return;
             }
@@ -44,7 +44,10 @@ namespace peppar
 
         private void ShowPeppGUI(bool show)
         {
-            _peppGUI.SetActive(show);
+            if (_peppGUI != null)
+            {
+                _peppGUI.SetActive(show);
+            }
         }
 
         public void PlacePepp()

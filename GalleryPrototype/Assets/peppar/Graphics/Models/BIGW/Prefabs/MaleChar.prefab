@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1402965e102e7ea4c8adc21263f4e867, type: 3}
   m_Name: 
@@ -1390,18 +1390,18 @@ MonoBehaviour:
   _movementComponent: {fileID: 11436628}
   _animator: {fileID: 9544706}
   _quests:
-  - QuestType: 0
+  - QuestType: 1
     QuestItemPrefab: {fileID: 0}
-    PeppIdA: 
+    PeppIdA: Shop Pepp
     PeppIdB: 
     PeppIdC: 
     TaskADescription: 
     TaskBDescription: 
     TaskCDescription: 
   CurrentQuest:
-    QuestType: 0
+    QuestType: 2
     QuestItemPrefab: {fileID: 0}
-    PeppIdA: 
+    PeppIdA: Shop Pepp
     PeppIdB: 
     PeppIdC: 
     TaskADescription: 

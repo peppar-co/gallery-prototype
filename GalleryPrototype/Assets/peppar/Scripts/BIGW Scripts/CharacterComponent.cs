@@ -21,9 +21,7 @@ namespace peppar
         [SerializeField]
         private ObjectLookAtController _nameLookAtController;
 
-        private GameObject _headObject, _pantsObject, _shirtObject,
-            _rightHandObject, _leftHandObject,
-            _shirtPictureObject, _rightGadgetPictureObject, _leftGadgetPictureObject;
+        private GameObject _headObject, _pantsObject, _shirtObject;
 
         private GameObject _currentHead;
         private SkinnedMeshRenderer _currentPants, _currentShirt;
@@ -31,7 +29,7 @@ namespace peppar
         [SerializeField]
         private Material _defaultPictureMaterial;
 
-        private Material _faceMaterial, _shirtMaterial, _rightGadgetMaterial, _leftGadgetMaterial;
+        private Material _faceMaterial;
 
         private string _name;
 
@@ -73,17 +71,6 @@ namespace peppar
 
             headObject.SetActive(true);
             _currentHead = headObject;
-            //if (_headObject != null)
-            //{
-            //    Destroy(_headObject);
-            //}
-
-            //_headObject = Instantiate(headObject);
-            //_headObject.transform.SetParent(_headObjectParent);
-            //_headObject.transform.localPosition = headObject.transform.localPosition;
-            //_headObject.transform.localScale = headObject.transform.localScale;
-
-            //_headObjectParent.GetComponent<InteractionLerpMaterialColorController>().MeshRenderer = _headObject.GetComponent<MeshRenderer>();
         }
 
         public void SetPants(SkinnedMeshRenderer pantsObject)
@@ -106,26 +93,6 @@ namespace peppar
 
             shirtObject.enabled = true;
             _currentShirt = shirtObject;
-        }
-
-        private int NextIndex(int currentIndex, int count)
-        {
-            if (currentIndex + 1 >= count)
-            {
-                return 0;
-            }
-
-            return currentIndex + 1;
-        }
-
-        private int PreviousIndex(int currentIndex, int count)
-        {
-            if (currentIndex - 1 < 0)
-            {
-                return count - 1;
-            }
-
-            return currentIndex - 1;
         }
 
         protected override void Awake()
