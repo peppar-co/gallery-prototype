@@ -1419,6 +1419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementComponent: {fileID: 11435098}
+  _questOverviewGUI: {fileID: 0}
+  _questOverviewTaskA: {fileID: 0}
+  _questOverviewTaskB: {fileID: 0}
   _animator: {fileID: 9536068}
   _quests:
   - QuestType: 3
