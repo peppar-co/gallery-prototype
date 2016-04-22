@@ -10,7 +10,7 @@ namespace peppar
         Head,
         Face,
         Shirt,
-        Pans
+        Pants
     }
 
     public class CharacterCustomizer : BehaviourController
@@ -134,7 +134,7 @@ namespace peppar
                 case CharacterModuleType.Shirt:
                     SetShirt(index);
                     break;
-                case CharacterModuleType.Pans:
+                case CharacterModuleType.Pants:
                     SetPants(index);
                     break;
                 default:
