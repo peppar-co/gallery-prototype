@@ -11,7 +11,8 @@ namespace peppar
         {
             Null,
             Ballon,
-            Cake
+            Hat,
+            Toy
         }
 
         public enum State
@@ -27,21 +28,36 @@ namespace peppar
         {
             public QuestType QuestType;
 
-            public GameObject QuestItemPrefab;
+            public GameObject QuestItemPrefab1, QuestItemPrefab2;
 
-            public string PeppIdA, PeppIdB, PeppIdC;
+            public Material QuestItemMaterial1, QuestItemMaterial2;
 
-            public string TaskADescription, TaskBDescription, TaskCDescription;
+            public string PeppIdA, PeppIdB;
+
+            public string TaskADescription, TaskBDescription;
+
+            public string QuestItemPrefabDescription1, QuestItemPrefabDescription2;
+
+            public string QuestItemMaterialDescription1, QuestItemMaterialDescription2;
 
             [NonSerialized]
-            public bool ShowQuestInterface = false;
+            public bool TaskADone, TaskBDone;
 
             [NonSerialized]
-            public bool TaskADone, TaskBDone, TaskCDone;
+            public GameObject CurrentItemObject;
+
+            [NonSerialized]
+            public Material CurrentItemMaterial;
         }
 
         [SerializeField]
         private CharacterMoveComponent _movementComponent;
+
+        [SerializeField]
+        private GameObject _questOverviewGUI;
+
+        [SerializeField]
+        private SimpleToggleGUIClass _questOverviewTaskA, _questOverviewTaskB;
 
         [SerializeField]
         private Animator _animator;
@@ -53,11 +69,11 @@ namespace peppar
 
         private StateMachine<State> _stateMachine;
 
-        private int _maxTasksPerQuest = 3;
+        private int _maxTasksPerQuest = 2;
 
         private int _finishedTasks = 0;
 
-        public Quest CurrentQuest;
+        private Quest _currentQuest;
 
         private List<Vector3> _questTaskPositions;
 
@@ -86,26 +102,25 @@ namespace peppar
             }
         }
 
-        public void FinishedTask(string peppId)
+        public void FinishedTask(string peppId, int taskIndex)
         {
-            if (CurrentQuest == null)
+            if (_currentQuest == null)
             {
                 return;
             }
 
-            if (peppId == CurrentQuest.PeppIdA && CurrentQuest.TaskADone == false)
+            if (peppId == _currentQuest.PeppIdA && _currentQuest.TaskADone == false)
             {
-                CurrentQuest.TaskADone = true;
+                _currentQuest.CurrentItemObject = taskIndex == 0 ? _currentQuest.QuestItemPrefab1 : _currentQuest.QuestItemPrefab2;
+                _currentQuest.TaskADone = true;
+                _questOverviewTaskA.ToggleActive = true;
                 _finishedTasks++;
             }
-            else if (peppId == CurrentQuest.PeppIdB && CurrentQuest.TaskBDone == false)
+            else if (peppId == _currentQuest.PeppIdB && _currentQuest.TaskBDone == false)
             {
-                CurrentQuest.TaskBDone = true;
-                _finishedTasks++;
-            }
-            else if (peppId == CurrentQuest.PeppIdC && CurrentQuest.TaskCDone == false)
-            {
-                CurrentQuest.TaskCDone = true;
+                _currentQuest.CurrentItemMaterial = taskIndex == 0 ? _currentQuest.QuestItemMaterial1 : _currentQuest.QuestItemMaterial2;
+                _currentQuest.TaskBDone = true;
+                _questOverviewTaskB.ToggleActive = true;
                 _finishedTasks++;
             }
 
@@ -113,17 +128,26 @@ namespace peppar
             {
                 StateMachine.ChangeState(State.Done);
             }
+
+            _questTaskPositions.Remove(_currentTaskPosition);
+
+            _stateMachine.ChangeState(State.DoingQuest);
         }
 
         public void SetQuest()
         {
             int randomQuest = UnityEngine.Random.Range(0, _quests.Count);
 
-            CurrentQuest = _quests[randomQuest];
+            _currentQuest = _quests[randomQuest];
 
-            CurrentQuest.ShowQuestInterface = true;
+            _questOverviewTaskA.ToggleText = _currentQuest.TaskADescription;
+            _questOverviewTaskA.ToggleActive = false;
+            _questOverviewTaskB.ToggleText = _currentQuest.TaskBDescription;
+            _questOverviewTaskB.ToggleActive = false;
+            _questOverviewGUI.SetActive(true);
 
-            _peppController.SetPeppsActivation(this, true, CurrentQuest.PeppIdA, CurrentQuest.PeppIdB, CurrentQuest.PeppIdC);
+            _peppController.SetPeppActivation(this, true, _currentQuest.PeppIdA, _currentQuest.QuestItemPrefabDescription1, _currentQuest.QuestItemPrefabDescription2);
+            _peppController.SetPeppActivation(this, true, _currentQuest.PeppIdB, _currentQuest.QuestItemMaterialDescription1, _currentQuest.QuestItemMaterialDescription2);
 
             _stateMachine.ChangeState(State.Move);
         }
@@ -142,33 +166,26 @@ namespace peppar
 
         private void DoingQuest_Enter()
         {
-            _movementComponent.Run = false;
-
-            while (_questTaskPositions != null && _questTaskPositions.Count > 0)
+            if (_questTaskPositions != null && _questTaskPositions.Count > 0)
             {
+                _movementComponent.Run = false;
+
                 _currentTaskPosition = _questTaskPositions[0];
 
-                if (_currentTaskPosition != _movementComponent.GetDestination())
-                {
-                    _movementComponent.StartMovingToPosition(_currentTaskPosition);
-                }
-
-                if (_movementComponent.IsDestinationReached())
-                {
-                    // DO All Pepp reached stuff ?????
-
-                    _questTaskPositions.RemoveAt(0);
-                }
+                _movementComponent.StartMovingToPosition(_currentTaskPosition);
             }
-
-            _stateMachine.ChangeState(State.Idle);
+            else
+            {
+                _stateMachine.ChangeState(State.Idle);
+            }
         }
 
         private void Done_Enter()
         {
-            CurrentQuest.ShowQuestInterface = false;
+            _questOverviewGUI.SetActive(false);
 
             // Add quest Item to character
+            Debug.Log("Quest is done!!!");
 
             StateMachine.ChangeState(State.Move);
         }
@@ -189,6 +206,8 @@ namespace peppar
         protected override void Start()
         {
             StateMachine = StateMachine<State>.Initialize(this, State.Idle);
+
+            _questOverviewGUI.SetActive(false);
         }
 
         protected override void Update()

@@ -32,7 +32,7 @@ namespace peppar
 
                 if (characterQuestMachine != null)
                 {
-                    characterQuestMachine.FinishedTask(_peppComponent.PeppId);
+                    characterQuestMachine.FinishedTask(_peppComponent.PeppId, _peppComponent.TaskIndex);
                     _active = false;
                     gameObject.SetActive(false);
                 }

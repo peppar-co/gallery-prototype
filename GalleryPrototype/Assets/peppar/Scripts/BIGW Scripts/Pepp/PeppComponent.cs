@@ -27,6 +27,8 @@ namespace peppar
             }
         }
 
+        public int TaskIndex { get; set; }
+
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
             if (_active == false)
@@ -34,7 +36,7 @@ namespace peppar
                 return;
             }
 
-            ShowPeppGUI(true);
+            ShowPeppGUI();
         }
 
         private void ActivatePeppObject(bool active)
@@ -42,19 +44,29 @@ namespace peppar
             _peppObject.SetActive(active, this);
         }
 
-        private void ShowPeppGUI(bool show)
+        private void ShowPeppGUI()
         {
             if (_peppGUI != null)
             {
-                _peppGUI.SetActive(show);
+                _peppGUI.SetActive(true);
             }
         }
 
-        public void PlacePepp()
+        private void HidePeppGUI()
         {
+            if (_peppGUI != null)
+            {
+                _peppGUI.SetActive(false);
+            }
+        }
+
+        public void PlacePepp(int taskIndex)
+        {
+            TaskIndex = taskIndex;
+
             ActivatePeppObject(true);
 
-            ShowPeppGUI(false);
+            HidePeppGUI();
 
             HighlightChilds(false);
 
@@ -63,11 +75,13 @@ namespace peppar
             _active = false;
         }
 
-        public void SetPeppInteractionActive(PeppController peppController)
+        public void SetPeppInteractionActive(PeppController peppController, string optionDescription1, string optionDescription2)
         {
             _active = true;
 
             HighlightChilds(true);
+
+            // Set description
         }
 
         private void HighlightChilds(bool highlight)

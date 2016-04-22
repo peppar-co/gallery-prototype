@@ -190,7 +190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &126124
 GameObject:
   m_ObjectHideFlags: 1
@@ -1421,23 +1421,45 @@ MonoBehaviour:
   _movementComponent: {fileID: 11435098}
   _animator: {fileID: 9536068}
   _quests:
+  - QuestType: 3
+    QuestItemPrefab1: {fileID: 0}
+    QuestItemPrefab2: {fileID: 0}
+    QuestItemMaterial1: {fileID: 0}
+    QuestItemMaterial2: {fileID: 0}
+    PeppIdA: Toy Shop Pepp
+    PeppIdB: Print Shop Pepp
+    TaskADescription: Buy a toy!!
+    TaskBDescription: Buy a color!!
+    QuestItemPrefabDescription1: Little Plane
+    QuestItemPrefabDescription2: Funny Car
+    QuestItemMaterialDescription1: Army Green
+    QuestItemMaterialDescription2: Racing Red
+  - QuestType: 2
+    QuestItemPrefab1: {fileID: 0}
+    QuestItemPrefab2: {fileID: 0}
+    QuestItemMaterial1: {fileID: 0}
+    QuestItemMaterial2: {fileID: 0}
+    PeppIdA: Cloth Shop Pepp
+    PeppIdB: Print Shop Pepp
+    TaskADescription: Buy a hat!!
+    TaskBDescription: Buy a sticker!!
+    QuestItemPrefabDescription1: Stylish Cylinder
+    QuestItemPrefabDescription2: Cool Capp
+    QuestItemMaterialDescription1: Funny Smiley
+    QuestItemMaterialDescription2: Deadly Skull
   - QuestType: 1
-    QuestItemPrefab: {fileID: 0}
-    PeppIdA: Shop Pepp
-    PeppIdB: 
-    PeppIdC: 
-    TaskADescription: 
-    TaskBDescription: 
-    TaskCDescription: 
-  CurrentQuest:
-    QuestType: 2
-    QuestItemPrefab: {fileID: 0}
-    PeppIdA: Shop Pepp
-    PeppIdB: 
-    PeppIdC: 
-    TaskADescription: 
-    TaskBDescription: 
-    TaskCDescription: 
+    QuestItemPrefab1: {fileID: 0}
+    QuestItemPrefab2: {fileID: 0}
+    QuestItemMaterial1: {fileID: 0}
+    QuestItemMaterial2: {fileID: 0}
+    PeppIdA: Toy Shop Pepp
+    PeppIdB: Print Shop Pepp
+    TaskADescription: Buy a ballon!!
+    TaskBDescription: Buy a sticker!!
+    QuestItemPrefabDescription1: Nice Ballon
+    QuestItemPrefabDescription2: Heart Ballon
+    QuestItemMaterialDescription1: '"I Love You" Sticker'
+    QuestItemMaterialDescription2: '"Happy Birthday" Sticker'
 --- !u!114 &11461644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2068,8 +2090,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 120832}
   m_Enabled: 1
   m_Radius: 0.1
-  m_Speed: 3
-  m_Acceleration: 2
+  m_Speed: 2
+  m_Acceleration: 1.5
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 2
