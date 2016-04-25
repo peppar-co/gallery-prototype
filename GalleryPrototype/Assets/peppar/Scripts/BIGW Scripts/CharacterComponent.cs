@@ -7,6 +7,9 @@ namespace peppar
     public class CharacterComponent : BehaviourController
     {
         [SerializeField]
+        private SkinnedMeshRenderer _bodyFace;
+
+        [SerializeField]
         private List<GameObject> _prefabHeads;
 
         [SerializeField]
@@ -28,8 +31,6 @@ namespace peppar
 
         [SerializeField]
         private Material _defaultPictureMaterial;
-
-        private Material _faceMaterial;
 
         private string _name;
 
@@ -55,7 +56,7 @@ namespace peppar
 
         public void SetFace(Material faceMaterial)
         {
-            _faceMaterial = Instantiate(faceMaterial);
+            _bodyFace.material = Instantiate(faceMaterial);
         }
 
         public void SetName(string name, Camera vufCamera)
