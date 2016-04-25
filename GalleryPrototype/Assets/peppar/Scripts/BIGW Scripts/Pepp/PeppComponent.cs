@@ -67,6 +67,7 @@ namespace peppar
         {
             _worldObject.SetActive(false);
             _characterObject.SetActive(false);
+            _peppBuildingTransform.gameObject.SetActive(true);
 
             transform.SetParent(_peppBuildingTransform);
             transform.position = Vector3.zero;
@@ -77,17 +78,13 @@ namespace peppar
             {
                 peppItems.SetActive(true);
             }
-
-            //if (_peppGUI != null)
-            //{
-            //    _peppGUI.SetActive(true);
-            //}
         }
 
         private void HidePeppView()
         {
             _worldObject.SetActive(true);
             _characterObject.SetActive(true);
+            _peppBuildingTransform.gameObject.SetActive(false);
 
             transform.SetParent(_initialParent);
             transform.position = _initialPosition;
@@ -98,11 +95,6 @@ namespace peppar
             {
                 peppItems.SetActive(false);
             }
-
-            //if (_peppGUI != null)
-            //{
-            //    _peppGUI.SetActive(false);
-            //}
         }
 
         public void PlacePepp(int taskIndex)

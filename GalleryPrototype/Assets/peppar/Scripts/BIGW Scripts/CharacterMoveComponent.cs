@@ -143,6 +143,8 @@ namespace peppar
             _navMeshAgent.SetDestination(navMeshHit.position);
 
             _navMeshAgent.Resume();
+
+            _lookAtController.enabled = false;
         }
 
         public void StartMovingToNextRandomPosition()
