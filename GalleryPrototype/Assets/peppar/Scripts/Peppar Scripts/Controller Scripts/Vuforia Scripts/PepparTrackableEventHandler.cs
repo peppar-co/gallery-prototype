@@ -16,7 +16,7 @@ namespace peppar
 
         [SerializeField]
         [Tooltip("true: set complete object inactive; false: turn off renderer and collider")]
-        private bool _controllCompleteObject = false;
+        private bool _onlyControllObjectActivation = false;
 
         [SerializeField]
         private List<GameObject> _dependentObjects = new List<GameObject>();
@@ -39,7 +39,10 @@ namespace peppar
 
         private void OnTrackingFound(TrackableBehaviour.Status newStatus)
         {
-            ChangeObjectStatus(transform, true);
+            if (_onlyControllObjectActivation == false)
+            {
+                ChangeObjectStatus(transform, true);
+            }
 
             ChangeDependentObjectStatus(true);
 
@@ -61,7 +64,10 @@ namespace peppar
 
         private void OnTrackingLost()
         {
-            ChangeObjectStatus(transform, false);
+            if (_onlyControllObjectActivation == false)
+            {
+                ChangeObjectStatus(transform, false);
+            }
 
             ChangeDependentObjectStatus(false);
 
@@ -78,14 +84,16 @@ namespace peppar
 
         private void ChangeObjectStatus(Transform change, bool active)
         {
-            if (_controllCompleteObject)
+            if (_onlyControllObjectActivation)
             {
-                Transform[] transformComponents = change.GetComponentsInChildren<Transform>(true);
+                //Transform[] transformComponents = change.GetComponentsInChildren<Transform>(true);
 
-                foreach (Transform component in transformComponents)
-                {
-                    component.gameObject.SetActive(active);
-                }
+                //foreach (Transform component in transformComponents)
+                //{
+                //    component.gameObject.SetActive(active);
+                //}
+
+                change.gameObject.SetActive(active);
             }
             else
             {
@@ -109,7 +117,9 @@ namespace peppar
         private void ChangeDependentObjectStatus(bool active)
         {
             if (_dependentObjects == null)
+            {
                 return;
+            }
 
             foreach (GameObject dependentObject in _dependentObjects)
             {

@@ -1368,7 +1368,7 @@ MonoBehaviour:
   _z: 1
   _flipForward: 0
   _smooth: 1
-  _lerpSpeed: 10
+  _lerpSpeed: 50
 --- !u!114 &11405202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1440,6 +1440,7 @@ MonoBehaviour:
   _questOverviewTaskA: {fileID: 0}
   _questOverviewTaskB: {fileID: 0}
   _animator: {fileID: 9536068}
+  _maxIdleMoveWaitingTime: 3
   _quests:
   - QuestType: 3
     QuestItemPrefab1: {fileID: 0}
