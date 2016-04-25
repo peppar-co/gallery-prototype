@@ -7,13 +7,16 @@
 
 		_PanTex("_PanTex", 2D) = "black" {}
 		_PanColor("_PanColor", Color) = (1,1,1,1)
-		//_Glossiness("Smoothness", Range(0,1)) = 0.5
-		//_Metallic("Metallic", Range(0,1)) = 0.0
-		_XScrollSpeed("_XScrollSpeed", Float) = 1
-		_YScrollSpeed("_YScrollSpeed", Float) = 1
+			//_Glossiness("Smoothness", Range(0,1)) = 0.5
+			//_Metallic("Metallic", Range(0,1)) = 0.0
+			_XScrollSpeed("_XScrollSpeed", Float) = 1
+			_YScrollSpeed("_YScrollSpeed", Float) = 1
 	}
 		SubShader{
 			Tags { "RenderType" = "Opaque" }
+
+			Cull Off 
+
 			LOD 200
 
 			CGPROGRAM

@@ -12,9 +12,7 @@ namespace peppar
 
         private List<GameObject> _headObjects;
         private List<SkinnedMeshRenderer> _pantsObjects, _shirtObjects;
-
-        [SerializeField]
-        private List<Texture> _faceTextures;
+        private List<Material> _faceTextures;
 
         [SerializeField]
         private Camera _vuforiaCamera, _guiCamera;
@@ -52,7 +50,7 @@ namespace peppar
             _createdCharacterObjects.Add(_currentCharacterObject);
             _currentCharacterObject.transform.SetParent(_creationPosition.transform.parent);
 
-            if(_createdCharacterObjects != null && _createdCharacterObjects.Count > 5)
+            if (_createdCharacterObjects != null && _createdCharacterObjects.Count > 5)
             {
                 Destroy(_createdCharacterObjects[0]);
                 _createdCharacterObjects.RemoveAt(0);
@@ -143,7 +141,7 @@ namespace peppar
             _snapshotTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
             _snapshotTexture.Apply();
 
-            _currentCharacterComponent.SetFace(_snapshotTexture);
+            //_currentCharacterComponent.SetFace(_snapshotTexture);
 
             _allowTakeSnapshot = true;
         }

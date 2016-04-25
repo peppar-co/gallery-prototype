@@ -42,6 +42,7 @@ ModelImporter:
     100068: Spine
     100070: top1
     100072: top2
+    100074: face
     400000: arma
     400002: body
     400004: bot1
@@ -79,8 +80,11 @@ ModelImporter:
     400068: Spine
     400070: top1
     400072: top2
+    400074: face
     2300000: hat2
+    2300002: face
     3300000: hat2
+    3300002: face
     4300000: hat2
     4300002: hat1
     4300004: top2
@@ -88,6 +92,8 @@ ModelImporter:
     4300008: body
     4300010: bot1
     4300012: top1
+    4300014: face
+    7400000: Take 001
     9500000: //RootNode
     13700000: body
     13700002: bot1
@@ -122,11 +128,11 @@ ModelImporter:
     globalScale: 45
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
+    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8

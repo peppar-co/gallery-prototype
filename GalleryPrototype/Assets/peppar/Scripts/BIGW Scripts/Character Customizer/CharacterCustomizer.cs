@@ -20,9 +20,7 @@ namespace peppar
 
         private List<GameObject> _headObjects;
         private List<SkinnedMeshRenderer> _pantsObjects, _shirtObjects;
-
-        [SerializeField]
-        private List<Texture> _faceTextures;
+        private List<Material> _faceMaterials;
 
         [SerializeField]
         private Camera _vuforiaCamera, _guiCamera;
@@ -77,15 +75,19 @@ namespace peppar
             _headObjects = _currentCharacterComponent.PrefabHeads;
             _shirtObjects = _currentCharacterComponent.PrefabShirts;
             _pantsObjects = _currentCharacterComponent.PrefabPants;
+            _faceMaterials = _currentCharacterComponent.FaceMaterials;
+
 
             // Random character
             int headIndex = Random.Range(0, _headObjects.Count);
             int pantsIndex = Random.Range(0, _pantsObjects.Count);
             int shirtIndex = Random.Range(0, _shirtObjects.Count);
+            int faceIndex = Random.Range(0, _faceMaterials.Count);
 
             SetHead(headIndex);
             SetPants(pantsIndex);
             SetShirt(shirtIndex);
+            SetFace(faceIndex);
 
             _worldObject.SetActive(false);
             _characterObject.SetActive(false);
@@ -149,7 +151,7 @@ namespace peppar
 
         public void SetFace(int index)
         {
-            _currentCharacterComponent.SetFace(_faceTextures[index]);
+            _currentCharacterComponent.SetFace(_faceMaterials[index]);
         }
 
         public void SetPants(int index)

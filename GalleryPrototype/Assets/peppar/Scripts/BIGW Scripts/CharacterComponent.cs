@@ -13,7 +13,7 @@ namespace peppar
         private List<SkinnedMeshRenderer> _prefabShirts, _prefabPants;
 
         [SerializeField]
-        private GameObject _faceObject;
+        private List<Material> _faceMaterials = new List<Material>();
 
         [SerializeField]
         private TextMesh _nameTagText;
@@ -48,10 +48,14 @@ namespace peppar
             get { return _prefabPants; }
         }
 
-        public void SetFace(Texture faceTexture)
+        public List<Material> FaceMaterials
         {
-            _faceMaterial.mainTexture = Instantiate(faceTexture);
-            _faceObject.GetComponent<Renderer>().material = _faceMaterial;
+            get { return _faceMaterials; }
+        }
+
+        public void SetFace(Material faceMaterial)
+        {
+            _faceMaterial = Instantiate(faceMaterial);
         }
 
         public void SetName(string name, Camera vufCamera)
