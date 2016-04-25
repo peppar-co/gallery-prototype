@@ -13,7 +13,16 @@ namespace peppar
         private PeppObjectController _peppObject;
 
         [SerializeField]
+        private GameObject[] _peppItems = new GameObject[2];
+
+        [SerializeField]
         private GameObject _peppGUI;
+
+        [SerializeField]
+        private GameObject _worldObject, _characterObject;
+
+        [SerializeField]
+        private Transform _peppBuildingTransform;
 
         [SerializeField]
         private GUIQuestChoiceController _guiQuestChoiceController;
@@ -22,6 +31,12 @@ namespace peppar
         private PeppController _peppController;
 
         private bool _active;
+
+        private Transform _initialParent;
+
+        private Vector3 _initialPosition, _initialScale;
+
+        private Quaternion _initialRotation;
 
         public string PeppId
         {
@@ -40,7 +55,7 @@ namespace peppar
                 return;
             }
 
-            ShowPeppGUI();
+            ShowPeppView();
         }
 
         private void ActivatePeppObject(bool active)
@@ -48,20 +63,46 @@ namespace peppar
             _peppObject.SetActive(active, this);
         }
 
-        private void ShowPeppGUI()
+        private void ShowPeppView()
         {
-            if (_peppGUI != null)
+            _worldObject.SetActive(false);
+            _characterObject.SetActive(false);
+
+            transform.SetParent(_peppBuildingTransform);
+            transform.position = Vector3.zero;
+            transform.rotation = Quaternion.identity;
+            transform.localScale = Vector3.one;
+
+            foreach(var peppItems in _peppItems)
             {
-                _peppGUI.SetActive(true);
+                peppItems.SetActive(true);
             }
+
+            //if (_peppGUI != null)
+            //{
+            //    _peppGUI.SetActive(true);
+            //}
         }
 
-        private void HidePeppGUI()
+        private void HidePeppView()
         {
-            if (_peppGUI != null)
+            _worldObject.SetActive(true);
+            _characterObject.SetActive(true);
+
+            transform.SetParent(_initialParent);
+            transform.position = _initialPosition;
+            transform.rotation = _initialRotation;
+            transform.localScale = _initialScale;
+
+            foreach (var peppItems in _peppItems)
             {
-                _peppGUI.SetActive(false);
+                peppItems.SetActive(false);
             }
+
+            //if (_peppGUI != null)
+            //{
+            //    _peppGUI.SetActive(false);
+            //}
         }
 
         public void PlacePepp(int taskIndex)
@@ -70,7 +111,7 @@ namespace peppar
 
             ActivatePeppObject(true);
 
-            HidePeppGUI();
+            HidePeppView();
 
             HighlightChilds(false);
 
@@ -105,7 +146,16 @@ namespace peppar
 
         protected override void Start()
         {
+            _initialParent = transform.parent;
 
+            _initialPosition = transform.position;
+            _initialRotation = transform.rotation;
+            _initialScale = transform.localScale;
+
+            foreach (var peppItems in _peppItems)
+            {
+                peppItems.SetActive(false);
+            }
         }
 
         protected override void Update()
