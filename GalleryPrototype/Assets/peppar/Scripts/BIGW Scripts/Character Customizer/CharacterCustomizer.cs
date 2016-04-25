@@ -16,7 +16,7 @@ namespace peppar
     public class CharacterCustomizer : BehaviourController
     {
         [SerializeField]
-        private GameObject _creationObject, _worldObject, _characterObject;
+        private GameObject _creationObjectContainer, _worldObjectContainer, _characterObjectContainer;
 
         private List<GameObject> _headObjects;
         private List<SkinnedMeshRenderer> _pantsObjects, _shirtObjects;
@@ -89,18 +89,18 @@ namespace peppar
             SetShirt(shirtIndex);
             SetFace(faceIndex);
 
-            _worldObject.SetActive(false);
-            _characterObject.SetActive(false);
-            _creationObject.SetActive(true);
+            _worldObjectContainer.SetActive(false);
+            _characterObjectContainer.SetActive(false);
+            _creationObjectContainer.SetActive(true);
         }
 
         public void CancelCharacterCreation()
         {
             Destroy(_currentCharacterObject);
 
-            _worldObject.SetActive(true);
-            _characterObject.SetActive(true);
-            _creationObject.SetActive(false);
+            _worldObjectContainer.SetActive(true);
+            _characterObjectContainer.SetActive(false);
+            _creationObjectContainer.SetActive(false);
         }
 
         public void FinishCharacterCreation()
@@ -111,9 +111,9 @@ namespace peppar
             _currentCharacterObject.transform.localScale = _startMovingPosition.localScale;
             _currentCharacterObject = null;
 
-            _worldObject.SetActive(true);
-            _characterObject.SetActive(true);
-            _creationObject.SetActive(false);
+            _worldObjectContainer.SetActive(true);
+            _characterObjectContainer.SetActive(true);
+            _creationObjectContainer.SetActive(false);
 
             _characterQuestMachine.SetQuest();
         }
