@@ -1516,9 +1516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405249dfb76cde44191977c49a83a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _creationObject: {fileID: 163976}
-  _worldObject: {fileID: 0}
-  _characterObject: {fileID: 0}
+  _creationObjectContainer: {fileID: 163976}
+  _worldObjectContainer: {fileID: 0}
+  _characterObjectContainer: {fileID: 0}
   _vuforiaCamera: {fileID: 0}
   _guiCamera: {fileID: 0}
   _guiAnimator: {fileID: 0}
