@@ -49,7 +49,7 @@ namespace peppar
         {
             _currentCharacterObject.transform.position = _startMovingPosition.position;
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
-            _currentCharacterMoveComponent.Run = true;
+            //_currentCharacterMoveComponent.Run = true;
             _currentCharacterObject = null;
         }
 

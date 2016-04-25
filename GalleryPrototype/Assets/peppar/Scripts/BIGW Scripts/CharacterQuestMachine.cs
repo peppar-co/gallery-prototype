@@ -63,6 +63,9 @@ namespace peppar
         private Animator _animator;
 
         [SerializeField]
+        private float _maxIdleMoveWaitingTime = 3;
+
+        [SerializeField]
         private List<Quest> _quests = new List<Quest>();
 
         private PeppController _peppController;
@@ -154,29 +157,33 @@ namespace peppar
 
         private void Move_Enter()
         {
-            _movementComponent.Run = true;
+            _movementComponent.StartMovingToNextRandomPosition();
+        }
+
+        private void Move_Update()
+        {
+            if(_movementComponent.IsDestinationReached())
+            {
+                _movementComponent.StartMovingToNextRandomPosition(UnityEngine.Random.Range(0, _maxIdleMoveWaitingTime));
+            }
         }
 
         private void Idle_Enter()
         {
-            _movementComponent.Run = false;
-
-            _animator.SetFloat("Walk", 0);
+            _movementComponent.StopMoving();
         }
 
         private void DoingQuest_Enter()
         {
             if (_questTaskPositions != null && _questTaskPositions.Count > 0)
             {
-                _movementComponent.Run = false;
-
                 _currentTaskPosition = _questTaskPositions[0];
 
                 _movementComponent.StartMovingToPosition(_currentTaskPosition);
             }
             else
             {
-                _stateMachine.ChangeState(State.Idle);
+                _stateMachine.ChangeState(State.Move);
             }
         }
 

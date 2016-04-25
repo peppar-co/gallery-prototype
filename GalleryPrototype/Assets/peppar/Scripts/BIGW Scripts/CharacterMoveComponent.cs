@@ -29,91 +29,91 @@ namespace peppar
 
         private bool _waiting = false;
 
-        private float _currentWaitingTime, _timeToMove, _timeAfterLastWaving, _timeToWave;
+        //private float _currentWaitingTime, _timeToMove, _timeAfterLastWaving, _timeToWave;
 
-        private bool _run;
+        //private bool _run;
 
-        private State _state = State.None;
+        //private State _state = State.None;
 
-        private enum State
-        {
-            None,
-            Idle,
-            Moving,
-            Waving
-        }
+        //private enum State
+        //{
+        //    None,
+        //    Idle,
+        //    Moving,
+        //    Waving
+        //}
 
-        public bool Run
-        {
-            get
-            {
-                return _run;
-            }
-            set
-            {
-                _run = value;
-            }
-        }
+        //public bool Run
+        //{
+        //    get
+        //    {
+        //        return _run;
+        //    }
+        //    set
+        //    {
+        //        _run = value;
+        //    }
+        //}
 
-        private void StartNextAction()
-        {
-            if (_state != State.Idle
-             && _waiting == false && IsDestinationReached())
-            {
-                Idle();
-            }
-            //else if (_state != State.Waving
-            //      && _state != State.Moving
-            //      && _waiting && _timeAfterLastWaving > _timeToWave)
-            //{
-            //    Wave();
-            //}
-            else if (_state != State.Moving
-                  && _waiting && _currentWaitingTime > _timeToMove)
-            {
-                Move();
-            }
-        }
+        //private void StartNextAction()
+        //{
+        //    if (_state != State.Idle
+        //     && _waiting == false && IsDestinationReached())
+        //    {
+        //        Idle();
+        //    }
+        //    //else if (_state != State.Waving
+        //    //      && _state != State.Moving
+        //    //      && _waiting && _timeAfterLastWaving > _timeToWave)
+        //    //{
+        //    //    Wave();
+        //    //}
+        //    else if (_state != State.Moving
+        //          && _waiting && _currentWaitingTime > _timeToMove)
+        //    {
+        //        Move();
+        //    }
+        //}
 
-        private void Move()
-        {
-            _lookAtController.enabled = false;
+        //private void Move()
+        //{
+        //    _lookAtController.enabled = false;
 
-            // Start Moving Animation ??
-            StartMovingToNextRandomPosition();
-            _waiting = false;
-            _currentWaitingTime = 0;
+        //    // Start Moving Animation ??
+        //    StartMovingToNextRandomPosition();
+        //    _waiting = false;
+        //    _currentWaitingTime = 0;
 
-            _state = State.Moving;
-        }
+        //    _state = State.Moving;
+        //}
 
-        private void Wave()
-        {
-            _lookAtController.enabled = true;
+        //private void Wave()
+        //{
+        //    _lookAtController.enabled = true;
 
-            _waiting = true;
+        //    _waiting = true;
 
-            // Start waving animation
-            _timeAfterLastWaving = 0;
+        //    // Start waving animation
+        //    _timeAfterLastWaving = 0;
 
-            // Time needed for waving
-            _timeToMove += 3;
+        //    // Time needed for waving
+        //    _timeToMove += 3;
 
-            _state = State.Waving;
-        }
+        //    _state = State.Waving;
+        //}
 
-        private void Idle()
-        {
-            _lookAtController.enabled = false;
+        //private void Idle()
+        //{
+        //    _lookAtController.enabled = false;
 
-            // Start Idle Animation
-            _waiting = true;
+        //    // Start Idle Animation
+        //    _waiting = true;
 
-            _timeToMove = Random.Range(0, _maxTimeToMove);
-            _timeToWave = Random.Range(0, _maxTimeToWave);
+        //    _timeToMove = Random.Range(0, _maxTimeToMove);
+        //    _timeToWave = Random.Range(0, _maxTimeToWave);
 
-            _state = State.Idle;
-        }
+        //    _state = State.Idle;
+        //}
 
         public bool IsDestinationReached()
         {
@@ -141,11 +141,41 @@ namespace peppar
             NavMesh.SamplePosition(position, out navMeshHit, 10, NavMesh.AllAreas);
 
             _navMeshAgent.SetDestination(navMeshHit.position);
+
+            _navMeshAgent.Resume();
         }
 
-        private void StartMovingToNextRandomPosition()
+        public void StartMovingToNextRandomPosition()
         {
             StartMovingToPosition(GetRandomPosition());
+        }
+
+        public void StartMovingToNextRandomPosition(float timeDelay)
+        {
+            if (_waiting == false)
+            {
+                StartCoroutine(StartMovingToNextRandomPositionInSeconds(timeDelay));
+            }
+        }
+
+        public IEnumerator StartMovingToNextRandomPositionInSeconds(float seconds)
+        {
+            _waiting = true;
+
+            _lookAtController.enabled = true;
+
+            yield return new WaitForSeconds(seconds);
+
+            _lookAtController.enabled = false;
+
+            StartMovingToNextRandomPosition();
+
+            _waiting = false;
+        }
+
+        public void StopMoving()
+        {
+            _navMeshAgent.Stop();
         }
 
         private Vector3 GetRandomPosition()
@@ -176,9 +206,11 @@ namespace peppar
             if (_lookAtController != null && _vufCamera != null)
             {
                 _lookAtController.LookAtTarget = _vufCamera.transform;
+
+                _lookAtController.enabled = false;
             }
 
-            Run = false;
+            //Run = false;
         }
 
         protected override void Start()
@@ -191,20 +223,20 @@ namespace peppar
 
         protected override void Update()
         {
-            if (Run == false)
-            {
-                return;
-            }
+            //if (Run == false)
+            //{
+            //    return;
+            //}
 
             _animator.SetFloat("Walk", _navMeshAgent.velocity.magnitude);
 
-            if (_waiting)
-            {
-                _currentWaitingTime += Time.deltaTime;
-                _timeAfterLastWaving += Time.deltaTime;
-            }
+            //if (_waiting)
+            //{
+            //    _currentWaitingTime += Time.deltaTime;
+            //    _timeAfterLastWaving += Time.deltaTime;
+            //}
 
-            StartNextAction();
+            //StartNextAction();
         }
     }
 }
