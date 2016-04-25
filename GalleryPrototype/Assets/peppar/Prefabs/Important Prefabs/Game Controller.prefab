@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &115866
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,11 +824,11 @@ MonoBehaviour:
   m_GlowType: 0
   m_GlowQuality: 1
   m_FullScreenGlowTint: {r: 1, g: 1, b: 1, a: 0}
-  m_BlurSpread: 0.35
-  m_BlurIterations: 7
+  m_BlurSpread: 0.25
+  m_BlurIterations: 5
   m_GlowIntensity: 0.3
-  m_BlurOffset: 0
-  m_Samples: 2
+  m_BlurOffset: 0.25
+  m_Samples: 4
 --- !u!114 &11471726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkInteraction: 1
-  _showViewTargetPosition: 1
+  _showViewTargetPosition: 0
   _viewTargetObject: {fileID: 114846}
   _showChildComponents: 0
 --- !u!114 &11480288

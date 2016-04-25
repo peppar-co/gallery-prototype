@@ -112,6 +112,8 @@ namespace peppar
                 return;
             }
 
+            _stateMachine.ChangeState(State.Idle);
+
             if (peppId == _currentQuest.PeppIdA && _currentQuest.TaskADone == false)
             {
                 _currentQuest.CurrentItemObject = taskIndex == 0 ? _currentQuest.QuestItemPrefab1 : _currentQuest.QuestItemPrefab2;
@@ -132,9 +134,16 @@ namespace peppar
                 StateMachine.ChangeState(State.Done);
             }
 
-            _questTaskPositions.Remove(_currentTaskPosition);
+            _questTaskPositions.RemoveAt(0);
 
             _stateMachine.ChangeState(State.DoingQuest);
+        }
+
+        public void BreakQuest()
+        {
+            StateMachine.ChangeState(State.Done);
+
+            _questTaskPositions.Clear();
         }
 
         public void SetQuest()
