@@ -1334,8 +1334,14 @@ MonoBehaviour:
   - QuestType: 3
     QuestItemPrefab1: {fileID: 194230, guid: 55ba5f00e61095849ad403cdb557bfff, type: 2}
     QuestItemPrefab2: {fileID: 189068, guid: 7f3b5f825eb961247849c1e13bb111ff, type: 2}
-    QuestItemMaterial1: {fileID: 0}
-    QuestItemMaterial2: {fileID: 0}
+    QuestItem1Material1: {fileID: 2100000, guid: 71bc19d2d4ed01140920d5a7cae322d4,
+      type: 2}
+    QuestItem1Material2: {fileID: 2100000, guid: f9a55e803eab45941b4cc205b9ffd65d,
+      type: 2}
+    QuestItem2Material1: {fileID: 2100000, guid: 6e33bccef56fe40678fb5405109e495b,
+      type: 2}
+    QuestItem2Material2: {fileID: 2100000, guid: 18b77ca565d1a463a97ad28cf586cb1c,
+      type: 2}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
     TaskADescription: Buy a toy!!
@@ -1347,8 +1353,10 @@ MonoBehaviour:
   - QuestType: 2
     QuestItemPrefab1: {fileID: 0}
     QuestItemPrefab2: {fileID: 0}
-    QuestItemMaterial1: {fileID: 0}
-    QuestItemMaterial2: {fileID: 0}
+    QuestItem1Material1: {fileID: 0}
+    QuestItem1Material2: {fileID: 0}
+    QuestItem2Material1: {fileID: 0}
+    QuestItem2Material2: {fileID: 0}
     PeppIdA: Cloth Shop Pepp
     PeppIdB: Print Shop Pepp
     TaskADescription: Buy a hat!!
@@ -1360,8 +1368,10 @@ MonoBehaviour:
   - QuestType: 1
     QuestItemPrefab1: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
     QuestItemPrefab2: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
-    QuestItemMaterial1: {fileID: 0}
-    QuestItemMaterial2: {fileID: 0}
+    QuestItem1Material1: {fileID: 0}
+    QuestItem1Material2: {fileID: 0}
+    QuestItem2Material1: {fileID: 0}
+    QuestItem2Material2: {fileID: 0}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
     TaskADescription: Buy a ballon!!
