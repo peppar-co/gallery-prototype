@@ -1,6 +1,6 @@
 ﻿Shader "peppar/Custom/UVPan" {
 	Properties{
-		//_Color("Color", Color) = (1,1,1,1)
+		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("_MainTex", 2D) = "white" {}
 
 		_EnablePan("_EnablePan", Int) = 0
@@ -38,7 +38,7 @@
 
 			//half _Glossiness;
 			//half _Metallic;
-			//fixed4 _Color;
+			fixed4 _Color;
 			fixed4 _PanColor;
 			fixed _EnablePan;
 
@@ -51,7 +51,7 @@
 
 				// Albedo comes from a texture tinted by color
 				fixed4 pan = tex2D(_PanTex, scrollUV) * _PanColor * _EnablePan;
-				fixed4 col = tex2D(_MainTex, IN.uv_MainTex);  /* * _Color;*/
+				fixed4 col = tex2D(_MainTex, IN.uv_MainTex)   * _Color;
 				fixed4 c = pan + col;
 				o.Albedo = c.rgb;
 				// Metallic and smoothness come from slider variables

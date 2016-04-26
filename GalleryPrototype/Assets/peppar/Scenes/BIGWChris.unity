@@ -1921,10 +1921,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11436628, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: _vufCamera
-      value: 
-      objectReference: {fileID: 2030233647}
     - target: {fileID: 11438826, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
       propertyPath: _questOverviewGUI
       value: 
@@ -1937,26 +1933,26 @@ Prefab:
       propertyPath: _questOverviewTaskB
       value: 
       objectReference: {fileID: 1315715271}
-    - target: {fileID: 120962, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+    - target: {fileID: 11436628, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+      propertyPath: _vufCamera
+      value: 
+      objectReference: {fileID: 2030233647}
+    - target: {fileID: 2376014, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09d7d5a71d9cc5149b03b5e76f7f383f, type: 2}
+    - target: {fileID: 2330472, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f7aab2de81eccd41a7efa1fff01130e, type: 2}
+    - target: {fileID: 180268, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11438826, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: _quests.Array.data[0].QuestItem1Material1
-      value: 
-      objectReference: {fileID: 2100000, guid: 71bc19d2d4ed01140920d5a7cae322d4, type: 2}
-    - target: {fileID: 11438826, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: _quests.Array.data[0].QuestItem1Material2
-      value: 
-      objectReference: {fileID: 2100000, guid: f9a55e803eab45941b4cc205b9ffd65d, type: 2}
-    - target: {fileID: 11438826, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: _quests.Array.data[0].QuestItem2Material1
-      value: 
-      objectReference: {fileID: 2100000, guid: 6e33bccef56fe40678fb5405109e495b, type: 2}
-    - target: {fileID: 11438826, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: _quests.Array.data[0].QuestItem2Material2
-      value: 
-      objectReference: {fileID: 2100000, guid: 18b77ca565d1a463a97ad28cf586cb1c, type: 2}
+    - target: {fileID: 106906, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
   m_IsPrefabParent: 0
