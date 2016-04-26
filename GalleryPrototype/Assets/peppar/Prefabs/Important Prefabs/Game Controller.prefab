@@ -784,6 +784,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pepps:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11464780
 MonoBehaviour:
   m_ObjectHideFlags: 1

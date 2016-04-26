@@ -1937,19 +1937,7 @@ Prefab:
       propertyPath: _vufCamera
       value: 
       objectReference: {fileID: 2030233647}
-    - target: {fileID: 2376014, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 09d7d5a71d9cc5149b03b5e76f7f383f, type: 2}
-    - target: {fileID: 2330472, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f7aab2de81eccd41a7efa1fff01130e, type: 2}
-    - target: {fileID: 180268, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 106906, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+    - target: {fileID: 120962, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
