@@ -40,7 +40,7 @@ GameObject:
   - 4: {fileID: 438848}
   - 137: {fileID: 13776808}
   m_Layer: 0
-  m_Name: top2
+  m_Name: top3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,6 +514,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &174606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417234}
+  - 137: {fileID: 13763080}
+  m_Layer: 0
+  m_Name: top2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &177736
 GameObject:
   m_ObjectHideFlags: 1
@@ -664,6 +680,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 454320}
   m_RootOrder: 0
+--- !u!4 &417234
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174606}
+  m_LocalRotation: {x: -0.00000006657903, y: -1.11022296e-16, z: 1.1102229e-16, w: 1}
+  m_LocalPosition: {x: -1.4068583e-23, y: 0, z: 0}
+  m_LocalScale: {x: 39.37008, y: 39.37008, z: 39.37008}
+  m_Children: []
+  m_Father: {fileID: 463424}
+  m_RootOrder: 6
 --- !u!4 &420210
 Transform:
   m_ObjectHideFlags: 1
@@ -740,11 +768,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102456}
   m_LocalRotation: {x: -0.00000006657903, y: -1.11022296e-16, z: 1.1102229e-16, w: 1}
-  m_LocalPosition: {x: -1.4068583e-23, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 39.37008, y: 39.37008, z: 39.37008}
   m_Children: []
   m_Father: {fileID: 463424}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!4 &439478
 Transform:
   m_ObjectHideFlags: 1
@@ -852,6 +880,7 @@ Transform:
   - {fileID: 472852}
   - {fileID: 421536}
   - {fileID: 498546}
+  - {fileID: 417234}
   - {fileID: 438848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1230,6 +1259,7 @@ MonoBehaviour:
   - {fileID: 150662}
   _prefabShirts:
   - {fileID: 13754118}
+  - {fileID: 13763080}
   - {fileID: 13776808}
   _prefabPants:
   - {fileID: 13760584}
@@ -1257,12 +1287,12 @@ MonoBehaviour:
   _transformIsTarget: 1
   _lookAtTarget: {fileID: 0}
   _lookAtPosition: {x: 0, y: 0, z: 0}
-  _x: 1
+  _x: 0
   _y: 1
-  _z: 1
+  _z: 0
   _flipForward: 0
   _smooth: 1
-  _lerpSpeed: 50
+  _lerpSpeed: 75
 --- !u!114 &11436628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1297,12 +1327,13 @@ MonoBehaviour:
   _questOverviewGUI: {fileID: 0}
   _questOverviewTaskA: {fileID: 0}
   _questOverviewTaskB: {fileID: 0}
+  _questItemParent: {fileID: 0}
   _animator: {fileID: 9544706}
   _maxIdleMoveWaitingTime: 3
   _quests:
   - QuestType: 3
-    QuestItemPrefab1: {fileID: 0}
-    QuestItemPrefab2: {fileID: 0}
+    QuestItemPrefab1: {fileID: 194230, guid: 55ba5f00e61095849ad403cdb557bfff, type: 2}
+    QuestItemPrefab2: {fileID: 189068, guid: 7f3b5f825eb961247849c1e13bb111ff, type: 2}
     QuestItemMaterial1: {fileID: 0}
     QuestItemMaterial2: {fileID: 0}
     PeppIdA: Toy Shop Pepp
@@ -1327,8 +1358,8 @@ MonoBehaviour:
     QuestItemMaterialDescription1: Funny Smiley
     QuestItemMaterialDescription2: Deadly Skull
   - QuestType: 1
-    QuestItemPrefab1: {fileID: 0}
-    QuestItemPrefab2: {fileID: 0}
+    QuestItemPrefab1: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
+    QuestItemPrefab2: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
     QuestItemMaterial1: {fileID: 0}
     QuestItemMaterial2: {fileID: 0}
     PeppIdA: Toy Shop Pepp
@@ -1362,7 +1393,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c7fe3eb8286ab6e488be3f1c84277b42, type: 2}
+  - {fileID: 2100000, guid: 111337b228057b647a3040458c251e5b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1514,6 +1545,58 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0040162024, y: 4.656613e-10, z: -0.0002510755}
     m_Extent: {x: 0.005889137, y: 0.0041498756, z: 0.0040843375}
   m_DirtyAABB: 0
+--- !u!137 &13763080
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174606}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: caa6eb3c56afc0743936e80ca0156762, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_Mesh: {fileID: 4300004, guid: 30e9130a0ca2e8248a43e93c979162cf, type: 3}
+  m_Bones:
+  - {fileID: 405888}
+  - {fileID: 439478}
+  - {fileID: 461798}
+  - {fileID: 482524}
+  - {fileID: 425818}
+  - {fileID: 499454}
+  - {fileID: 420210}
+  - {fileID: 468888}
+  - {fileID: 405216}
+  - {fileID: 450946}
+  - {fileID: 457274}
+  - {fileID: 480890}
+  - {fileID: 482230}
+  - {fileID: 424714}
+  - {fileID: 493086}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 420210}
+  m_AABB:
+    m_Center: {x: -0.0037831152, y: 0.000000004656613, z: 0.00016326772}
+    m_Extent: {x: 0.005298213, y: 0.007900341, z: 0.0036429549}
+  m_DirtyAABB: 0
 --- !u!137 &13763296
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1566,7 +1649,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 983603b63478d214a9a5d4b27831e816, type: 2}
+  - {fileID: 2100000, guid: 7950efb6d52b24248971260923e01773, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

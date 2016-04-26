@@ -30,7 +30,7 @@ namespace peppar
 
             public GameObject QuestItemPrefab1, QuestItemPrefab2;
 
-            public Material QuestItemMaterial1, QuestItemMaterial2;
+            public Material QuestItem1Material1, QuestItem1Material2, QuestItem2Material1, QuestItem2Material2;
 
             public string PeppIdA, PeppIdB;
 
@@ -44,7 +44,13 @@ namespace peppar
             public bool TaskADone, TaskBDone;
 
             [NonSerialized]
+            public int CurrentItemObjectIndex;
+
+            [NonSerialized]
             public GameObject CurrentItemObject;
+
+            [NonSerialized]
+            public int CurrentItemMaterialIndex;
 
             [NonSerialized]
             public Material CurrentItemMaterial;
@@ -58,6 +64,9 @@ namespace peppar
 
         [SerializeField]
         private SimpleToggleGUIClass _questOverviewTaskA, _questOverviewTaskB;
+
+        [SerializeField]
+        private Transform _questItemParent;
 
         [SerializeField]
         private Animator _animator;
@@ -116,14 +125,14 @@ namespace peppar
 
             if (peppId == _currentQuest.PeppIdA && _currentQuest.TaskADone == false)
             {
-                _currentQuest.CurrentItemObject = taskIndex == 0 ? _currentQuest.QuestItemPrefab1 : _currentQuest.QuestItemPrefab2;
+                _currentQuest.CurrentItemObjectIndex = taskIndex;// == 0 ? _currentQuest.QuestItemPrefab1 : _currentQuest.QuestItemPrefab2;
                 _currentQuest.TaskADone = true;
                 _questOverviewTaskA.ToggleActive = true;
                 _finishedTasks++;
             }
             else if (peppId == _currentQuest.PeppIdB && _currentQuest.TaskBDone == false)
             {
-                _currentQuest.CurrentItemMaterial = taskIndex == 0 ? _currentQuest.QuestItemMaterial1 : _currentQuest.QuestItemMaterial2;
+                _currentQuest.CurrentItemMaterialIndex = taskIndex;// == 0 ? _currentQuest.QuestItemMaterial1 : _currentQuest.QuestItemMaterial2;
                 _currentQuest.TaskBDone = true;
                 _questOverviewTaskB.ToggleActive = true;
                 _finishedTasks++;
@@ -171,7 +180,7 @@ namespace peppar
 
         private void Move_Update()
         {
-            if(_movementComponent.IsDestinationReached())
+            if (_movementComponent.IsDestinationReached())
             {
                 _movementComponent.StartMovingToNextRandomPosition(UnityEngine.Random.Range(0, _maxIdleMoveWaitingTime));
             }
@@ -204,6 +213,35 @@ namespace peppar
             Debug.Log("Quest is done!!!");
 
             StateMachine.ChangeState(State.Move);
+        }
+
+        private void AddQuestItem()
+        {
+            switch (_currentQuest.QuestType)
+            {
+                case QuestType.Toy:
+                case QuestType.Ballon:
+                    _currentQuest.CurrentItemObject = Instantiate(_currentQuest.CurrentItemObjectIndex == 0 ? _currentQuest.QuestItemPrefab1 : _currentQuest.QuestItemPrefab2);
+
+                    if (_currentQuest.CurrentItemObjectIndex == 0)
+                    {
+                        _currentQuest.CurrentItemMaterial = _currentQuest.CurrentItemMaterialIndex == 0 ? _currentQuest.QuestItem1Material1 : _currentQuest.QuestItem1Material2;
+                    }
+                    else
+                    {
+                        _currentQuest.CurrentItemMaterial = _currentQuest.CurrentItemMaterialIndex == 0 ? _currentQuest.QuestItem2Material1 : _currentQuest.QuestItem2Material2;
+                    }
+
+                    _currentQuest.CurrentItemObject.transform.SetParent(_questItemParent);
+                    _currentQuest.CurrentItemObject.GetComponent<VehicleController>().DestinationObject = transform;
+                    _currentQuest.CurrentItemObject.GetComponent<ItemMaterialController>().SetMaterial(_currentQuest.CurrentItemMaterial);
+                    break;
+                case QuestType.Hat:
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         protected override void Awake()
