@@ -62,9 +62,15 @@ namespace peppar
         public void SetName(string name, Camera vufCamera)
         {
             _name = name;
-            _nameTagText.text = name;
-            _nameLookAtController.LookAtTarget = vufCamera.transform;
-            _nameLookAtController.enabled = true;
+            if (_nameTagText != null)
+            {
+                _nameTagText.text = name;
+            }
+            if (_nameLookAtController != null)
+            {
+                _nameLookAtController.LookAtTarget = vufCamera.transform;
+                _nameLookAtController.enabled = true;
+            }
         }
 
         public void SetHead(GameObject headObject)

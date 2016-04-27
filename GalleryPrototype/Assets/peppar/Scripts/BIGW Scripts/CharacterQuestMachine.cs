@@ -38,6 +38,8 @@ namespace peppar
 
             public string TaskADescription, TaskBDescription;
 
+            public Texture TaskAIcon, TaskBIcon;
+
             public string QuestItemPrefabDescription1, QuestItemPrefabDescription2;
 
             public string QuestItemMaterialDescription1, QuestItemMaterialDescription2;
@@ -69,9 +71,6 @@ namespace peppar
 
         [SerializeField]
         private Transform _questItemParent;
-
-        [SerializeField]
-        private Animator _animator;
 
         [SerializeField]
         private float _maxIdleMoveWaitingTime = 3;
@@ -185,8 +184,10 @@ namespace peppar
             _currentQuest = _quests[randomQuest];
 
             _questOverviewTaskA.ToggleText = _currentQuest.TaskADescription;
+            _questOverviewTaskA.ToggleIcon = _currentQuest.TaskAIcon;
             _questOverviewTaskA.ToggleActive = false;
             _questOverviewTaskB.ToggleText = _currentQuest.TaskBDescription;
+            _questOverviewTaskB.ToggleIcon = _currentQuest.TaskBIcon;
             _questOverviewTaskB.ToggleActive = false;
             _questOverviewGUI.SetActive(true);
 
@@ -203,7 +204,6 @@ namespace peppar
 
         private void Move_Update()
         {
-            Debug.Log("move update");
             if (_movementComponent.IsDestinationReached())
             {
                 _movementComponent.StartMovingToNextRandomPosition(UnityEngine.Random.Range(0, _maxIdleMoveWaitingTime));
