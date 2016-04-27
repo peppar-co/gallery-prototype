@@ -91,7 +91,7 @@ namespace peppar
 
         private Quest _currentQuest;
 
-        private List<Vector3> _questTaskPositions = new List<Vector3>();
+        public List<Vector3> _questTaskPositions = new List<Vector3>();
 
         private Vector3 _currentTaskPosition;
 
@@ -173,7 +173,7 @@ namespace peppar
 
         public void SetQuest()
         {
-            StartCoroutine(SetQuestAfterSeconds(1f));
+            StartCoroutine(SetQuestAfterSeconds(0.2f));
         }
 
         private IEnumerator SetQuestAfterSeconds(float seconds)
@@ -203,6 +203,7 @@ namespace peppar
 
         private void Move_Update()
         {
+            Debug.Log("move update");
             if (_movementComponent.IsDestinationReached())
             {
                 _movementComponent.StartMovingToNextRandomPosition(UnityEngine.Random.Range(0, _maxIdleMoveWaitingTime));

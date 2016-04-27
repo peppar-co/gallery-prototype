@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 namespace peppar
 {
@@ -30,7 +28,7 @@ namespace peppar
             {
                 var characterQuestMachine = other.GetComponent<CharacterQuestMachine>();
 
-                if (characterQuestMachine != null)
+                if (characterQuestMachine != null && characterQuestMachine._questTaskPositions != null && characterQuestMachine._questTaskPositions.Count > 0)
                 {
                     characterQuestMachine.FinishedTask(_peppComponent.PeppId, _peppComponent.TaskIndex);
                     _active = false;

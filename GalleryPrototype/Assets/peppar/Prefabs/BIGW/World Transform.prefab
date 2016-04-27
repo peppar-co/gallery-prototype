@@ -6526,7 +6526,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164470}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -6682,7 +6682,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -7358,7 +7358,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -7618,7 +7618,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -9672,7 +9672,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100926}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -9854,7 +9854,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151018}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -11310,7 +11310,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6508434
 BoxCollider:
@@ -11370,7 +11370,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6512490
 BoxCollider:
@@ -11502,7 +11502,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6525352
 BoxCollider:
@@ -12691,7 +12691,6 @@ MonoBehaviour:
   _worldObject: {fileID: 163018}
   _characterObject: {fileID: 0}
   _peppBuildingTransform: {fileID: 0}
-  _guiQuestChoiceController: {fileID: 11483324}
   _peppController: {fileID: 0}
 --- !u!114 &11447490
 MonoBehaviour:
@@ -12780,7 +12779,6 @@ MonoBehaviour:
   _worldObject: {fileID: 163018}
   _characterObject: {fileID: 0}
   _peppBuildingTransform: {fileID: 0}
-  _guiQuestChoiceController: {fileID: 11483324}
   _peppController: {fileID: 0}
 --- !u!114 &11453044
 MonoBehaviour:
@@ -12831,7 +12829,6 @@ MonoBehaviour:
   _worldObject: {fileID: 163018}
   _characterObject: {fileID: 0}
   _peppBuildingTransform: {fileID: 0}
-  _guiQuestChoiceController: {fileID: 11483324}
   _peppController: {fileID: 0}
 --- !u!114 &11459634
 MonoBehaviour:

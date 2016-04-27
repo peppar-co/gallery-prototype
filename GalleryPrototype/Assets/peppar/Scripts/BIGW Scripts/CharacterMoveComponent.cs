@@ -59,24 +59,31 @@ namespace peppar
             _navMeshAgent.Resume();
 
             _lookAtController.enabled = false;
+            _waiting = true;
         }
 
         public void StartMovingToNextRandomPosition()
         {
+            Debug.Log("start Moving");
             StartMovingToPosition(GetRandomPosition());
+
+            _waiting = false;
         }
 
         public void StartMovingToNextRandomPosition(float timeDelay)
         {
+            Debug.Log("Want to start");
+
             if (_waiting == false)
             {
-                _waiting = true;
                 StartCoroutine(StartMovingToNextRandomPositionInSeconds(timeDelay));
             }
         }
 
         public IEnumerator StartMovingToNextRandomPositionInSeconds(float seconds)
         {
+            Debug.Log("Start Coroutine");
+
             _lookAtController.enabled = true;
 
             yield return new WaitForSeconds(seconds);
@@ -84,8 +91,6 @@ namespace peppar
             _lookAtController.enabled = false;
 
             StartMovingToNextRandomPosition();
-
-            _waiting = false;
         }
 
         public void StopMoving()
