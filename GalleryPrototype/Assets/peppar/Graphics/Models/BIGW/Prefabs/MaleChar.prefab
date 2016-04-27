@@ -1383,8 +1383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bodyFace: {fileID: 13756556}
   _prefabHeads:
-  - {fileID: 154798}
-  - {fileID: 150662}
+  - {fileID: 180268}
+  - {fileID: 106906}
   _prefabShirts:
   - {fileID: 13754118}
   - {fileID: 13763080}
