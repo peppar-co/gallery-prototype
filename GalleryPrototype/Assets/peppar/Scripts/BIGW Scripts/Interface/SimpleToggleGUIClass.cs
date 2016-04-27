@@ -8,8 +8,10 @@ public class SimpleToggleGUIClass : MonoBehaviour
     private Text _referenceLabel;
     [SerializeField]
     private Toggle _referenceToggle;
+    // TODO add texture/ icon gui 
 
     private string _toggleText;
+    private Texture _toggleIcon;
     private bool _toggleActive;
 
     public string ToggleText
@@ -23,6 +25,19 @@ public class SimpleToggleGUIClass : MonoBehaviour
         {
             _toggleText = value;
             _referenceLabel.text = value;
+        }
+    }
+
+    public Texture ToggleIcon
+    {
+        get
+        {
+            return _toggleIcon;
+        }
+        set
+        {
+            _toggleIcon = value;
+            // TODO change gui icon
         }
     }
 

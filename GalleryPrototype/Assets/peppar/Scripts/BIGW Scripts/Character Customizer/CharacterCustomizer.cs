@@ -23,10 +23,7 @@ namespace peppar
         private List<Material> _faceMaterials;
 
         [SerializeField]
-        private Camera _vuforiaCamera, _guiCamera;
-
-        [SerializeField]
-        private Animator _guiAnimator;
+        private Camera _vuforiaCamera;
 
         [SerializeField]
         private GameObject _characterScenePrefab;
@@ -110,6 +107,7 @@ namespace peppar
 
         public void FinishCharacterCreation()
         {
+            SetName();
             Destroy(_currentCharacterComponent);
             _currentCharacterObject.transform.SetParent(_startMovingPosition.transform.parent);
             _currentCharacterObject.transform.position = _startMovingPosition.position;

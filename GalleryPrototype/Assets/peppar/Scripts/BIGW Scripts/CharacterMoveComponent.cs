@@ -64,7 +64,6 @@ namespace peppar
 
         public void StartMovingToNextRandomPosition()
         {
-            Debug.Log("start Moving");
             StartMovingToPosition(GetRandomPosition());
 
             _waiting = false;
@@ -72,8 +71,6 @@ namespace peppar
 
         public void StartMovingToNextRandomPosition(float timeDelay)
         {
-            Debug.Log("Want to start");
-
             if (_waiting == false)
             {
                 StartCoroutine(StartMovingToNextRandomPositionInSeconds(timeDelay));
@@ -82,8 +79,6 @@ namespace peppar
 
         public IEnumerator StartMovingToNextRandomPositionInSeconds(float seconds)
         {
-            Debug.Log("Start Coroutine");
-
             _lookAtController.enabled = true;
 
             yield return new WaitForSeconds(seconds);
