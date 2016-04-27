@@ -1925,6 +1925,10 @@ Prefab:
       propertyPath: _questOverviewTaskB
       value: 
       objectReference: {fileID: 1315715271}
+    - target: {fileID: 120962, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f23837f383bdca4a81dd12b71fbf44a, type: 2}
   m_IsPrefabParent: 0
@@ -12903,61 +12907,9 @@ Prefab:
       propertyPath: _nameInputText
       value: 
       objectReference: {fileID: 1085993836}
-    - target: {fileID: 3351290, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300016, guid: 30e9130a0ca2e8248a43e93c979162cf, type: 3}
-    - target: {fileID: 149288, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_Name
-      value: hair1 collider
-      objectReference: {fileID: 0}
-    - target: {fileID: 173324, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_Name
-      value: hair2 collider
-      objectReference: {fileID: 0}
-    - target: {fileID: 3354240, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300016, guid: 30e9130a0ca2e8248a43e93c979162cf, type: 3}
-    - target: {fileID: 2337480, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f7aab2de81eccd41a7efa1fff01130e, type: 2}
-    - target: {fileID: 2355834, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 09d7d5a71d9cc5149b03b5e76f7f383f, type: 2}
-    - target: {fileID: 431746, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 443436, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 431746, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 443436, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 431746, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 443436, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 431746, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 443436, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.23
+    - target: {fileID: 163976, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b928e0e09f1d844968d6ec368e9ed7, type: 2}
@@ -13766,7 +13718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2072193737
 Transform:
   m_ObjectHideFlags: 0
