@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+using System.Linq;
 
 namespace peppar
 {
     public class PeppComponent : BehaviourController, InteractionFunctionality
     {
+        [SerializeField]
+        private InteractionType[] _interactionOnTypes = new InteractionType[] { InteractionType.MouseClick, InteractionType.TouchClick };
+
+        [SerializeField]
+        private InteractionState _peppOnState = InteractionState.OnStart;
+
         [SerializeField]
         private string _peppId = "New Pepp";
 
@@ -25,9 +31,6 @@ namespace peppar
         private Transform _peppBuildingTransform;
 
         [SerializeField]
-        private GUIQuestChoiceController _guiQuestChoiceController;
-
-        [SerializeField]
         private PeppController _peppController;
 
         private bool _active;
@@ -35,6 +38,8 @@ namespace peppar
         private Transform _initialParent;
 
         private Vector3 _initialPosition, _initialScale;
+
+        private GameObject _shopItem1, _shopItem2;
 
         private Quaternion _initialRotation;
 
@@ -50,12 +55,20 @@ namespace peppar
 
         public void Interaction(InteractionState interactionState, InteractionType interactionType)
         {
+            if (_interactionOnTypes.Contains(interactionType) == false)
+            {
+                return;
+            }
+
             if (_active == false)
             {
                 return;
             }
 
-            ShowPeppView();
+            if (interactionState == _peppOnState)
+            {
+                ShowPeppView();
+            }
         }
 
         private void ActivatePeppObject(bool active)
@@ -74,7 +87,7 @@ namespace peppar
             transform.rotation = Quaternion.identity;
             transform.localScale = Vector3.one;
 
-            foreach(var peppItems in _peppItems)
+            foreach (var peppItems in _peppItems)
             {
                 peppItems.SetActive(true);
             }
@@ -82,14 +95,15 @@ namespace peppar
 
         private void HidePeppView()
         {
+            Debug.Log(_initialParent.name);
+            transform.SetParent(_initialParent);
+            transform.localPosition = _initialPosition;
+            transform.localRotation = _initialRotation;
+            transform.localScale = _initialScale;
+
             _worldObject.SetActive(true);
             _characterObject.SetActive(true);
             _peppBuildingTransform.gameObject.SetActive(false);
-
-            transform.SetParent(_initialParent);
-            transform.position = _initialPosition;
-            transform.rotation = _initialRotation;
-            transform.localScale = _initialScale;
 
             foreach (var peppItems in _peppItems)
             {
@@ -99,26 +113,54 @@ namespace peppar
 
         public void PlacePepp(int taskIndex)
         {
+            _active = false;
+
             TaskIndex = taskIndex;
 
-            ActivatePeppObject(true);
-
             HidePeppView();
+
+            ActivatePeppObject(true);
 
             HighlightChilds(false);
 
             _peppController.PeppIsActiveAtPosition(_peppObject.transform.position);
-
-            _active = false;
         }
 
-        public void SetPeppInteractionActive(PeppController peppController, string optionDescription1, string optionDescription2)
+        public void SetPeppInteractionActive(PeppController peppController, GameObject shopItem1, GameObject shopItem2)
         {
             _active = true;
 
-            HighlightChilds(true);
+            if (_shopItem1 != null)
+            {
+                Destroy(_shopItem1);
+            }
+            if (_shopItem2 != null)
+            {
+                Destroy(_shopItem2);
+            }
 
-            _guiQuestChoiceController.SetChoiceButtonLabels(optionDescription1, optionDescription2);
+            _shopItem1 = Instantiate(shopItem1);
+            _shopItem1.transform.SetParent(_peppItems[0].transform);
+            _shopItem1.transform.localPosition = Vector3.zero;
+            _shopItem1.transform.localRotation = Quaternion.identity;
+            _shopItem1.transform.localScale = Vector3.one;
+
+            _shopItem2 = Instantiate(shopItem2);
+            _shopItem2.transform.SetParent(_peppItems[1].transform);
+            _shopItem2.transform.localPosition = Vector3.zero;
+            _shopItem2.transform.localRotation = Quaternion.identity;
+            _shopItem2.transform.localScale = Vector3.one;
+
+
+
+            HighlightChilds(true);
+        }
+
+        public void SetPeppInactive()
+        {
+            _active = false;
+
+            HighlightChilds(false);
         }
 
         private void HighlightChilds(bool highlight)
@@ -140,8 +182,8 @@ namespace peppar
         {
             _initialParent = transform.parent;
 
-            _initialPosition = transform.position;
-            _initialRotation = transform.rotation;
+            _initialPosition = transform.localPosition;
+            _initialRotation = transform.localRotation;
             _initialScale = transform.localScale;
 
             foreach (var peppItems in _peppItems)

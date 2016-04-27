@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 namespace peppar
 {
@@ -21,8 +19,6 @@ namespace peppar
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.name + " trigger");
-
             if(_active == false)
             {
                 return;
@@ -32,9 +28,7 @@ namespace peppar
             {
                 var characterQuestMachine = other.GetComponent<CharacterQuestMachine>();
 
-                Debug.Log("trigger");
-
-                if (characterQuestMachine != null)
+                if (characterQuestMachine != null && characterQuestMachine._questTaskPositions != null && characterQuestMachine._questTaskPositions.Count > 0)
                 {
                     characterQuestMachine.FinishedTask(_peppComponent.PeppId, _peppComponent.TaskIndex);
                     _active = false;

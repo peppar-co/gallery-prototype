@@ -13,7 +13,7 @@ namespace peppar
 
         private CharacterQuestMachine _characterQuestMachine;
 
-        public void SetPeppActivation(CharacterQuestMachine characterQuestMachine, bool active, string peppId, string optionDescription1, string optionDescription2)
+        public void SetPeppActivation(CharacterQuestMachine characterQuestMachine, bool active, string peppId, GameObject shopItem1, GameObject shopItem2)
         {
             _characterQuestMachine = characterQuestMachine;
 
@@ -21,8 +21,16 @@ namespace peppar
             {
                 if (pepp.PeppId == peppId)
                 {
-                    pepp.SetPeppInteractionActive(this, optionDescription1, optionDescription2);
+                    pepp.SetPeppInteractionActive(this, shopItem1, shopItem2);
                 }
+            }
+        }
+
+        public void SetAllPeppsInactive()
+        {
+            foreach(var pepp in _pepps)
+            {
+                pepp.SetPeppInactive();
             }
         }
 

@@ -29,92 +29,6 @@ namespace peppar
 
         private bool _waiting = false;
 
-        //private float _currentWaitingTime, _timeToMove, _timeAfterLastWaving, _timeToWave;
-
-        //private bool _run;
-
-        //private State _state = State.None;
-
-        //private enum State
-        //{
-        //    None,
-        //    Idle,
-        //    Moving,
-        //    Waving
-        //}
-
-        //public bool Run
-        //{
-        //    get
-        //    {
-        //        return _run;
-        //    }
-        //    set
-        //    {
-        //        _run = value;
-        //    }
-        //}
-
-        //private void StartNextAction()
-        //{
-        //    if (_state != State.Idle
-        //     && _waiting == false && IsDestinationReached())
-        //    {
-        //        Idle();
-        //    }
-        //    //else if (_state != State.Waving
-        //    //      && _state != State.Moving
-        //    //      && _waiting && _timeAfterLastWaving > _timeToWave)
-        //    //{
-        //    //    Wave();
-        //    //}
-        //    else if (_state != State.Moving
-        //          && _waiting && _currentWaitingTime > _timeToMove)
-        //    {
-        //        Move();
-        //    }
-        //}
-
-        //private void Move()
-        //{
-        //    _lookAtController.enabled = false;
-
-        //    // Start Moving Animation ??
-        //    StartMovingToNextRandomPosition();
-        //    _waiting = false;
-        //    _currentWaitingTime = 0;
-
-        //    _state = State.Moving;
-        //}
-
-        //private void Wave()
-        //{
-        //    _lookAtController.enabled = true;
-
-        //    _waiting = true;
-
-        //    // Start waving animation
-        //    _timeAfterLastWaving = 0;
-
-        //    // Time needed for waving
-        //    _timeToMove += 3;
-
-        //    _state = State.Waving;
-        //}
-
-        //private void Idle()
-        //{
-        //    _lookAtController.enabled = false;
-
-        //    // Start Idle Animation
-        //    _waiting = true;
-
-        //    _timeToMove = Random.Range(0, _maxTimeToMove);
-        //    _timeToWave = Random.Range(0, _maxTimeToWave);
-
-        //    _state = State.Idle;
-        //}
-
         public bool IsDestinationReached()
         {
             // Check if we've reached the destination
@@ -138,22 +52,28 @@ namespace peppar
         public void StartMovingToPosition(Vector3 position)
         {
             NavMeshHit navMeshHit;
-            NavMesh.SamplePosition(position, out navMeshHit, 10, NavMesh.AllAreas);
+            NavMesh.SamplePosition(position, out navMeshHit, 10, NavMesh.GetAreaFromName("Flight"));
 
             _navMeshAgent.SetDestination(navMeshHit.position);
 
             _navMeshAgent.Resume();
 
             _lookAtController.enabled = false;
+            _waiting = true;
         }
 
         public void StartMovingToNextRandomPosition()
         {
+            Debug.Log("start Moving");
             StartMovingToPosition(GetRandomPosition());
+
+            _waiting = false;
         }
 
         public void StartMovingToNextRandomPosition(float timeDelay)
         {
+            Debug.Log("Want to start");
+
             if (_waiting == false)
             {
                 StartCoroutine(StartMovingToNextRandomPositionInSeconds(timeDelay));
@@ -162,7 +82,7 @@ namespace peppar
 
         public IEnumerator StartMovingToNextRandomPositionInSeconds(float seconds)
         {
-            _waiting = true;
+            Debug.Log("Start Coroutine");
 
             _lookAtController.enabled = true;
 
@@ -171,8 +91,6 @@ namespace peppar
             _lookAtController.enabled = false;
 
             StartMovingToNextRandomPosition();
-
-            _waiting = false;
         }
 
         public void StopMoving()
@@ -225,20 +143,7 @@ namespace peppar
 
         protected override void Update()
         {
-            //if (Run == false)
-            //{
-            //    return;
-            //}
-
             _animator.SetFloat("Walk", _navMeshAgent.velocity.magnitude);
-
-            //if (_waiting)
-            //{
-            //    _currentWaitingTime += Time.deltaTime;
-            //    _timeAfterLastWaving += Time.deltaTime;
-            //}
-
-            //StartNextAction();
         }
     }
 }
