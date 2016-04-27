@@ -12,6 +12,7 @@ ModelImporter:
     100008: //RootNode
     100010: Box004
     100012: Object001
+    100014: block022
     400000: block021
     400002: Box001
     400004: Box002
@@ -19,24 +20,28 @@ ModelImporter:
     400008: //RootNode
     400010: Box004
     400012: Object001
+    400014: block022
     2300000: block021
     2300002: Box001
     2300004: Box002
     2300006: Box003
     2300008: Box004
     2300010: Object001
+    2300012: block022
     3300000: block021
     3300002: Box001
     3300004: Box002
     3300006: Box003
     3300008: Box004
     3300010: Object001
+    3300012: block022
     4300000: Box001
     4300002: block021
     4300004: Box002
     4300006: Box003
     4300008: Box004
     4300010: Object001
+    4300012: block022
     7400000: Take 001
     9500000: //RootNode
   materials:
