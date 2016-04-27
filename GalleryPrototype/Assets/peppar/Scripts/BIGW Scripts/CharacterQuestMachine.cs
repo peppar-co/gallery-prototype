@@ -34,6 +34,8 @@ namespace peppar
 
             public string PeppIdA, PeppIdB;
 
+            public GameObject ShopAItem1, ShopAItem2, ShopBItem1, ShopBItem2;
+
             public string TaskADescription, TaskBDescription;
 
             public string QuestItemPrefabDescription1, QuestItemPrefabDescription2;
@@ -85,6 +87,8 @@ namespace peppar
 
         private int _finishedTasks = 0;
 
+        private bool _questDone;
+
         private Quest _currentQuest;
 
         private List<Vector3> _questTaskPositions = new List<Vector3>();
@@ -108,10 +112,8 @@ namespace peppar
         {
             _questTaskPositions.Add(position);
 
-            if (_stateMachine.State != State.DoingQuest)
-            {
-                _stateMachine.ChangeState(State.DoingQuest);
-            }
+            _stateMachine.ChangeState(State.Idle);
+            _stateMachine.ChangeState(State.DoingQuest);
         }
 
         public void FinishedTask(string peppId, int taskIndex)
@@ -142,21 +144,42 @@ namespace peppar
             {
                 StateMachine.ChangeState(State.Done);
             }
+            else
+            {
+                _questTaskPositions.RemoveAt(0);
 
-            _questTaskPositions.RemoveAt(0);
-
-            _stateMachine.ChangeState(State.DoingQuest);
+                _stateMachine.ChangeState(State.DoingQuest);
+            }
         }
 
         public void BreakQuest()
         {
-            StateMachine.ChangeState(State.Done);
+            if(_questDone)
+            {
+                return;
+            }
+
+            _peppController.SetAllPeppsInactive();
+
+            _questOverviewGUI.SetActive(false);
+
+            _questTaskPositions.Clear();
+            _finishedTasks = 0;
+
+            StateMachine.ChangeState(State.Move);
 
             _questTaskPositions.Clear();
         }
 
         public void SetQuest()
         {
+            StartCoroutine(SetQuestAfterSeconds(1f));
+        }
+
+        private IEnumerator SetQuestAfterSeconds(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+
             int randomQuest = UnityEngine.Random.Range(0, _quests.Count);
 
             _currentQuest = _quests[randomQuest];
@@ -167,8 +190,8 @@ namespace peppar
             _questOverviewTaskB.ToggleActive = false;
             _questOverviewGUI.SetActive(true);
 
-            _peppController.SetPeppActivation(this, true, _currentQuest.PeppIdA, _currentQuest.QuestItemPrefabDescription1, _currentQuest.QuestItemPrefabDescription2);
-            _peppController.SetPeppActivation(this, true, _currentQuest.PeppIdB, _currentQuest.QuestItemMaterialDescription1, _currentQuest.QuestItemMaterialDescription2);
+            _peppController.SetPeppActivation(this, true, _currentQuest.PeppIdA, _currentQuest.ShopAItem1, _currentQuest.ShopAItem2);
+            _peppController.SetPeppActivation(this, true, _currentQuest.PeppIdB, _currentQuest.ShopBItem1, _currentQuest.ShopBItem2);
 
             _stateMachine.ChangeState(State.Move);
         }
@@ -209,10 +232,15 @@ namespace peppar
         {
             _questOverviewGUI.SetActive(false);
 
-            // Add quest Item to character
+            _questTaskPositions.Clear();
+            _finishedTasks = 0;
+
+            AddQuestItem();
             Debug.Log("Quest is done!!!");
 
             StateMachine.ChangeState(State.Move);
+
+            _questDone = true;
         }
 
         private void AddQuestItem()
@@ -222,6 +250,7 @@ namespace peppar
                 case QuestType.Toy:
                 case QuestType.Ballon:
                     _currentQuest.CurrentItemObject = Instantiate(_currentQuest.CurrentItemObjectIndex == 0 ? _currentQuest.QuestItemPrefab1 : _currentQuest.QuestItemPrefab2);
+                    _currentQuest.CurrentItemObject.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
 
                     if (_currentQuest.CurrentItemObjectIndex == 0)
                     {

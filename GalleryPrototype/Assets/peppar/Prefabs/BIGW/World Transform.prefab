@@ -12424,7 +12424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionOnTypes: 0100000002000000
   _choseItemOnState: 0
-  _peppComponent: {fileID: 11446760}
+  _peppComponent: {fileID: 11453652}
   _itemIndex: 0
 --- !u!114 &11418442
 MonoBehaviour:
@@ -12455,7 +12455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionOnTypes: 0100000002000000
   _choseItemOnState: 0
-  _peppComponent: {fileID: 11446760}
+  _peppComponent: {fileID: 11452314}
   _itemIndex: 1
 --- !u!114 &11420450
 MonoBehaviour:
@@ -12520,7 +12520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionOnTypes: 0100000002000000
   _choseItemOnState: 0
-  _peppComponent: {fileID: 11446760}
+  _peppComponent: {fileID: 11453652}
   _itemIndex: 1
 --- !u!114 &11425142
 MonoBehaviour:
@@ -12535,7 +12535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionOnTypes: 0100000002000000
   _choseItemOnState: 0
-  _peppComponent: {fileID: 11446760}
+  _peppComponent: {fileID: 11452314}
   _itemIndex: 0
 --- !u!114 &11426480
 MonoBehaviour:
@@ -12680,6 +12680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f14c4de44dcc4e46bd95b6e52b5b948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionOnTypes: 0100000002000000
+  _peppOnState: 0
   _peppId: Clothes Shop Pepp
   _peppObject: {fileID: 11400526}
   _peppItems:
@@ -12767,6 +12769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f14c4de44dcc4e46bd95b6e52b5b948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionOnTypes: 0100000002000000
+  _peppOnState: 0
   _peppId: Toy Shop Pepp
   _peppObject: {fileID: 11400930}
   _peppItems:
@@ -12816,6 +12820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f14c4de44dcc4e46bd95b6e52b5b948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionOnTypes: 0100000002000000
+  _peppOnState: 0
   _peppId: Print Shop Pepp
   _peppObject: {fileID: 11496094}
   _peppItems:

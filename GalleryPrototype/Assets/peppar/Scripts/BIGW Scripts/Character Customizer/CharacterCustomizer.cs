@@ -54,6 +54,11 @@ namespace peppar
 
         public void StartCharacterCreation()
         {
+            if(_characterQuestMachine != null)
+            {
+                _characterQuestMachine.BreakQuest();
+            }
+
             _currentCharacterObject = Instantiate(_characterScenePrefab);
             _createdCharacterObjects.Add(_currentCharacterObject);
             _currentCharacterObject.transform.SetParent(_creationPosition.transform.parent);

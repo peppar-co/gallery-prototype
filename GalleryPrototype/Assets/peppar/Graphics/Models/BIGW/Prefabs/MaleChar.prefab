@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 9544706}
   _vufCamera: {fileID: 0}
-  _groundLengthX: 10
+  _groundLengthX: 6
   _groundLengthY: 10
   _maxTimeToWave: 5
   _maxTimeToMove: 10
@@ -1457,7 +1457,7 @@ MonoBehaviour:
   _questOverviewTaskB: {fileID: 0}
   _questItemParent: {fileID: 0}
   _animator: {fileID: 9544706}
-  _maxIdleMoveWaitingTime: 3
+  _maxIdleMoveWaitingTime: 7
   _quests:
   - QuestType: 3
     QuestItemPrefab1: {fileID: 194230, guid: 55ba5f00e61095849ad403cdb557bfff, type: 2}
@@ -1472,6 +1472,10 @@ MonoBehaviour:
       type: 2}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
+    ShopAItem1: {fileID: 194230, guid: 55ba5f00e61095849ad403cdb557bfff, type: 2}
+    ShopAItem2: {fileID: 189068, guid: 7f3b5f825eb961247849c1e13bb111ff, type: 2}
+    ShopBItem1: {fileID: 120628, guid: ef0882d306c13654eaea02c6dd2fa07d, type: 2}
+    ShopBItem2: {fileID: 135542, guid: d7da15b53722265458eda02f8aa4f74f, type: 2}
     TaskADescription: Buy a toy!!
     TaskBDescription: Buy a color!!
     QuestItemPrefabDescription1: Little Plane
@@ -1479,14 +1483,18 @@ MonoBehaviour:
     QuestItemMaterialDescription1: Army Green
     QuestItemMaterialDescription2: Racing Red
   - QuestType: 2
-    QuestItemPrefab1: {fileID: 0}
-    QuestItemPrefab2: {fileID: 0}
+    QuestItemPrefab1: {fileID: 165030, guid: b189a58a870f7124d976858e76d6eb6a, type: 2}
+    QuestItemPrefab2: {fileID: 102280, guid: f28182d26e4556546803cdca890a83c7, type: 2}
     QuestItem1Material1: {fileID: 0}
     QuestItem1Material2: {fileID: 0}
     QuestItem2Material1: {fileID: 0}
     QuestItem2Material2: {fileID: 0}
     PeppIdA: Clothes Shop Pepp
     PeppIdB: Print Shop Pepp
+    ShopAItem1: {fileID: 165030, guid: b189a58a870f7124d976858e76d6eb6a, type: 2}
+    ShopAItem2: {fileID: 102280, guid: f28182d26e4556546803cdca890a83c7, type: 2}
+    ShopBItem1: {fileID: 135542, guid: d7da15b53722265458eda02f8aa4f74f, type: 2}
+    ShopBItem2: {fileID: 120628, guid: ef0882d306c13654eaea02c6dd2fa07d, type: 2}
     TaskADescription: Buy a hat!!
     TaskBDescription: Buy a sticker!!
     QuestItemPrefabDescription1: Stylish Cylinder
@@ -1496,12 +1504,20 @@ MonoBehaviour:
   - QuestType: 1
     QuestItemPrefab1: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
     QuestItemPrefab2: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
-    QuestItem1Material1: {fileID: 0}
-    QuestItem1Material2: {fileID: 0}
-    QuestItem2Material1: {fileID: 0}
-    QuestItem2Material2: {fileID: 0}
+    QuestItem1Material1: {fileID: 2100000, guid: a97212eef5e64f947b0db68d77e99265,
+      type: 2}
+    QuestItem1Material2: {fileID: 2100000, guid: 408c18e7704e18748a7a8d6bbe0bea3f,
+      type: 2}
+    QuestItem2Material1: {fileID: 2100000, guid: a97212eef5e64f947b0db68d77e99265,
+      type: 2}
+    QuestItem2Material2: {fileID: 2100000, guid: 408c18e7704e18748a7a8d6bbe0bea3f,
+      type: 2}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
+    ShopAItem1: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
+    ShopAItem2: {fileID: 171470, guid: f6469f13561bdc442ab8c0d64e2b6fa4, type: 2}
+    ShopBItem1: {fileID: 135542, guid: d7da15b53722265458eda02f8aa4f74f, type: 2}
+    ShopBItem2: {fileID: 120628, guid: ef0882d306c13654eaea02c6dd2fa07d, type: 2}
     TaskADescription: Buy a ballon!!
     TaskBDescription: Buy a sticker!!
     QuestItemPrefabDescription1: Nice Ballon
