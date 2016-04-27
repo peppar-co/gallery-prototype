@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: top1
+  m_Name: plane_red
   m_Shader: {fileID: 4800000, guid: 9b1e7a0b3df067b48af9c9498e67d651, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: c5ddb1beed36daf4888c9594e4e8026a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -83,7 +83,7 @@ Material:
           name: _PanTex
         second:
           m_Texture: {fileID: 2800000, guid: 38c78b4101b228d4e81ec1e116bb9f23, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 0.1, y: 0.1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
@@ -145,7 +145,7 @@ Material:
       data:
         first:
           name: _EnablePan
-        second: 1
+        second: 0
     m_Colors:
       data:
         first:
@@ -154,8 +154,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.4375069, g: 0.13965698, b: 0.8000001, a: 1}
+        second: {r: 0.50735295, g: 0, b: 0, a: 1}
       data:
         first:
           name: _PanColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 0.509}
