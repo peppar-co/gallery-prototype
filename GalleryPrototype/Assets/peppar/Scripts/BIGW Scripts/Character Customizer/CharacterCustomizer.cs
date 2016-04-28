@@ -32,7 +32,7 @@ namespace peppar
         private Transform _creationPosition, _startMovingPosition;
 
         [SerializeField]
-        private Text _nameInputText;
+        private Text _nameInputText, _nameForQuestDescription;
 
         // Character components
         private GameObject _currentCharacterObject;
@@ -111,6 +111,14 @@ namespace peppar
             _creationObjectContainer.SetActive(false);
         }
 
+        public void BreakQuestForCurrentCharacter()
+        {
+            if (_characterQuestMachine != null)
+            {
+                _characterQuestMachine.BreakQuest();
+            }
+        }
+
         public void FinishCharacterCreation()
         {
             SetName();
@@ -130,6 +138,8 @@ namespace peppar
         public void SetName()
         {
             _currentCharacterComponent.SetName(_nameInputText.text, _vuforiaCamera);
+
+            _nameForQuestDescription.text = _nameInputText.text;
         }
 
         public void SetCharacterModule(CharacterModuleType characterModuleType, int index)

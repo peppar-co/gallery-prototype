@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100728
 GameObject:
   m_ObjectHideFlags: 1
@@ -162,6 +162,7 @@ GameObject:
   - 224: {fileID: 22467992}
   - 222: {fileID: 22243294}
   - 114: {fileID: 11400408}
+  - 114: {fileID: 11454694}
   m_Layer: 5
   m_Name: PanelB
   m_TagString: Untagged
@@ -517,6 +518,7 @@ GameObject:
   - 224: {fileID: 22469108}
   - 222: {fileID: 22279740}
   - 114: {fileID: 11400534}
+  - 114: {fileID: 11419622}
   m_Layer: 5
   m_Name: PanelA
   m_TagString: Untagged
@@ -1091,7 +1093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &181744
 GameObject:
   m_ObjectHideFlags: 1
@@ -1939,14 +1941,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'blahsdlasdj alsdljlajwlsjkdasd
+  m_Text: 'sdfsdfdsgsfdgfdhdfgfdhdfhfgh
 
-    jasdjaslkdjlkjdlajsldkjalsjdlasjdljadfa
+    sd
 
-    jasdkflsdjfldjlfksjdlfkajsldkfjklasdjf
+    fd
+
+    fd
+
+    dg
+
+    fd
 
 
-    aklsdjfladjflksjdfkljldkjflskdjflk'
+
+
+'
 --- !u!114 &11411582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2074,6 +2084,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11419622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65aa5132d4c3a4141a20fbeeb0fb3359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 11476626}
+  _toggleObject: {fileID: 22418366}
 --- !u!114 &11421420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2817,7 +2840,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NAMENAMENMANEM
+  m_Text: cxvfgfbcghghgh
 --- !u!114 &11437868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2947,17 +2970,6 @@ MonoBehaviour:
       - m_Target: {fileID: 11415766}
         m_MethodName: SetMenuIndex
         m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: FinishCharacterCreation
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3371,6 +3383,19 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
+--- !u!114 &11454694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65aa5132d4c3a4141a20fbeeb0fb3359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 11450544}
+  _toggleObject: {fileID: 22433804}
 --- !u!114 &11454912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3436,8 +3461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65aa5132d4c3a4141a20fbeeb0fb3359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _referenceLabel: {fileID: 11479342}
-  _referenceToggle: {fileID: 11418990}
+  _icon: {fileID: 0}
+  _toggleObject: {fileID: 0}
 --- !u!114 &11459134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3865,8 +3890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65aa5132d4c3a4141a20fbeeb0fb3359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _referenceLabel: {fileID: 11455904}
-  _referenceToggle: {fileID: 11489664}
+  _icon: {fileID: 0}
+  _toggleObject: {fileID: 0}
 --- !u!114 &11473048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3961,7 +3986,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5ecf133171f20384f9db6a7868e1e852, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c922a1fc468eba419eda914945eb575, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4283,7 +4308,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: CancelCharacterCreation
+        m_MethodName: BreakQuestForCurrentCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5318,10 +5343,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22450410}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 17.454546, y: 0}
+  m_SizeDelta: {x: 34.909092, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &22418706
 RectTransform:
@@ -5335,10 +5360,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22450410}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 138.18182, y: -30}
+  m_SizeDelta: {x: 206.54546, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22422362
 RectTransform:
@@ -5386,10 +5411,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22450410}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245.09091, y: 0}
+  m_SizeDelta: {x: 7.2727275, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &22427524
 RectTransform:
@@ -5826,7 +5851,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 248.72726, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22453144
 RectTransform:

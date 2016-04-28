@@ -95,7 +95,6 @@ namespace peppar
 
         private void HidePeppView()
         {
-            Debug.Log(_initialParent.name);
             transform.SetParent(_initialParent);
             transform.localPosition = _initialPosition;
             transform.localRotation = _initialRotation;

@@ -4,31 +4,37 @@ using UnityEngine.UI;
 
 public class SimpleToggleGUIClass : MonoBehaviour
 {
-    [SerializeField]
-    private Text _referenceLabel;
-    [SerializeField]
-    private Toggle _referenceToggle;
-    // TODO add texture/ icon gui 
+    //[SerializeField]
+    //private Text _referenceLabel;
+    //[SerializeField]
+    //private Toggle _referenceToggle;
 
-    private string _toggleText;
-    private Texture _toggleIcon;
+    [SerializeField]
+    private Image _icon;
+
+    [SerializeField]
+    private Transform _toggleObject;
+
+    //private string _toggleText;
+    private Sprite _toggleIcon;
     private bool _toggleActive;
 
     public string ToggleText
     {
-        get
-        {
-            return _toggleText;
-        }
+        get; set;
+        //get
+        //{
+        //    return _toggleText;
+        //}
 
-        set
-        {
-            _toggleText = value;
-            _referenceLabel.text = value;
-        }
+        //set
+        //{
+        //    _toggleText = value;
+        //    _referenceLabel.text = value;
+        //}
     }
 
-    public Texture ToggleIcon
+    public Sprite ToggleIcon
     {
         get
         {
@@ -37,7 +43,7 @@ public class SimpleToggleGUIClass : MonoBehaviour
         set
         {
             _toggleIcon = value;
-            // TODO change gui icon
+            _icon.sprite = value;
         }
     }
 
@@ -51,7 +57,8 @@ public class SimpleToggleGUIClass : MonoBehaviour
         set
         {
             _toggleActive = value;
-            _referenceToggle.isOn = value;
+            //_referenceToggle.isOn = value;
+            _toggleObject.gameObject.SetActive(value);
         }
     }
 }
