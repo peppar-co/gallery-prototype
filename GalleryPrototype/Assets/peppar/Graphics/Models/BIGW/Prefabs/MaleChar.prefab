@@ -384,6 +384,7 @@ GameObject:
   - 4: {fileID: 400222}
   - 33: {fileID: 3357578}
   - 23: {fileID: 2391610}
+  - 114: {fileID: 11476364}
   m_Layer: 0
   m_Name: hat1
   m_TagString: Untagged
@@ -463,6 +464,7 @@ GameObject:
   - 4: {fileID: 466150}
   - 33: {fileID: 3397982}
   - 23: {fileID: 2303310}
+  - 114: {fileID: 11452998}
   m_Layer: 0
   m_Name: hat2
   m_TagString: Untagged
@@ -646,8 +648,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150684}
   m_LocalRotation: {x: -0.7071069, y: -0.0000000683393, z: 0.00000017007928, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.020801587, z: -0.0008867317}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0229, z: -0.0009}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 424306}
   m_RootOrder: 2
@@ -940,8 +942,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168070}
   m_LocalRotation: {x: -0.7071068, y: -0.00000006833928, z: 0.00000017007929, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: -0.020801587, z: -0.0008867317}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0229, z: -0.0009}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 424306}
   m_RootOrder: 3
@@ -1458,6 +1460,10 @@ MonoBehaviour:
   _questItemParent: {fileID: 0}
   _maxIdleMoveWaitingTime: 7
   _questDescriptionText: {fileID: 0}
+  _hat1Reference: {fileID: 400222}
+  _hat2Reference: {fileID: 466150}
+  _hair1Reference: {fileID: 451668}
+  _hair2Reference: {fileID: 468940}
   _quests:
   - QuestType: 3
     QuestDescription: Do something
@@ -1538,6 +1544,32 @@ MonoBehaviour:
     QuestItemMaterialDescription1: '"I Love You" Sticker'
     QuestItemMaterialDescription2: '"Happy Birthday" Sticker'
   _questTaskPositions: []
+--- !u!114 &11452998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0595345c238fd488ccf5d8979633d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialTransforms:
+  - {fileID: 466150}
+--- !u!114 &11476364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0595345c238fd488ccf5d8979633d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialTransforms:
+  - {fileID: 400222}
 --- !u!136 &13699646
 CapsuleCollider:
   m_ObjectHideFlags: 1

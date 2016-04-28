@@ -82,6 +82,9 @@ namespace peppar
         private Text _questDescriptionText;
 
         [SerializeField]
+        private Transform _hat1Reference, _hat2Reference, _hair1Reference, _hair2Reference;
+
+        [SerializeField]
         private List<Quest> _quests = new List<Quest>();
 
         private PeppController _peppController;
@@ -285,7 +288,22 @@ namespace peppar
                     _currentQuest.CurrentItemObject.GetComponent<ItemMaterialController>().SetMaterial(_currentQuest.CurrentItemMaterial);
                     break;
                 case QuestType.Hat:
-                    // TODO !!!!!!!!!!!!!!!!!!
+                    Transform currentHat = _currentQuest.CurrentItemObjectIndex == 0 ? _hat1Reference: _hat2Reference;
+                    currentHat.gameObject.SetActive(true);
+
+                    if (_currentQuest.CurrentItemObjectIndex == 0)
+                    {
+                        _currentQuest.CurrentItemMaterial = _currentQuest.CurrentItemMaterialIndex == 0 ? _currentQuest.QuestItem1Material1 : _currentQuest.QuestItem1Material2;
+                    }
+                    else
+                    {
+                        _currentQuest.CurrentItemMaterial = _currentQuest.CurrentItemMaterialIndex == 0 ? _currentQuest.QuestItem2Material1 : _currentQuest.QuestItem2Material2;
+                    }
+
+                    currentHat.GetComponent<ItemMaterialController>().SetMaterial(_currentQuest.CurrentItemMaterial);
+
+                    _hair1Reference.gameObject.SetActive(false);
+                    _hair2Reference.gameObject.SetActive(false);
                     break;
                 default:
                     break;

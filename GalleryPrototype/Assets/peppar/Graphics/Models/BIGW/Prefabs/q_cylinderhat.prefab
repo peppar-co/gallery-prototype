@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 445806}
   - 33: {fileID: 3358576}
   - 23: {fileID: 2323254}
+  - 114: {fileID: 11458902}
   m_Layer: 0
   m_Name: q_cylinderhat
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192280}
   m_Mesh: {fileID: 4300002, guid: 30e9130a0ca2e8248a43e93c979162cf, type: 3}
+--- !u!114 &11458902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0595345c238fd488ccf5d8979633d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialTransforms:
+  - {fileID: 445806}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
