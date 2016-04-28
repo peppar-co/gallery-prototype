@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: sticker_skull
+  m_Name: sticker_iou
   m_Shader: {fileID: 4800000, guid: 9b1e7a0b3df067b48af9c9498e67d651, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c5d964d0fea81f048a31bcc195c8b0ad, type: 3}
+          m_Texture: {fileID: 2800000, guid: 67ebd769ef54dfa4da7f0021d3c688ee, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:

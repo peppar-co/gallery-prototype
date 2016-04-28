@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3328250}
   - 23: {fileID: 2316944}
   m_Layer: 0
-  m_Name: q_sticker_skull
+  m_Name: q_sticker_iou
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: ee4207ca010882041b0c1ec0db84de55, type: 2}
+  - {fileID: 2100000, guid: 5d79fed4bd184b94cbc5dc4d288ace1a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

@@ -1479,8 +1479,8 @@ MonoBehaviour:
       type: 2}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
-    ShopAItem1: {fileID: 142224, guid: 5729faf7d1a4ad7499640b122a100db5, type: 2}
-    ShopAItem2: {fileID: 187174, guid: 1efbb87fb1e862e4e9fcdf9ea071af41, type: 2}
+    ShopAItem1: {fileID: 142224, guid: c8ea067902660db468e5c8fe5265af04, type: 2}
+    ShopAItem2: {fileID: 187174, guid: 2520f7cc14cff614b91fdcee42ea4051, type: 2}
     ShopBItem1: {fileID: 130644, guid: e7a9b206b2d911545bfe8e81762396af, type: 2}
     ShopBItem2: {fileID: 130644, guid: a8dec44e5a9bfad47b0f741d79f367e9, type: 2}
     TaskADescription: Buy a toy!!
@@ -1531,11 +1531,11 @@ MonoBehaviour:
       type: 2}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
-    ShopAItem1: {fileID: 135490, guid: cb1f05aeffbac784d9748468eb355688, type: 2}
-    ShopAItem2: {fileID: 124060, guid: c05bbcef77009e94a911260adb5901d8, type: 2}
-    ShopBItem1: {fileID: 135542, guid: d7da15b53722265458eda02f8aa4f74f, type: 2}
-    ShopBItem2: {fileID: 120628, guid: ef0882d306c13654eaea02c6dd2fa07d, type: 2}
-    TaskADescription: Buy a ballon!!
+    ShopAItem1: {fileID: 135490, guid: a8c84d60cbc4f404d9bf8eba65dae798, type: 2}
+    ShopAItem2: {fileID: 124060, guid: 03dc70fee248fa24fa0feb40593b03f3, type: 2}
+    ShopBItem1: {fileID: 199416, guid: 1945085fb582ca64c9c40ce87dbf9c7c, type: 2}
+    ShopBItem2: {fileID: 199416, guid: 3d27a27ef7e0dc6418a9aff9c484851a, type: 2}
+    TaskADescription: Buy a balloon!!
     TaskBDescription: Buy a sticker!!
     TaskAIcon: {fileID: 21300000, guid: 22e3fe847e60f634da54b849e8bcb0fe, type: 3}
     TaskBIcon: {fileID: 21300000, guid: 0e045da567ce47546bfe61d1f6afb30a, type: 3}
