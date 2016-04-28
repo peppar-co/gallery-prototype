@@ -141,14 +141,14 @@ namespace peppar
             _shopItem1 = Instantiate(shopItem1);
             _shopItem1.transform.SetParent(_peppItems[0].transform);
             _shopItem1.transform.localPosition = Vector3.zero;
-            _shopItem1.transform.localRotation = Quaternion.identity;
-            _shopItem1.transform.localScale = Vector3.one;
+            //_shopItem1.transform.localRotation = Quaternion.identity;
+            //_shopItem1.transform.localScale = Vector3.one;
 
             _shopItem2 = Instantiate(shopItem2);
             _shopItem2.transform.SetParent(_peppItems[1].transform);
             _shopItem2.transform.localPosition = Vector3.zero;
-            _shopItem2.transform.localRotation = Quaternion.identity;
-            _shopItem2.transform.localScale = Vector3.one;
+            //_shopItem2.transform.localRotation = Quaternion.identity;
+            //_shopItem2.transform.localScale = Vector3.one;
 
 
 

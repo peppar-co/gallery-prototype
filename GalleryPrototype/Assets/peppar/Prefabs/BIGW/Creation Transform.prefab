@@ -337,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &171136
 GameObject:
   m_ObjectHideFlags: 1
@@ -493,8 +493,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158908}
-  m_LocalRotation: {x: -0.707107, y: 0, z: 0, w: 0.70710665}
-  m_LocalPosition: {x: 0, y: 0.048, z: 1.26}
+  m_LocalRotation: {x: 0.5557878, y: 0, z: 0, w: -0.8313242}
+  m_LocalPosition: {x: 0, y: -0.59, z: 1.26}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 471118}
@@ -678,8 +678,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151804}
-  m_LocalRotation: {x: -0.707107, y: 0, z: 0, w: 0.70710665}
-  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalRotation: {x: 0.6177222, y: 0, z: 0, w: -0.7863964}
+  m_LocalPosition: {x: 0, y: -0.35, z: 0.6}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 491624}
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterLimit: 20
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: John Doe
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -1520,12 +1520,11 @@ MonoBehaviour:
   _worldObjectContainer: {fileID: 0}
   _characterObjectContainer: {fileID: 0}
   _vuforiaCamera: {fileID: 0}
-  _guiCamera: {fileID: 0}
-  _guiAnimator: {fileID: 0}
   _characterScenePrefab: {fileID: 0}
   _creationPosition: {fileID: 413948}
   _startMovingPosition: {fileID: 0}
-  _nameInputText: {fileID: 0}
+  _nameInputText: {fileID: 11480076}
+  _nameForQuestDescription: {fileID: 0}
 --- !u!114 &11451170
 MonoBehaviour:
   m_ObjectHideFlags: 1

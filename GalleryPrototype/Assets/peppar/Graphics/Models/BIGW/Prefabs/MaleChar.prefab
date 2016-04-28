@@ -1479,8 +1479,8 @@ MonoBehaviour:
     ShopBItem2: {fileID: 130644, guid: a8dec44e5a9bfad47b0f741d79f367e9, type: 2}
     TaskADescription: Buy a toy!!
     TaskBDescription: Buy a color!!
-    TaskAIcon: {fileID: 0}
-    TaskBIcon: {fileID: 0}
+    TaskAIcon: {fileID: 21300000, guid: 0e144175f6189bb49b2e9f0fd8f84a94, type: 3}
+    TaskBIcon: {fileID: 21300000, guid: 4b300bb12759cd541953935f8f10f9d1, type: 3}
     QuestItemPrefabDescription1: Little Plane
     QuestItemPrefabDescription2: Funny Car
     QuestItemMaterialDescription1: Army Green
@@ -1505,8 +1505,8 @@ MonoBehaviour:
     ShopBItem2: {fileID: 199416, guid: d155277b8d473a64daa79c4b90a341c4, type: 2}
     TaskADescription: Buy a hat!!
     TaskBDescription: Buy a sticker!!
-    TaskAIcon: {fileID: 0}
-    TaskBIcon: {fileID: 0}
+    TaskAIcon: {fileID: 21300000, guid: f3e2cdb61db54cd418e600d28b778d26, type: 3}
+    TaskBIcon: {fileID: 21300000, guid: 5dce1a811695b5b4e97bcbfefe71085b, type: 3}
     QuestItemPrefabDescription1: Stylish Cylinder
     QuestItemPrefabDescription2: Cool Capp
     QuestItemMaterialDescription1: Funny Smiley
@@ -1531,8 +1531,8 @@ MonoBehaviour:
     ShopBItem2: {fileID: 120628, guid: ef0882d306c13654eaea02c6dd2fa07d, type: 2}
     TaskADescription: Buy a ballon!!
     TaskBDescription: Buy a sticker!!
-    TaskAIcon: {fileID: 0}
-    TaskBIcon: {fileID: 0}
+    TaskAIcon: {fileID: 21300000, guid: 22e3fe847e60f634da54b849e8bcb0fe, type: 3}
+    TaskBIcon: {fileID: 21300000, guid: 0e045da567ce47546bfe61d1f6afb30a, type: 3}
     QuestItemPrefabDescription1: Nice Ballon
     QuestItemPrefabDescription2: Heart Ballon
     QuestItemMaterialDescription1: '"I Love You" Sticker'

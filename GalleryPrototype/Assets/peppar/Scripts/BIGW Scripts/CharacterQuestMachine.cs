@@ -278,7 +278,10 @@ namespace peppar
                     }
 
                     _currentQuest.CurrentItemObject.transform.SetParent(_questItemParent);
-                    _currentQuest.CurrentItemObject.GetComponent<VehicleController>().DestinationObject = transform;
+                    if (_currentQuest.CurrentItemObject.GetComponent<VehicleController>() != null)
+                    {
+                        _currentQuest.CurrentItemObject.GetComponent<VehicleController>().DestinationObject = transform;
+                    }
                     _currentQuest.CurrentItemObject.GetComponent<ItemMaterialController>().SetMaterial(_currentQuest.CurrentItemMaterial);
                     break;
                 case QuestType.Hat:

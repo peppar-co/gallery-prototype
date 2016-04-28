@@ -107,7 +107,7 @@ namespace peppar
             Destroy(_currentCharacterObject);
 
             _worldObjectContainer.SetActive(true);
-            _characterObjectContainer.SetActive(false);
+            _characterObjectContainer.SetActive(true);
             _creationObjectContainer.SetActive(false);
         }
 
