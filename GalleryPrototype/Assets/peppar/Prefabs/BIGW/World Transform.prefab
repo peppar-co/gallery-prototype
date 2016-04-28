@@ -3414,8 +3414,8 @@ GameObject:
   m_Name: pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &199864
 GameObject:
@@ -5051,7 +5051,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141514}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000042146849}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.13, z: 0.25}
   m_LocalScale: {x: 3.1510437, y: 1, z: 2.2490253}
   m_Children: []
   m_Father: {fileID: 455248}
@@ -5530,7 +5530,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.101, z: 0}
+  m_LocalPosition: {x: -0, y: -0.114, z: 0.266}
   m_LocalScale: {x: 3.1510437, y: 1, z: 2.2490253}
   m_Children: []
   m_Father: {fileID: 487834}

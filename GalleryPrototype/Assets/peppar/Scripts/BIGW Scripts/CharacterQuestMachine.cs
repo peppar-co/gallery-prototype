@@ -186,6 +186,10 @@ namespace peppar
 
         public void SetQuest()
         {
+            int randomQuest = UnityEngine.Random.Range(0, _quests.Count);
+
+            _currentQuest = _quests[randomQuest];
+
             _questDescriptionText.text = _currentQuest.QuestDescription;
 
             StartCoroutine(SetQuestAfterSeconds(0.1f));
@@ -194,10 +198,6 @@ namespace peppar
         private IEnumerator SetQuestAfterSeconds(float seconds)
         {
             yield return new WaitForSeconds(seconds);
-
-            int randomQuest = UnityEngine.Random.Range(0, _quests.Count);
-
-            _currentQuest = _quests[randomQuest];
 
             _questOverviewTaskA.ToggleText = _currentQuest.TaskADescription;
             _questOverviewTaskA.ToggleIcon = _currentQuest.TaskAIcon;
@@ -282,7 +282,7 @@ namespace peppar
                     _currentQuest.CurrentItemObject.GetComponent<ItemMaterialController>().SetMaterial(_currentQuest.CurrentItemMaterial);
                     break;
                 case QuestType.Hat:
-
+                    // TODO !!!!!!!!!!!!!!!!!!
                     break;
                 default:
                     break;
