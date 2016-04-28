@@ -124,8 +124,6 @@ namespace peppar
 
                 _lookAtController.enabled = false;
             }
-
-            //Run = false;
         }
 
         protected override void Start()

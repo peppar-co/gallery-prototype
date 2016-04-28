@@ -51,7 +51,7 @@ namespace peppar
 
         public void StartCharacterCreation()
         {
-            if(_characterQuestMachine != null)
+            if (_characterQuestMachine != null)
             {
                 _characterQuestMachine.BreakQuest();
             }
@@ -62,6 +62,12 @@ namespace peppar
 
             if (_createdCharacterObjects != null && _createdCharacterObjects.Count > 5)
             {
+                var questMachine = _createdCharacterObjects[0].GetComponent<CharacterQuestMachine>();
+                if (questMachine)
+                {
+                    questMachine.DestroyQuestItem();
+                }
+
                 Destroy(_createdCharacterObjects[0]);
                 _createdCharacterObjects.RemoveAt(0);
             }

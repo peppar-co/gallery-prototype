@@ -115,6 +115,14 @@ namespace peppar
             _stateMachine.ChangeState(State.DoingQuest);
         }
 
+        public void DestroyQuestItem()
+        {
+            if(_currentQuest != null && _currentQuest.CurrentItemObject != null)
+            {
+                Destroy(_currentQuest.CurrentItemObject);
+            }
+        }
+
         public void FinishedTask(string peppId, int taskIndex)
         {
             if (_currentQuest == null)
@@ -237,7 +245,6 @@ namespace peppar
             _finishedTasks = 0;
 
             AddQuestItem();
-            Debug.Log("Quest is done!!!");
 
             StateMachine.ChangeState(State.Move);
 

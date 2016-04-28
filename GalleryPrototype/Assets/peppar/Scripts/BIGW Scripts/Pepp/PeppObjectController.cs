@@ -14,7 +14,7 @@ namespace peppar
 
             _active = active;
 
-            gameObject.SetActive(true);
+            gameObject.SetActive(active);
         }
 
         private void OnTriggerEnter(Collider other)

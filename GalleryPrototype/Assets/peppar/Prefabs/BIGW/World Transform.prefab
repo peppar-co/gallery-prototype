@@ -11490,8 +11490,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.36, y: 5.08, z: 2.71}
-  m_Center: {x: 0, y: 2.61, z: 0}
+  m_Size: {x: 3.36, y: 2.99, z: 2.71}
+  m_Center: {x: 0, y: 3.08, z: 0}
 --- !u!65 &6523720
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -11706,8 +11706,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.36, y: 5.55, z: 2.71}
-  m_Center: {x: 0, y: 2.86, z: 0}
+  m_Size: {x: 3.36, y: 3.69, z: 2.71}
+  m_Center: {x: 0, y: 3.67, z: 0}
 --- !u!65 &6550746
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -11814,8 +11814,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.36, y: 3.32, z: 2.71}
-  m_Center: {x: 0, y: 1.73, z: 0}
+  m_Size: {x: 3.36, y: 1.9, z: 2.71}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!65 &6562106
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13134,7 +13134,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13513078
 SphereCollider:
@@ -13206,7 +13206,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13573956
 SphereCollider:
@@ -13254,7 +13254,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13587536
 SphereCollider:
@@ -13266,7 +13266,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13588560
 SphereCollider:
@@ -13290,7 +13290,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13599038
 SphereCollider:
@@ -13302,7 +13302,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &22210016
 CanvasRenderer:

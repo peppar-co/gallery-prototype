@@ -160,6 +160,8 @@ namespace peppar
         {
             _active = false;
 
+            ActivatePeppObject(false);
+
             HighlightChilds(false);
         }
 
