@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 namespace peppar
 {
@@ -28,6 +29,8 @@ namespace peppar
         {
             public QuestType QuestType;
 
+            public string QuestDescription = "Do something";
+
             public GameObject QuestItemPrefab1, QuestItemPrefab2;
 
             public Material QuestItem1Material1, QuestItem1Material2, QuestItem2Material1, QuestItem2Material2;
@@ -38,7 +41,7 @@ namespace peppar
 
             public string TaskADescription, TaskBDescription;
 
-            public Texture TaskAIcon, TaskBIcon;
+            public Sprite TaskAIcon, TaskBIcon;
 
             public string QuestItemPrefabDescription1, QuestItemPrefabDescription2;
 
@@ -76,6 +79,9 @@ namespace peppar
         private float _maxIdleMoveWaitingTime = 3;
 
         [SerializeField]
+        private Text _questDescriptionText;
+
+        [SerializeField]
         private List<Quest> _quests = new List<Quest>();
 
         private PeppController _peppController;
@@ -90,9 +96,9 @@ namespace peppar
 
         private Quest _currentQuest;
 
-        public List<Vector3> _questTaskPositions = new List<Vector3>();
-
         private Vector3 _currentTaskPosition;
+
+        public List<Vector3> _questTaskPositions = new List<Vector3>();
 
         public StateMachine<State> StateMachine
         {
@@ -180,7 +186,9 @@ namespace peppar
 
         public void SetQuest()
         {
-            StartCoroutine(SetQuestAfterSeconds(0.2f));
+            _questDescriptionText.text = _currentQuest.QuestDescription;
+
+            StartCoroutine(SetQuestAfterSeconds(0.1f));
         }
 
         private IEnumerator SetQuestAfterSeconds(float seconds)
