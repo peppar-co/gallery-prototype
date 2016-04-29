@@ -1506,8 +1506,8 @@ MonoBehaviour:
       type: 2}
     PeppIdA: Clothes Shop Pepp
     PeppIdB: Print Shop Pepp
-    ShopAItem1: {fileID: 192280, guid: 9f99fdea8db4f404a8aebb5cb5ec319b, type: 2}
-    ShopAItem2: {fileID: 119770, guid: 990a0c9d119349b4ba8b2d4b055991df, type: 2}
+    ShopAItem1: {fileID: 142974, guid: c0d80f79681632b44a0b24c8e80defee, type: 2}
+    ShopAItem2: {fileID: 117078, guid: 5c40336e8b506cd4d878447fcb5795b3, type: 2}
     ShopBItem1: {fileID: 199416, guid: 997c7d069616a72499378d6610e955c3, type: 2}
     ShopBItem2: {fileID: 199416, guid: d155277b8d473a64daa79c4b90a341c4, type: 2}
     TaskADescription: Buy a hat!!
