@@ -70,6 +70,9 @@ namespace peppar
         private GameObject _questOverviewGUI;
 
         [SerializeField]
+        private BIGWGUIController _guiController;
+
+        [SerializeField]
         private SimpleToggleGUIClass _questOverviewTaskA, _questOverviewTaskB;
 
         [SerializeField]
@@ -260,6 +263,8 @@ namespace peppar
             StateMachine.ChangeState(State.Move);
 
             _questDone = true;
+
+            _guiController.SetMenuIndex(5);
         }
 
         private void AddQuestItem()

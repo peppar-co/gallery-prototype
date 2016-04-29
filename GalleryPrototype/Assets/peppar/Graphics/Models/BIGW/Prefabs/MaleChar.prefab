@@ -648,8 +648,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150684}
   m_LocalRotation: {x: -0.7071069, y: -0.0000000683393, z: 0.00000017007928, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.0229, z: -0.0009}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: -0, y: -0.0224, z: -0.0009}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 424306}
   m_RootOrder: 2
@@ -942,8 +942,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168070}
   m_LocalRotation: {x: -0.7071068, y: -0.00000006833928, z: 0.00000017007929, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: -0.0229, z: -0.0009}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: -0, y: -0.022, z: -0.0009}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 424306}
   m_RootOrder: 3
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementComponent: {fileID: 11436628}
   _questOverviewGUI: {fileID: 0}
+  _guiController: {fileID: 0}
   _questOverviewTaskA: {fileID: 0}
   _questOverviewTaskB: {fileID: 0}
   _questItemParent: {fileID: 0}
@@ -1473,9 +1474,9 @@ MonoBehaviour:
       type: 2}
     QuestItem1Material2: {fileID: 2100000, guid: 4553b6dba474fe946ab1875069e9617e,
       type: 2}
-    QuestItem2Material1: {fileID: 2100000, guid: 52d4b3d8597848548a96b4b637a921bb,
+    QuestItem2Material1: {fileID: 2100000, guid: 7a8c4c8deeaf5f84097c2dcd69236c65,
       type: 2}
-    QuestItem2Material2: {fileID: 2100000, guid: 7a8c4c8deeaf5f84097c2dcd69236c65,
+    QuestItem2Material2: {fileID: 2100000, guid: 52d4b3d8597848548a96b4b637a921bb,
       type: 2}
     PeppIdA: Toy Shop Pepp
     PeppIdB: Print Shop Pepp
