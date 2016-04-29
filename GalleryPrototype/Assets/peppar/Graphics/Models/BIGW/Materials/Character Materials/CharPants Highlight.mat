@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CharPants Highlight
-  m_Shader: {fileID: 4800000, guid: ed22538444454dc4eb95b5cd73619bd1, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9b1e7a0b3df067b48af9c9498e67d651, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
