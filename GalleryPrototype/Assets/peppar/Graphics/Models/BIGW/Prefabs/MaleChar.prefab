@@ -1390,7 +1390,6 @@ MonoBehaviour:
   _prefabShirts:
   - {fileID: 13754118}
   - {fileID: 13763080}
-  - {fileID: 13776808}
   _prefabPants:
   - {fileID: 13760584}
   - {fileID: 13763296}
@@ -1467,7 +1466,8 @@ MonoBehaviour:
   _hair2Reference: {fileID: 468940}
   _quests:
   - QuestType: 3
-    QuestDescription: Do something
+    QuestDescription: I know you wanted a hat for your birthday, \r\n go to the stores
+      and choose the one you like, I already paid!  Happy birthday! Dad.
     QuestItemPrefab1: {fileID: 142224, guid: 5729faf7d1a4ad7499640b122a100db5, type: 2}
     QuestItemPrefab2: {fileID: 187174, guid: 1efbb87fb1e862e4e9fcdf9ea071af41, type: 2}
     QuestItem1Material1: {fileID: 2100000, guid: ebe535f1aec4a11468ecfaecc7bda5cd,
@@ -1493,7 +1493,8 @@ MonoBehaviour:
     QuestItemMaterialDescription1: Army Green
     QuestItemMaterialDescription2: Racing Red
   - QuestType: 2
-    QuestDescription: Do something
+    QuestDescription: I know you wanted a hat for your birthday, \r\n go to the stores
+      and choose the one you like, I already paid!  Happy birthday! Dad.
     QuestItemPrefab1: {fileID: 192280, guid: 9f99fdea8db4f404a8aebb5cb5ec319b, type: 2}
     QuestItemPrefab2: {fileID: 119770, guid: 990a0c9d119349b4ba8b2d4b055991df, type: 2}
     QuestItem1Material1: {fileID: 2100000, guid: f8ec80c4de604134c801266c7322c735,
@@ -1519,7 +1520,8 @@ MonoBehaviour:
     QuestItemMaterialDescription1: Funny Smiley
     QuestItemMaterialDescription2: Deadly Skull
   - QuestType: 1
-    QuestDescription: Do something
+    QuestDescription: I know you wanted a hat for your birthday, \r\n go to the stores
+      and choose the one you like, I already paid!  Happy birthday! Dad.
     QuestItemPrefab1: {fileID: 135490, guid: cb1f05aeffbac784d9748468eb355688, type: 2}
     QuestItemPrefab2: {fileID: 124060, guid: c05bbcef77009e94a911260adb5901d8, type: 2}
     QuestItem1Material1: {fileID: 2100000, guid: fdb47995857d7c34f95c245d10ad74bc,
