@@ -1615,8 +1615,8 @@ MonoBehaviour:
     PeppIdB: Print Shop Pepp
     ShopAItem1: {fileID: 142974, guid: c0d80f79681632b44a0b24c8e80defee, type: 2}
     ShopAItem2: {fileID: 117078, guid: 5c40336e8b506cd4d878447fcb5795b3, type: 2}
-    ShopBItem1: {fileID: 199416, guid: 997c7d069616a72499378d6610e955c3, type: 2}
-    ShopBItem2: {fileID: 199416, guid: d155277b8d473a64daa79c4b90a341c4, type: 2}
+    ShopBItem1: {fileID: 199416, guid: d155277b8d473a64daa79c4b90a341c4, type: 2}
+    ShopBItem2: {fileID: 199416, guid: 997c7d069616a72499378d6610e955c3, type: 2}
     TaskADescription: Buy a hat!!
     TaskBDescription: Buy a sticker!!
     TaskAIcon: {fileID: 21300000, guid: f3e2cdb61db54cd418e600d28b778d26, type: 3}
