@@ -87,6 +87,9 @@ namespace peppar
             _characterObject.SetActive(false);
             _peppBuildingTransform.gameObject.SetActive(true);
 
+            HighlightChilds(false);
+            HighlightItems(true);
+
             transform.SetParent(_peppBuildingTransform);
             transform.position = Vector3.zero;
             transform.rotation = Quaternion.identity;
@@ -106,6 +109,8 @@ namespace peppar
             transform.localPosition = _initialPosition;
             transform.localRotation = _initialRotation;
             transform.localScale = _initialScale;
+
+            HighlightItems(false);
 
             _worldObject.SetActive(true);
             _characterObject.SetActive(true);
@@ -127,8 +132,6 @@ namespace peppar
 
             ActivatePeppObject(true);
 
-            HighlightChilds(false);
-
             _peppController.PeppIsActiveAtPosition(_peppObject.transform.position);
         }
 
@@ -149,15 +152,11 @@ namespace peppar
             _shopItem1.transform.SetParent(_peppItems[0].transform);
             _shopItem1.transform.localPosition = Vector3.zero;
             _shopItem1.transform.localRotation = Quaternion.identity;
-            //_shopItem1.transform.localScale = Vector3.one;
 
             _shopItem2 = Instantiate(shopItem2);
             _shopItem2.transform.SetParent(_peppItems[1].transform);
             _shopItem2.transform.localPosition = Vector3.zero;
             _shopItem2.transform.localRotation = Quaternion.identity;
-            //_shopItem2.transform.localScale = Vector3.one;
-
-
 
             HighlightChilds(true);
         }
@@ -176,6 +175,21 @@ namespace peppar
             int highlightValue = highlight ? 1 : 0;
 
             foreach (var childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                childMeshRenderer.material.SetInt("_EnablePan", highlightValue);
+            }
+        }
+
+        private void HighlightItems(bool highlight)
+        {
+            int highlightValue = highlight ? 1 : 0;
+
+            foreach (var childMeshRenderer in _shopItem1.GetComponentsInChildren<MeshRenderer>())
+            {
+                childMeshRenderer.material.SetInt("_EnablePan", highlightValue);
+            }
+
+            foreach (var childMeshRenderer in _shopItem2.GetComponentsInChildren<MeshRenderer>())
             {
                 childMeshRenderer.material.SetInt("_EnablePan", highlightValue);
             }
