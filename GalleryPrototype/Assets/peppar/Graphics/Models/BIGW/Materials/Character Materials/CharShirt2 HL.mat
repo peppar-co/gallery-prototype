@@ -161,7 +161,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.8014706, g: 0.38305578, b: 0.38305578, a: 1}
+        second: {r: 0.8455882, g: 0.6738978, b: 0.36683607, a: 1}
       data:
         first:
           name: _PanColor

@@ -129,7 +129,7 @@ namespace peppar
 
         public void DestroyQuestItem()
         {
-            if(_currentQuest != null && _currentQuest.CurrentItemObject != null)
+            if (_currentQuest != null && _currentQuest.CurrentItemObject != null)
             {
                 Destroy(_currentQuest.CurrentItemObject);
             }
@@ -173,7 +173,7 @@ namespace peppar
 
         public void BreakQuest()
         {
-            if(_questDone)
+            if (_questDone)
             {
                 return;
             }
@@ -196,9 +196,17 @@ namespace peppar
 
             _currentQuest = _quests[randomQuest];
 
-            _questDescriptionText.text = _currentQuest.QuestDescription;
+
+            string breakLine = _currentQuest.QuestDescription;
+            breakLine = SetLineBreak(breakLine);
+            _questDescriptionText.text = breakLine;
 
             StartCoroutine(SetQuestAfterSeconds(0.1f));
+        }
+
+        private string SetLineBreak(string text)
+        {
+            return text.Replace(";", "\n");            
         }
 
         private IEnumerator SetQuestAfterSeconds(float seconds)
@@ -293,7 +301,7 @@ namespace peppar
                     _currentQuest.CurrentItemObject.GetComponent<ItemMaterialController>().SetMaterial(_currentQuest.CurrentItemMaterial);
                     break;
                 case QuestType.Hat:
-                    Transform currentHat = _currentQuest.CurrentItemObjectIndex == 0 ? _hat1Reference: _hat2Reference;
+                    Transform currentHat = _currentQuest.CurrentItemObjectIndex == 0 ? _hat1Reference : _hat2Reference;
                     currentHat.gameObject.SetActive(true);
 
                     if (_currentQuest.CurrentItemObjectIndex == 0)
