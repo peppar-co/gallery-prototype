@@ -91,8 +91,8 @@ namespace peppar
             HighlightItems(true);
 
             transform.SetParent(_peppBuildingTransform);
-            transform.position = Vector3.zero;
-            transform.rotation = Quaternion.identity;
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
             transform.localScale = Vector3.one;
 
             foreach (var peppItems in _peppItems)
