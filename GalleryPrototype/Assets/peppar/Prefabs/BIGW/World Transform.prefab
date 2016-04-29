@@ -12140,6 +12140,7 @@ MonoBehaviour:
   _characterObject: {fileID: 0}
   _peppBuildingTransform: {fileID: 0}
   _peppController: {fileID: 0}
+  _guiController: {fileID: 0}
 --- !u!114 &11447490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12228,6 +12229,7 @@ MonoBehaviour:
   _characterObject: {fileID: 0}
   _peppBuildingTransform: {fileID: 0}
   _peppController: {fileID: 0}
+  _guiController: {fileID: 0}
 --- !u!114 &11453044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12278,6 +12280,7 @@ MonoBehaviour:
   _characterObject: {fileID: 0}
   _peppBuildingTransform: {fileID: 0}
   _peppController: {fileID: 0}
+  _guiController: {fileID: 0}
 --- !u!114 &11459634
 MonoBehaviour:
   m_ObjectHideFlags: 1

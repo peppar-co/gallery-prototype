@@ -33,6 +33,9 @@ namespace peppar
         [SerializeField]
         private PeppController _peppController;
 
+        [SerializeField]
+        private BIGWGUIController _guiController;
+
         private bool _active;
 
         private Transform _initialParent;
@@ -78,6 +81,8 @@ namespace peppar
 
         private void ShowPeppView()
         {
+            _guiController.SetMenuIndex(34);
+
             _worldObject.SetActive(false);
             _characterObject.SetActive(false);
             _peppBuildingTransform.gameObject.SetActive(true);
@@ -95,6 +100,8 @@ namespace peppar
 
         private void HidePeppView()
         {
+            _guiController.SetMenuIndex(3);
+
             transform.SetParent(_initialParent);
             transform.localPosition = _initialPosition;
             transform.localRotation = _initialRotation;

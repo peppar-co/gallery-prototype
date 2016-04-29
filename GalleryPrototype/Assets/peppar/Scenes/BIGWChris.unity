@@ -346,6 +346,10 @@ Prefab:
       propertyPath: _peppController
       value: 
       objectReference: {fileID: 1046655121}
+    - target: {fileID: 11446760, guid: 15cd1792265696340824b16811a9cbee, type: 2}
+      propertyPath: _guiController
+      value: 
+      objectReference: {fileID: 1524429132}
     - target: {fileID: 11452314, guid: 15cd1792265696340824b16811a9cbee, type: 2}
       propertyPath: _characterObject
       value: 
@@ -358,6 +362,10 @@ Prefab:
       propertyPath: _peppController
       value: 
       objectReference: {fileID: 1046655121}
+    - target: {fileID: 11452314, guid: 15cd1792265696340824b16811a9cbee, type: 2}
+      propertyPath: _guiController
+      value: 
+      objectReference: {fileID: 1524429132}
     - target: {fileID: 11453652, guid: 15cd1792265696340824b16811a9cbee, type: 2}
       propertyPath: _characterObject
       value: 
@@ -370,6 +378,10 @@ Prefab:
       propertyPath: _peppController
       value: 
       objectReference: {fileID: 1046655121}
+    - target: {fileID: 11453652, guid: 15cd1792265696340824b16811a9cbee, type: 2}
+      propertyPath: _guiController
+      value: 
+      objectReference: {fileID: 1524429132}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15cd1792265696340824b16811a9cbee, type: 2}
   m_IsPrefabParent: 0
